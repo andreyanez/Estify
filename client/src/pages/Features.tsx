@@ -1,8 +1,8 @@
 export const Features = () => {
 	return (
 		<div>
-			<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-				<div className="lg:grid lg:grid-cols-3 lg:gap-8">
+			<div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 xl:py-20 xl:px-8">
+				<div className="xl:grid xl:grid-cols-3 xl:gap-8">
 					<div>
 						<h2 className="text-3xl font-extrabold ">¿Que son las propiedades auditivas?</h2>
 						<p className="mt-4 text-lg ">
@@ -10,7 +10,7 @@ export const Features = () => {
 							playlist automatizadas o basadas en un mood específico, etc.
 						</p>
 					</div>
-					<div className="mt-12 lg:mt-0 lg:col-span-2">
+					<div className="mt-12 xl:col-span-2 xl:mt-0">
 						<div className="track__paragraph">
 							<ul>
 								<li>

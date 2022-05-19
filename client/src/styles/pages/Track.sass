@@ -1,21 +1,23 @@
 .track__info
-    @apply flex items-center justify-between
+    @apply block xl:flex items-center justify-between gap-6
 
 .track__details
-    @apply flex items-start gap-12
+    @apply flex flex-col mb-4  md:mb-16 xl:mb-0 md:flex-row md:items-start gap-8
     flex-basis: 48%
     h1
-        @apply text-5xl mb-7
+        @apply text-center md:text-left text-3xl md:text-5xl xl:text-4xl 2xl:text-5xl mb-5 md:mb-7
         font-family: var(--Black)
     h2
         @apply text-xl text-stone-300 mb-1 inline-block
         font-family: var(--Black)
     audio
-        transform: scale(80%) translateX(-40px)
+        transform: none
+        @apply w-full
     .main__button
-        @apply mt-4
+        @apply  mt-4
 .track__img
-    min-width: 300px
+    @apply mx-auto
+    width: 200px
 
 .player__container
     @apply relative
@@ -24,7 +26,7 @@
         position: absolute
         top: 0
         left: -5px
-        width: 185px
+        width: 80%
         height: 100%
         @apply bg-secondary rounded-3xl mix-blend-multiply
         z-index: 10
@@ -47,20 +49,23 @@
         border-right: 1px solid rgb(64, 64, 64)
         flex-basis: 50%
         h3
-            @apply text-3xl text-slate-300
+            @apply text-lg md:text-3xl text-slate-300
             font-family: var(--Black)
         p
             @apply text-xs text-neutral
             font-family: var(--Book)
 
 .track__chart__data
-    @apply flex justify-between mt-32
+    @apply xl:flex justify-between mt-16 xl:mt-32
     .track__paragraph
-        flex-basis: 47%
+        @apply xl:mt-0 md:mt-16 mt-8
+        flex-basis: 45%
+        h5
+            @apply text-center
 .track__chart
     flex-basis: 40% 
     h4
-        @apply text-center mb-8 text-neutral text-xl
+        @apply text-center mb-8 text-neutral md:text-xl
 
 .track__paragraph
     h5
@@ -69,3 +74,15 @@
         @apply space-y-4
     span
         @apply text-secondary inline-block mr-2
+
+@media (min-width: 768px)
+    .track__img
+        @apply m-0
+        width: 300px
+    .track__details
+        audio
+            width: revert
+            transform: scale(80%) translateX(-40px)
+    .player__container
+        &:before
+            width: 185px

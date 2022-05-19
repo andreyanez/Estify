@@ -49,28 +49,32 @@ export const Track = () => {
 					</div>
 					<div>
 						<h1>{track.data.name}</h1>
-						{track.data.artists.map((artist: any, index: number) => {
-							return (
-								<h2 key={index}>
-									{artist.name}
-									{track.data.artists.length > 0 && index === track.data.artists.length - 1
-										? ''
-										: ','}
-									&nbsp;
-								</h2>
-							);
-						})}
-						<div className="track__album">
-							<span>{track.data.album.name}</span>
-							{' · '}
-							<span>{track.data.album.release_date.substring(0, 4)}</span>
+						<div className="flex flex-col items-center md:block">
+							{track.data.artists.map((artist: any, index: number) => {
+								return (
+									<h2 key={index}>
+										{artist.name}
+										{track.data.artists.length > 0 && index === track.data.artists.length - 1
+											? ''
+											: ','}
+										&nbsp;
+									</h2>
+								);
+							})}
+							<div className="track__album">
+								<span>{track.data.album.name}</span>
+								{' · '}
+								<span>{track.data.album.release_date.substring(0, 4)}</span>
+							</div>
 						</div>
 						{track.data.preview_url && (
-							<div className="mb-6">
+							<div className="mb-6 hidden md:block">
 								<div className=" player__container">
 									<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
 								</div>
-								<span className="text-sm text-center block pr-20">Preview</span>
+								<span className="mt-4 block text-center text-sm md:mt-0 md:pr-56 xl:pr-20">
+									Preview
+								</span>
 							</div>
 						)}
 					</div>

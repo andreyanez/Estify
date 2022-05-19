@@ -65,6 +65,7 @@ export const Playlist = () => {
 						<div className="mx-auto mb-8 mr-0 block w-72 filter">
 							<label htmlFor="order-select">Ordena tus tracks por:</label>
 							<select id="order-select" name="track-order" onChange={e => setSort(e.target.value)}>
+								<option>Elige entre:</option>
 								{displayOptions.map((option, i) => (
 									<option value={option} key={i}>
 										{`${option.charAt(0).toUpperCase()}${option.slice(1)}`}

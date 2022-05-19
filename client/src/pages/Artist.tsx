@@ -21,16 +21,16 @@ export const Artist = () => {
 	}
 
 	return (
-		<article className="mt-20">
+		<article className="lg:mt-20">
 			<Breadcrumb />
-			<div className="flex gap-4 justify-between items-center">
+			<div className="block items-center justify-between gap-4 lg:flex">
 				<div className="artist__img">
 					<img src={artist.data.images[1].url} alt={artist.data.name} />
 				</div>
 				<div className="artist__card">
 					<div className="py-5 ">
 						<h3>{artist.data.name}</h3>
-						<ul className="max-w-2xl text-lg text-neutral space-x-2 mb-4">
+						<ul className="mb-4 max-w-2xl text-lg text-neutral md:space-x-2">
 							{artist.data.genres.map((genre: any, index: number) => {
 								return (
 									<li className="inline-block" key={index}>
@@ -43,7 +43,7 @@ export const Artist = () => {
 							})}
 						</ul>
 						<div>
-							<p className="mt-1 text-md text-white">{artist.data.followers.total}</p>{' '}
+							<p className="text-md mt-1 text-white">{artist.data.followers.total}</p>{' '}
 							<p className="text-xl font-medium text-neutral">Seguidores</p>
 						</div>
 					</div>
