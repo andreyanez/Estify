@@ -44,14 +44,14 @@ export const Playlist = () => {
 				<div className="playlist__container">
 					<div className="playlist__info">
 						<div>
-							<img src={playlist.images[0].url} alt={playlist.name} />
+							{playlist.images[0] && <img src={playlist.images[0].url} alt={playlist.name} />}
 							<h1>{playlist.name}</h1>
 							<div className="flex items-center justify-evenly text-center">
 								<h2>Creada por {playlist.owner.display_name}</h2>
 								<span>{playlist.tracks.total} tracks</span>
 							</div>
 						</div>
-						{audioFeatures && (
+						{audioFeatures && audioFeatures.length > 1 && (
 							<div className="mt-12 text-center">
 								<h4 className="text-base">Propiedades auditivas de la playlist</h4>
 								<FeatureChart features={audioFeatures} type="horizontal" />

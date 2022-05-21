@@ -9,7 +9,6 @@ export const Playlists = () => {
 	const { playlistsInfo } = useGetPlaylist();
 
 	// const playlistQuery = useQuery(['playlists2'], getPlaylists);
-
 	// if (playlistQuery.isLoading) {
 	// 	return <Loader />;
 	// }
@@ -25,8 +24,14 @@ export const Playlists = () => {
 						<li className="artist__item playlist__item" key={index}>
 							<Link to={`/playlist/${playlist.id}`}>
 								<div className="artist_item__img">
-									<img src={playlist.images[0].url} alt={playlist.name} />
-									<HoverCover />
+									{playlist.images[0] ? (
+										<>
+											<img src={playlist.images[0].url} alt={playlist.name} />
+											<HoverCover />
+										</>
+									) : (
+										<HoverCover />
+									)}
 								</div>
 							</Link>
 							<div className="flex flex-col items-center gap-y-2 text-center">

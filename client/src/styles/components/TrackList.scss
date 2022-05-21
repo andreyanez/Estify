@@ -9,6 +9,9 @@
 .track__list_item {
 	a {
 		@apply flex justify-between;
+		&.isLocal {
+			@apply pointer-events-none select-none;
+		}
 	}
 	&:hover {
 		.hover_cover {

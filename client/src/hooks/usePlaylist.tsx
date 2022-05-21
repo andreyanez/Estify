@@ -38,7 +38,9 @@ export const usePlaylist = (id: string) => {
 		// Also update the audioFeatures state variable using the track IDs
 		const fetchAudioFeatures = async () => {
 			// const ids = tracksData.items.map(({ track }: { track: any }) => track.id).join(',');
-			const { data } = await getAudioFeaturesForTracks(tracksData.items);
+			const { data } = await getAudioFeaturesForTracks(
+				tracksData.items.filter((track: any) => !track.is_local)
+			);
 			setAudioFeatures((audioFeatures: any) => [
 				...(audioFeatures ? audioFeatures : []),
 				...data['audio_features'],
