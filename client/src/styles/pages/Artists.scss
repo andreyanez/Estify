@@ -27,6 +27,9 @@
 	}
 	&.playlist__item {
 		@apply flex flex-col gap-y-2;
+		a {
+			@apply basis-0;
+		}
 	}
 	span {
 		@apply text-xs md:text-base;

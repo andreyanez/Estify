@@ -12,8 +12,8 @@ export const Playlists = () => {
 	}
 
 	return (
-		<div className="py-20">
-			<div className="flex justify-between mb-16">
+		<div className="xl:py-20">
+			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Tus Playlists</h1>
 			</div>
 			<ul className="artists__grid playlists">
@@ -26,7 +26,7 @@ export const Playlists = () => {
 									<HoverCover />
 								</div>
 							</Link>
-							<div className="flex flex-col items-center text-center gap-y-2">
+							<div className="flex flex-col items-center gap-y-2 text-center">
 								<Link to={`/playlist/${playlist.id}`} className="leading-5">
 									<span className="hover:underline">{playlist.name}</span>
 								</Link>

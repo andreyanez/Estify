@@ -23,8 +23,8 @@ export const Tracks = () => {
 	}
 
 	return (
-		<div className="py-20">
-			<div className="flex justify-between mb-16 items-center">
+		<div className="xl:py-20">
+			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Top Tracks</h1>
 				<ListFilter setActiveRange={setActiveRange} activeRange={activeRange} />
 			</div>
