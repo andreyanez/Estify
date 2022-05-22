@@ -31,8 +31,8 @@ export const Artists = () => {
 	}
 
 	return (
-		<div className="py-20">
-			<div className="flex justify-between mb-16 items-center">
+		<div className="xl:py-20">
+			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Top Artistas</h1>
 				<ListFilter setActiveRange={setActiveRange} activeRange={activeRange} />
 			</div>
@@ -45,7 +45,11 @@ export const Artists = () => {
 									<img src={artist.images[2].url} alt={artist.name} />
 									<HoverCover />
 								</div>
-								<span>{artist.name}</span>
+								<span>
+									{index + 1}
+									{'. '}
+									{artist.name}
+								</span>
 							</Link>
 						</li>
 					);

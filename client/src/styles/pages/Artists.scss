@@ -6,7 +6,7 @@
 .filter__list {
 	@apply flex gap-2;
 	button {
-		@apply text-neutral p-3 inline-block leading-snug;
+		@apply inline-block p-3 text-sm leading-snug text-neutral md:text-base;
 		font-family: var(--Bold);
 		&:hover,
 		&:focus,
@@ -17,23 +17,36 @@
 }
 
 .artists__grid {
-	@apply grid gap-5 mt-12;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	@apply mt-12 grid gap-5;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 }
 
 .artist__item {
 	> a {
-		@apply flex flex-col items-center gap-y-4 basis-52;
+		@apply flex basis-52 flex-col items-center gap-y-4;
 	}
 	&.playlist__item {
 		@apply flex flex-col gap-y-2;
 	}
+	span {
+		@apply text-xs md:text-base;
+	}
 }
 
 .artist_item__img {
-	width: 200px;
-	height: 200px;
+	width: 120px;
+	height: 120px;
 	img {
-		@apply w-full h-full object-cover;
+		@apply h-full w-full object-cover;
+	}
+}
+
+@media (min-width: 768px) {
+	.artists__grid {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+	.artist_item__img {
+		width: 200px;
+		height: 200px;
 	}
 }
