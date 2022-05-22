@@ -105,7 +105,7 @@ const headers = {
 	'Content-Type': 'application/json',
 };
 
-export const getNextTracks = (url: any) => axios.get(url, { headers });
+export const getNextGroup = (url: any) => axios.get(url, { headers });
 
 /**
  * Get Current User's Profile

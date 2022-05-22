@@ -3,21 +3,24 @@ import { useQuery } from '@tanstack/react-query';
 import { getPlaylists } from '../spotify';
 import { Loader } from '../components/Loader';
 import { HoverCover } from '../components/HoverCover';
+import { useGetPlaylist } from '../hooks/useGetPlaylists';
 
 export const Playlists = () => {
-	const playlistQuery = useQuery(['playlists'], getPlaylists);
+	const { playlistsInfo } = useGetPlaylist();
 
-	if (playlistQuery.isLoading) {
-		return <Loader />;
-	}
+	// const playlistQuery = useQuery(['playlists2'], getPlaylists);
 
-	return (
+	// if (playlistQuery.isLoading) {
+	// 	return <Loader />;
+	// }
+
+	return playlistsInfo ? (
 		<div className="xl:py-20">
 			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Tus Playlists</h1>
 			</div>
 			<ul className="artists__grid playlists">
-				{playlistQuery.data.data.items.map((playlist: any, index: number) => {
+				{playlistsInfo.map((playlist: any, index: number) => {
 					return (
 						<li className="artist__item playlist__item" key={index}>
 							<Link to={`/playlist/${playlist.id}`}>
@@ -37,5 +40,7 @@ export const Playlists = () => {
 				})}
 			</ul>
 		</div>
+	) : (
+		<Loader />
 	);
 };

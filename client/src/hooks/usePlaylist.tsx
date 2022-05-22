@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getPlaylist, getAudioFeaturesForTracks, getNextTracks } from '../spotify';
+import { getPlaylist, getAudioFeaturesForTracks, getNextGroup } from '../spotify';
 
 export const usePlaylist = (id: string) => {
 	const [playlist, setPlaylist] = useState<any>(null);
@@ -26,7 +26,7 @@ export const usePlaylist = (id: string) => {
 		// then update the state variable
 		const fetchMoreData = async (): Promise<void> => {
 			if (tracksData.next) {
-				const { data } = await getNextTracks(tracksData.next);
+				const { data } = await getNextGroup(tracksData.next);
 				setTracksData(data);
 			}
 		};

@@ -55,14 +55,14 @@ export const Playlist = () => {
 							<div className="mt-12 text-center">
 								<h4 className="text-base">Propiedades auditivas de la playlist</h4>
 								<FeatureChart features={audioFeatures} type="horizontal" />
-								<Link to={'/features'} className="text-neutral mt-4 block underline">
+								<Link to={'/features'} className="mt-4 block text-neutral underline">
 									¿Que son propiedades auditivas?
 								</Link>
 							</div>
 						)}
 					</div>
 					<div className="playlist__tracks">
-						<div className="mb-8 block w-72 mx-auto mr-0 filter">
+						<div className="mx-auto mb-8 mr-0 block w-72 filter">
 							<label htmlFor="order-select">Ordena tus tracks por:</label>
 							<select id="order-select" name="track-order" onChange={e => setSort(e.target.value)}>
 								{displayOptions.map((option, i) => (
