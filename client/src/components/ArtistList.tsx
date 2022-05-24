@@ -19,8 +19,8 @@ export const ArtistList = () => {
 	return (
 		<div className="artist__container">
 			<div className="flex justify-between mb-12 items-center">
-				<h2>Top Artists de todos los tiempos</h2>
-				<Link to={'/artists'} className="main__button">
+				<h2>Tus artistas top de todos los tiempos</h2>
+				<Link to={'/artists'} className="fill__button">
 					Ver más
 				</Link>
 			</div>

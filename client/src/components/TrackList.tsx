@@ -19,8 +19,8 @@ export const TrackList = () => {
 	return (
 		<div className="artist__container">
 			<div className="flex justify-between mb-12 items-center">
-				<h2>Top Tracks de todos los tiempos</h2>
-				<Link to={'/tracks'} className="main__button">
+				<h2>Tus tracks top de todos los tiempos</h2>
+				<Link to={'/tracks'} className="fill__button">
 					Ver más
 				</Link>
 			</div>

@@ -8,11 +8,11 @@ import { Loader } from './Loader';
 const year: Date = new Date();
 
 export const NavBar = () => {
-	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
+	// const profileQuery = useQuery(['profile'], getCurrentUserProfile);
 
-	if (profileQuery.isLoading) {
-		return <Loader />;
-	}
+	// if (profileQuery.isLoading) {
+	// 	return <Loader />;
+	// }
 
 	return (
 		<header>
@@ -49,7 +49,9 @@ export const NavBar = () => {
 				</ul>
 			</nav>
 			<div className="nav__bottom">
-				<p>{profileQuery.data.data.display_name}</p>
+				<button onClick={logout} type="button" className="fill__button">
+					Cerrar Sesión
+				</button>
 			</div>
 		</header>
 	);

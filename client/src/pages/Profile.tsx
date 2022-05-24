@@ -43,9 +43,6 @@ export const Profile = () => {
 						<p>Playlists</p>
 					</li>
 				</ul>
-				<button onClick={logout} type="button" className="main__button">
-					Cerrar Sesión
-				</button>
 			</div>
 			<section className="profile__bottom flex justify-between mb-20">
 				<ArtistList />

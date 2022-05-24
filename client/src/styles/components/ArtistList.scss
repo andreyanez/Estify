@@ -1,6 +1,9 @@
 .artist__container {
 	width: 46%;
 	@apply relative;
+	.fill__button {
+		@apply text-sm px-4 py-2;
+	}
 }
 
 .artist__list {

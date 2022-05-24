@@ -48,6 +48,12 @@ body {
 	font-family: var(--Bold);
 }
 
+.fill__button {
+	@apply inline-flex items-center px-1 py-1 border border-white text-xs rounded-md text-white hover:bg-secondarytwo hover:border-secondary focus:outline-none;
+	font-family: var(--Bold);
+	transition: var(--transition);
+}
+
 .breadcrumb {
 	@apply mb-8;
 	button {
