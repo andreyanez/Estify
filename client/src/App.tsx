@@ -14,6 +14,7 @@ import {
 } from './pages';
 import { NavBar } from './components/navBar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Policy } from './pages/landing/Policy.js';
 
 const queryClient = new QueryClient();
 
@@ -37,7 +38,10 @@ function App() {
 	return (
 		<>
 			{!token ? (
-				<Login />
+				<Routes>
+					<Route path="/" element={<Login />} />
+					<Route path="/politica" element={<Policy />} />
+				</Routes>
 			) : (
 				<QueryClientProvider client={queryClient}>
 					<>

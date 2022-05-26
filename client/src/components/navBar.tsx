@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
 import { Icon } from '@iconify/react';
 import { getCurrentUserProfile, logout } from '../spotify';
@@ -16,9 +16,10 @@ export const NavBar = () => {
 
 	return (
 		<header>
-			<div>
-				<p>Estify</p>
-			</div>
+			<Link to={'/'} className="text-center">
+				<img src="/estify.png" className="mx-auto h-12 w-auto" alt="estify" />
+				<span className="text-xs">Estify</span>
+			</Link>
 			<nav>
 				<ul className="nav__main">
 					<li className="nav__item">

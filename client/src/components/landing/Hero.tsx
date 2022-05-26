@@ -83,12 +83,12 @@ export const Hero = () => {
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
 					<div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
 						<h1 className="text-4xl font-medium tracking-tight text-white">
-							Your spotify experience, visualized.
+							Tu experiencia Spotify, a detalle.
 						</h1>
 						<p className="mt-6 text-lg text-neutral">
-							Estify gives you real-time spotify stats to help you manage your music. Visualize your
-							playlists and favorites albums, visualize your top tracks and artists, as well as your
-							monthly listening trends.
+							Estify te da un recuento en tiempo real de tu data en Spotify. Visualiza
+							carácteristicas auditivas de tus playlists, artistas y tracks favoritos, así como tus
+							tendencias musicales.
 						</p>
 						<div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
 							<a

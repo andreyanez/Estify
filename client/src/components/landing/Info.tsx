@@ -3,26 +3,28 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
+import track from '../../assets/track.png';
+import artist from '../../assets/artistas.png';
+import playlist from '../../assets/playlist.png';
+
 const features = [
 	{
-		title: 'Payroll',
+		title: 'Tu música, a gran detalle',
 		description:
 			"Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+		image: track,
 	},
 	{
-		title: 'Claim expenses',
+		title: 'Visualiza tus tendencias',
 		description:
 			"All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+		image: artist,
 	},
 	{
-		title: 'VAT handling',
+		title: 'Organiza tus playlists',
 		description:
 			"We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-	},
-	{
-		title: 'Reporting',
-		description:
-			'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+		image: playlist,
 	},
 ];
 
@@ -86,8 +88,8 @@ export function Info() {
 													className={clsx(
 														'font-display text-lg [&:not(:focus-visible)]:focus:outline-none',
 														{
-															'text-blue-600 lg:text-white': selectedIndex === featureIndex,
-															'text-blue-100 hover:text-white lg:text-white':
+															'text-white lg:text-white': selectedIndex === featureIndex,
+															'text-white hover:text-white lg:text-white':
 																selectedIndex !== featureIndex,
 														}
 													)}
@@ -99,7 +101,7 @@ export function Info() {
 											<p
 												className={clsx('mt-2 hidden text-sm lg:block', {
 													'text-white': selectedIndex === featureIndex,
-													'text-blue-100 group-hover:text-white': selectedIndex !== featureIndex,
+													'text-white group-hover:text-white': selectedIndex !== featureIndex,
 												})}
 											>
 												{feature.description}
@@ -117,14 +119,13 @@ export function Info() {
 												{feature.description}
 											</p>
 										</div>
-										<div className="relative mt-10 aspect-[1085/730] w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
-											{/* <Image
+										<div className="relative mt-10 aspect-[1085/730]  md:w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+											<img
 												src={feature.image}
-												alt=""
-												layout="fill"
-												priority
+												alt={feature.title}
+												className="object-cover w-full h-full"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-											/> */}
+											/>
 										</div>
 									</Tab.Panel>
 								))}

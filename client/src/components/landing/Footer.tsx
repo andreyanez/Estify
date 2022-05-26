@@ -5,7 +5,10 @@ export function Footer() {
 		<footer>
 			<Container>
 				<div className="py-16">
-					{/* <Logo className="mx-auto h-10 w-auto" /> */}
+					<div className="footer__logo max-w-lg mx-auto text-center">
+						<img src="/estify.png" className="mx-auto h-24 w-auto" alt="estify" />
+						<span>Estify</span>
+					</div>
 					<nav className="mt-10 text-sm" aria-label="quick links">
 						<ul className="-my-1 flex justify-center space-x-6">
 							<li>
@@ -32,7 +35,7 @@ export function Footer() {
 							</svg>
 						</a>
 					</div>
-					<p className="mt-6  text-neutral sm:mt-0">Estify &copy; {new Date().getFullYear()}</p>
+					<p className="mt-6  text-neutral sm:mt-0">Estify {new Date().getFullYear()}</p>
 				</div>
 			</Container>
 		</footer>
