@@ -1,11 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
 import { Icon } from '@iconify/react';
-import { logout } from '../spotify';
+import { getCurrentUserProfile, logout } from '../spotify';
+import { useQuery } from '@tanstack/react-query';
+import { Loader } from './Loader';
 
 const year: Date = new Date();
 
 export const NavBar = () => {
+	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
+
+	if (profileQuery.isLoading) {
+		return <Loader />;
+	}
+
 	return (
 		<header>
 			<div>
@@ -40,10 +48,7 @@ export const NavBar = () => {
 				</ul>
 			</nav>
 			<div className="nav__bottom">
-				<a href="https://github.com/andreyanez" target="_blank">
-					Andre Yanez
-				</a>
-				<p>{year.getFullYear()}</p>
+				<p>{profileQuery.data.data.display_name}</p>
 			</div>
 		</header>
 	);

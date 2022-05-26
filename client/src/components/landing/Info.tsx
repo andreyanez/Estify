@@ -3,12 +3,6 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
-// import backgroundImage from '@/images/background-features.jpg';
-// import screenshotExpenses from '@/images/screenshots/expenses.png';
-// import screenshotPayroll from '@/images/screenshots/payroll.png';
-// import screenshotReporting from '@/images/screenshots/reporting.png';
-// import screenshotVatReturns from '@/images/screenshots/vat-returns.png';
-
 const features = [
 	{
 		title: 'Payroll',
@@ -62,12 +56,9 @@ export function Info() {
 						id="features-title"
 						className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl"
 					>
-						Everything you need to run your books.
+						The app that lets you understand your Spotify data.
 					</h2>
-					<p className="mt-6 text-lg tracking-tight text-neutral">
-						Well everything you need if you aren’t that picky about minor details like tax
-						compliance.
-					</p>
+					{/* <p className="mt-6 text-lg tracking-tight text-neutral"></p> */}
 				</div>
 				<Tab.Group
 					as="div"

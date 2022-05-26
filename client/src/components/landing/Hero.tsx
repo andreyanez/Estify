@@ -83,18 +83,19 @@ export const Hero = () => {
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
 					<div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
 						<h1 className="text-4xl font-medium tracking-tight text-white">
-							Invest at the perfect time.
+							Your spotify experience, visualized.
 						</h1>
 						<p className="mt-6 text-lg text-neutral">
-							By leveraging insights from our network of industry insiders, you’ll know exactly when
-							to buy to maximize profit, and exactly when to sell to avoid painful losses.
+							Estify gives you real-time spotify stats to help you manage your music. Visualize your
+							playlists and favorites albums, visualize your top tracks and artists, as well as your
+							monthly listening trends.
 						</p>
 						<div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
 							<a
 								href={LOGIN_URI}
 								className="w-fit flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10"
 							>
-								Login with Spotify
+								Entra con Spotify
 							</a>
 						</div>
 					</div>
