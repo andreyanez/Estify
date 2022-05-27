@@ -4,6 +4,7 @@ import { getTopTracksLong, getTopTracksMedium, getTopTracksShort } from '../spot
 import { useState } from 'react';
 import { Loader } from '../components/Loader';
 import { TracKItem } from '../components/TrackItem';
+import { ListFilter } from '../components/ListFilter';
 
 export const Tracks = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -25,32 +26,7 @@ export const Tracks = () => {
 		<div className="py-20">
 			<div className="flex justify-between mb-16 items-center">
 				<h1 className="filter__title">Top Tracks</h1>
-				<ul className="filter__list">
-					<li>
-						<button
-							className={activeRange === 'long' ? 'active' : ''}
-							onClick={() => setActiveRange('long')}
-						>
-							Todos los tiempos
-						</button>
-					</li>
-					<li>
-						<button
-							className={activeRange === 'medium' ? 'active' : ''}
-							onClick={() => setActiveRange('medium')}
-						>
-							Últimos 6 meses
-						</button>
-					</li>
-					<li>
-						<button
-							className={activeRange === 'short' ? 'active' : ''}
-							onClick={() => setActiveRange('short')}
-						>
-							Últimas 4 semanas
-						</button>
-					</li>
-				</ul>
+				<ListFilter setActiveRange={setActiveRange} activeRange={activeRange} />
 			</div>
 			<ul className="track__list">
 				{tracks.data.items.map((track: any, index: number) => {

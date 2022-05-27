@@ -1,10 +1,11 @@
 import '../styles/pages/Artists.scss';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 import { getTopArtistsLong, getTopArtistsMedium, getTopArtistsShort } from '../spotify';
 import { useState } from 'react';
 import { Loader } from '../components/Loader';
 import { HoverCover } from '../components/HoverCover';
+import { ListFilter } from '../components/ListFilter';
 
 export const Artists = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -33,32 +34,7 @@ export const Artists = () => {
 		<div className="py-20">
 			<div className="flex justify-between mb-16 items-center">
 				<h1 className="filter__title">Top Artistas</h1>
-				<ul className="filter__list">
-					<li>
-						<button
-							className={activeRange === 'long' ? 'active' : ''}
-							onClick={() => setActiveRange('long')}
-						>
-							Todos los tiempos
-						</button>
-					</li>
-					<li>
-						<button
-							className={activeRange === 'medium' ? 'active' : ''}
-							onClick={() => setActiveRange('medium')}
-						>
-							Últimos 6 meses
-						</button>
-					</li>
-					<li>
-						<button
-							className={activeRange === 'short' ? 'active' : ''}
-							onClick={() => setActiveRange('short')}
-						>
-							Últimas 4 semanas
-						</button>
-					</li>
-				</ul>
+				<ListFilter setActiveRange={setActiveRange} activeRange={activeRange} />
 			</div>
 			<ul className="artists__grid">
 				{artists.data.items.map((artist: any, index: number) => {

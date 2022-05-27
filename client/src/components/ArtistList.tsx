@@ -6,17 +6,15 @@ import { Loader } from './Loader';
 import { HoverCover } from './HoverCover';
 
 export const ArtistList = () => {
-	const artistQuery: any = useQuery(['artists'], getTopArtistsLong);
+	const { data: artist, isLoading } = useQuery(['artists'], getTopArtistsLong);
 
-	if (artistQuery.isLoading) {
+	if (isLoading) {
 		return (
 			<div className="artist__container">
 				<Loader />
 			</div>
 		);
 	}
-
-	const topArtists = artistQuery.data.data;
 
 	return (
 		<div className="artist__container">
@@ -28,7 +26,7 @@ export const ArtistList = () => {
 			</div>
 
 			<ul className="artist__list">
-				{topArtists.items.slice(0, 10).map((artist: any, index: number) => {
+				{artist.data.items.slice(0, 10).map((artist: any, index: number) => {
 					return (
 						<li className="artist__list_item" key={index}>
 							<Link to={`/artist/${artist.id}`}>
