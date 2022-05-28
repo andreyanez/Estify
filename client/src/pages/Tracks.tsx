@@ -1,11 +1,9 @@
 import '../styles/pages/Artists.scss';
-import { Link } from 'react-router-dom';
-import { formatDuration } from '../utils';
 import { useQuery } from '@tanstack/react-query';
 import { getTopTracksLong, getTopTracksMedium, getTopTracksShort } from '../spotify';
 import { useState } from 'react';
 import { Loader } from '../components/Loader';
-import { HoverCover } from '../components/HoverCover';
+import { TracKItem } from '../components/TrackItem';
 
 export const Tracks = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -56,37 +54,7 @@ export const Tracks = () => {
 			</div>
 			<ul className="track__list">
 				{tracks.data.items.map((track: any, index: number) => {
-					return (
-						<li className="track__list_item" key={index}>
-							<Link to={`/track/${track.id}`}>
-								<div className="flex gap-5">
-									<div className="track__list_item__img">
-										<img src={track.album.images[2].url} alt="" />
-										<HoverCover />
-									</div>
-									<div>
-										<span className="track__title">{track.name}</span>
-										<div className="track__credits">
-											{track.artists.map((artist: any, index: number) => {
-												return (
-													<span key={index}>
-														{artist.name}
-														{track.artists.length > 0 && index === track.artists.length - 1
-															? ''
-															: ','}
-														&nbsp;
-													</span>
-												);
-											})}
-											{' ·  '}
-											<span>{track.album.name}</span>
-										</div>
-									</div>
-								</div>
-								<span className="track__length">{formatDuration(track.duration_ms)}</span>
-							</Link>
-						</li>
-					);
+					return <TracKItem track={track} key={index} />;
 				})}
 			</ul>
 		</div>

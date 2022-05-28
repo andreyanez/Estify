@@ -1,13 +1,11 @@
 // import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
-import { formatDuration } from '../utils';
-import { getPlaylist, getAudioFeaturesForTracks, getNextTracks } from '../spotify';
 import '../styles/pages/Playlist.sass';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo, useState } from 'react';
 import { FeatureChart } from '../components/FeatureChart';
 import { Loader } from '../components/Loader';
-import { HoverCover } from '../components/HoverCover';
 import { usePlaylist } from '../hooks/usePlaylist';
+import { TracKItem } from '../components/TrackItem';
 
 export const Playlist = () => {
 	const { id } = useParams();
@@ -74,37 +72,7 @@ export const Playlist = () => {
 						{sortedTracks ? (
 							<ul className="track__list">
 								{sortedTracks.map((track: any, index: number) => {
-									return (
-										<li className="track__list_item" key={index}>
-											<Link to={`/track/${track.id}`}>
-												<div className="flex gap-5">
-													<div className="track__list_item__img">
-														<img src={track.album.images[2].url} alt={track.name} />
-														<HoverCover />
-													</div>
-													<div>
-														<span className="track__title">{track.name}</span>
-														<div className="track__credits">
-															{track.artists.map((artist: any, index: number) => {
-																return (
-																	<span key={artist.id}>
-																		{artist.name}
-																		{track.artists.length > 0 && index === track.artists.length - 1
-																			? ''
-																			: ','}
-																		&nbsp;
-																	</span>
-																);
-															})}
-															{' ·  '}
-															<span>{track.album.name}</span>
-														</div>
-													</div>
-												</div>
-												<span className="track__length">{formatDuration(track.duration_ms)}</span>
-											</Link>
-										</li>
-									);
+									return <TracKItem track={track} key={index} />;
 								})}
 							</ul>
 						) : (
