@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getTopArtistsLong, getTopArtistsMedium, getTopArtistsShort } from '../spotify';
 import { useState } from 'react';
 import { Loader } from '../components/Loader';
+import { HoverCover } from '../components/HoverCover';
 
 export const Artists = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -66,6 +67,7 @@ export const Artists = () => {
 							<Link to={`/artist/${artist.id}`}>
 								<div className="artist_item__img">
 									<img src={artist.images[2].url} alt={artist.name} />
+									<HoverCover />
 								</div>
 								<span>{artist.name}</span>
 							</Link>

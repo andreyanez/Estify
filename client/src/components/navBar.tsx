@@ -16,13 +16,13 @@ export const NavBar = () => {
 					<li className="nav__item">
 						<NavLink to="/">
 							<Icon icon="line-md:account" />
-							<p>Profile</p>
+							<p>Perfil</p>
 						</NavLink>
 					</li>
 					<li className="nav__item">
 						<NavLink to="/artists">
 							<Icon icon="line-md:heart" />
-							<p>Top Artists</p>
+							<p>Top Artistas</p>
 						</NavLink>
 					</li>
 					<li className="nav__item">
@@ -34,7 +34,7 @@ export const NavBar = () => {
 					<li className="nav__item">
 						<NavLink to="/playlists">
 							<Icon icon="line-md:list" />
-							<p>Playlist</p>
+							<p>Playlists</p>
 						</NavLink>
 					</li>
 				</ul>

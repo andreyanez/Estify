@@ -4,6 +4,7 @@ import { getTopTracksLong } from '../spotify';
 import '../styles/components/TrackList.scss';
 import { formatDuration } from '../utils';
 import { Loader } from './Loader';
+import { HoverCover } from './HoverCover';
 
 export const TrackList = () => {
 	const tracksQuery: any = useQuery(['tracks'], getTopTracksLong);
@@ -34,6 +35,7 @@ export const TrackList = () => {
 								<div className="flex gap-5">
 									<div className="track__list_item__img">
 										<img src={track.album.images[2].url} alt="" />
+										<HoverCover />
 									</div>
 									<div>
 										<span className="track__title">{track.name}</span>

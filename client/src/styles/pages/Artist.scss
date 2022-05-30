@@ -1,3 +1,12 @@
+.artist__item {
+	@apply relative;
+	&:hover {
+		.hover_cover {
+			@apply opacity-100;
+		}
+	}
+}
+
 .artist__card {
 	@apply overflow-hidden;
 	flex-basis: 66%;
@@ -9,9 +18,14 @@
 
 .artist__img {
 	// max-width: 290px;
+
 	flex-basis: 30%;
 	// @apply max-w-;
 	img {
 		@apply w-full h-full object-cover;
 	}
+}
+
+.artist_item__img {
+	@apply relative;
 }

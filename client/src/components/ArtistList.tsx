@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getTopArtistsLong } from '../spotify';
 import '../styles/components/ArtistList.scss';
 import { Loader } from './Loader';
+import { HoverCover } from './HoverCover';
 
 export const ArtistList = () => {
 	const artistQuery: any = useQuery(['artists'], getTopArtistsLong);
@@ -33,6 +34,7 @@ export const ArtistList = () => {
 							<Link to={`/artist/${artist.id}`}>
 								<div className="artist__list_item__img">
 									<img src={artist.images[2].url} alt={artist.name} />
+									<HoverCover />
 								</div>
 								<span>{artist.name}</span>
 							</Link>

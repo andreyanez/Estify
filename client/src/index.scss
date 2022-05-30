@@ -62,3 +62,9 @@ main {
 		}
 	}
 }
+
+.hover_cover {
+	@apply absolute top-0 left-0 w-full h-full flex items-center justify-center z-10 pointer-events-none opacity-0;
+	background-color: #00000079;
+	transition: var(--transition);
+}

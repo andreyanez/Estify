@@ -10,10 +10,15 @@
 	a {
 		@apply flex items-center gap-5;
 	}
+	&:hover {
+		.hover_cover {
+			@apply opacity-100;
+		}
+	}
 }
 
 .artist__list_item__img {
-	@apply w-12 h-12 rounded-full overflow-hidden;
+	@apply w-12 h-12 rounded-full overflow-hidden relative;
 	img {
 		@apply w-full h-full object-cover;
 	}

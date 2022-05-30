@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getTopTracksLong, getTopTracksMedium, getTopTracksShort } from '../spotify';
 import { useState } from 'react';
 import { Loader } from '../components/Loader';
+import { HoverCover } from '../components/HoverCover';
 
 export const Tracks = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -61,6 +62,7 @@ export const Tracks = () => {
 								<div className="flex gap-5">
 									<div className="track__list_item__img">
 										<img src={track.album.images[2].url} alt="" />
+										<HoverCover />
 									</div>
 									<div>
 										<span className="track__title">{track.name}</span>

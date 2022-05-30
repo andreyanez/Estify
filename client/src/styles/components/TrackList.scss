@@ -10,10 +10,15 @@
 	a {
 		@apply flex justify-between;
 	}
+	&:hover {
+		.hover_cover {
+			@apply opacity-100;
+		}
+	}
 }
 
 .track__list_item__img {
-	@apply w-12 h-12 overflow-hidden;
+	@apply w-12 h-12 overflow-hidden relative;
 	img {
 		@apply w-full h-full object-cover;
 	}

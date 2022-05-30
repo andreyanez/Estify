@@ -7,6 +7,7 @@ import { useMemo, useState, useEffect } from 'react';
 import axios from 'axios';
 import { FeatureChart } from '../components/FeatureChart';
 import { Loader } from '../components/Loader';
+import { HoverCover } from '../components/HoverCover';
 
 export const Playlist = () => {
 	const { id } = useParams();
@@ -144,6 +145,7 @@ export const Playlist = () => {
 												<div className="flex gap-5">
 													<div className="track__list_item__img">
 														<img src={track.album.images[2].url} alt={track.name} />
+														<HoverCover />
 													</div>
 													<div>
 														<span className="track__title">{track.name}</span>
