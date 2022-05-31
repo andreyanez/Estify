@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { formatDuration, parsePitchClass } from '../utils';
 import { FeatureChart } from '../components/FeatureChart';
 import { Breadcrumb } from '../components/Breadcrumb';
+import { Loader } from '../components/Loader';
 
 export const Track = () => {
 	const { id } = useParams();
@@ -30,7 +31,11 @@ export const Track = () => {
 	);
 
 	if (isLoading || featureLoading || analysisLoading) {
-		return <span className="mt-20 block">Loading...</span>;
+		return (
+			<div className="">
+				<Loader />
+			</div>
+		);
 	}
 
 	return (

@@ -6,6 +6,7 @@ import '../styles/pages/Playlist.sass';
 import { useMemo, useState, useEffect } from 'react';
 import axios from 'axios';
 import { FeatureChart } from '../components/FeatureChart';
+import { Loader } from '../components/Loader';
 
 export const Playlist = () => {
 	const { id } = useParams();
@@ -170,12 +171,12 @@ export const Playlist = () => {
 								})}
 							</ul>
 						) : (
-							<span className="mt-20 block">Loading...</span>
+							<Loader />
 						)}
 					</div>
 				</div>
 			) : (
-				<span className="mt-20 block">Loading...</span>
+				<Loader />
 			)}
 		</>
 	);

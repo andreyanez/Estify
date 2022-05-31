@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import '../styles/pages/Profile.scss';
 import { ArtistList } from '../components/ArtistList';
 import { TrackList } from '../components/TrackList';
+import { Loader } from '../components/Loader';
 
 export const Profile = () => {
 	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
@@ -12,7 +13,7 @@ export const Profile = () => {
 	const isLoading = profileQuery.isLoading || playlistsQuery.isLoading || followingQuery.isLoading;
 
 	if (isLoading) {
-		return <span>Loading...</span>;
+		return <Loader />;
 	}
 
 	return (

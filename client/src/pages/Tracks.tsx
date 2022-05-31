@@ -4,6 +4,7 @@ import { formatDuration } from '../utils';
 import { useQuery } from '@tanstack/react-query';
 import { getTopTracksLong, getTopTracksMedium, getTopTracksShort } from '../spotify';
 import { useState } from 'react';
+import { Loader } from '../components/Loader';
 
 export const Tracks = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -18,7 +19,7 @@ export const Tracks = () => {
 	const { data: tracks, isLoading } = useQuery(['tracks', { activeRange }], fetchTracks);
 
 	if (isLoading) {
-		return <span className="mt-20 block">Loading...</span>;
+		return <Loader />;
 	}
 
 	return (

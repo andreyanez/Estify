@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getPlaylists } from '../spotify';
+import { Loader } from '../components/Loader';
 
 export const Playlists = () => {
 	const playlistQuery = useQuery(['playlists'], getPlaylists);
 
 	if (playlistQuery.isLoading) {
-		return <span className="mt-20 block">Loading...</span>;
+		return <Loader />;
 	}
 
 	return (

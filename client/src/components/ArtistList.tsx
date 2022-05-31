@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getTopArtistsLong } from '../spotify';
 import '../styles/components/ArtistList.scss';
+import { Loader } from './Loader';
 
 export const ArtistList = () => {
 	const artistQuery: any = useQuery(['artists'], getTopArtistsLong);
 
 	if (artistQuery.isLoading) {
-		return <span>Loading...</span>;
+		return (
+			<div className="artist__container">
+				<Loader />
+			</div>
+		);
 	}
 
 	const topArtists = artistQuery.data.data;

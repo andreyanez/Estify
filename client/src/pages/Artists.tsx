@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getTopArtistsLong, getTopArtistsMedium, getTopArtistsShort } from '../spotify';
 import { useState } from 'react';
+import { Loader } from '../components/Loader';
 
 export const Artists = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -20,7 +21,11 @@ export const Artists = () => {
 	const { data: artists, isLoading } = useQuery(['artists', { activeRange }], fetchArtists);
 
 	if (isLoading) {
-		return <span className="mt-60 block">Loading...</span>;
+		return (
+			<div className="py-20">
+				<Loader />
+			</div>
+		);
 	}
 
 	return (

@@ -3,6 +3,7 @@ import { getArtist } from '../spotify';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { Breadcrumb } from '../components/Breadcrumb';
+import { Loader } from '../components/Loader';
 
 export const Artist = () => {
 	const { id } = useParams();
@@ -12,7 +13,11 @@ export const Artist = () => {
 	});
 
 	if (isLoading) {
-		return <span className="mt-20 block">Loading...</span>;
+		return (
+			<div className="mt-20">
+				<Loader />
+			</div>
+		);
 	}
 
 	return (

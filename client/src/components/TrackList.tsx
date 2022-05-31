@@ -3,12 +3,17 @@ import { useQuery } from '@tanstack/react-query';
 import { getTopTracksLong } from '../spotify';
 import '../styles/components/TrackList.scss';
 import { formatDuration } from '../utils';
+import { Loader } from './Loader';
 
 export const TrackList = () => {
 	const tracksQuery: any = useQuery(['tracks'], getTopTracksLong);
 
 	if (tracksQuery.isLoading) {
-		return <span>Loading...</span>;
+		return (
+			<div className="artist__container">
+				<Loader />
+			</div>
+		);
 	}
 
 	const topTracks = tracksQuery.data.data;
