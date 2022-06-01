@@ -2,7 +2,7 @@ import '../styles/pages/Artist.scss';
 import { getArtist } from '../spotify';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
-import { Icon } from '@iconify/react';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 export const Artist = () => {
 	const { id } = useParams();
@@ -17,12 +17,7 @@ export const Artist = () => {
 
 	return (
 		<article className="mt-20">
-			<div className="breadcrumb">
-				<Link to={'..'}>
-					<Icon icon="ri-arrow-drop-left-line" />
-					Volver
-				</Link>
-			</div>
+			<Breadcrumb />
 			<div className="flex gap-4 justify-between items-center">
 				<div className="artist__img">
 					<img src={artist.data.images[1].url} alt={artist.data.name} />

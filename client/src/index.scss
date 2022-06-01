@@ -50,7 +50,7 @@ main {
 
 .breadcrumb {
 	@apply mb-8;
-	a {
+	button {
 		@apply flex gap-2 items-center;
 		font-family: var(--Black);
 		transition: var(--transition);

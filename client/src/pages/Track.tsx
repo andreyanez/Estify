@@ -2,9 +2,9 @@ import '../styles/pages/Track.sass';
 import { getTrack, getTrackAudioFeatures, getTrackAudioAnalysis } from '../spotify';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
-import { Icon } from '@iconify/react';
 import { formatDuration, parsePitchClass } from '../utils';
 import { FeatureChart } from '../components/FeatureChart';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 export const Track = () => {
 	const { id } = useParams();
@@ -35,12 +35,7 @@ export const Track = () => {
 
 	return (
 		<article>
-			<div className="breadcrumb">
-				<Link to={'..'}>
-					<Icon icon="ri-arrow-drop-left-line" />
-					Volver
-				</Link>
-			</div>
+			<Breadcrumb />
 			<section className="track__info">
 				<div className="track__details">
 					<div className="text-center">
