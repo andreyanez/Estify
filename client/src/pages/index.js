@@ -6,3 +6,4 @@ export { Artists } from './Artists';
 export { Artist } from './Artist';
 export { Track } from './Track';
 export { Tracks } from './Tracks';
+export { Features } from './Features';

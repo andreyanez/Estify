@@ -110,8 +110,12 @@ export const Playlist = () => {
 						</div>
 						{audioFeatures && (
 							<div className="mt-12 text-center">
-								<h4 className="text-base">Características auditivas</h4>
+								<h4 className="text-base">Características auditivas de la playlist</h4>
 								<FeatureChart features={audioFeatures} type="horizontal" />
+								<Link to={'/features'} className="text-neutral mt-4 block underline">
+									¿Que es esto?
+								</Link>
+								{/* <Link></Link> */}
 							</div>
 						)}
 					</div>
