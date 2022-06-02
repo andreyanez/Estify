@@ -32,7 +32,7 @@ const properties = [
 	'valence',
 ];
 
-export const FeatureChart = ({ features }: { features: any }) => {
+export const FeatureChart = ({ features, type }: { features: any; type?: string }) => {
 	const avg = (arr: []) => arr.reduce((a, b) => a + b, 0) / arr.length;
 	useEffect(() => {
 		const createDataset = (features: any) => {
@@ -64,6 +64,7 @@ export const FeatureChart = ({ features }: { features: any }) => {
 					],
 				},
 				options: {
+					indexAxis: type === 'horizontal' ? 'y' : 'x',
 					layout: {
 						padding: {
 							left: 0,

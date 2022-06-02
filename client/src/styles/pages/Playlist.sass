@@ -4,6 +4,7 @@
         flex-grow: 1
 .playlist__info
     flex-basis: 34%
+    @apply sticky top-12 h-fit
     img
         @apply max-w-xs mx-auto mb-8
     h1
@@ -11,7 +12,8 @@
         font-family: var(--Bold)
     h2
         @apply text-neutral
-
+    p
+        @apply text-neutral text-center text-sm mb-8
 .playlist__tracks
     flex-basis: 80%
 

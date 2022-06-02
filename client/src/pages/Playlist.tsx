@@ -102,12 +102,18 @@ export const Playlist = () => {
 						<div>
 							<img src={playlist.images[0].url} alt={playlist.name} />
 							<h1>{playlist.name}</h1>
+							{playlist.description && <p>{playlist.description}</p>}
 							<div className="flex items-center justify-evenly text-center">
 								<h2>Creada por {playlist.owner.display_name}</h2>
-								<p>{playlist.tracks.total} tracks</p>
+								<span>{playlist.tracks.total} tracks</span>
 							</div>
 						</div>
-						{audioFeatures && <FeatureChart features={audioFeatures} />}
+						{audioFeatures && (
+							<div className="mt-12 text-center">
+								<h4 className="text-base">Características auditivas</h4>
+								<FeatureChart features={audioFeatures} type="horizontal" />
+							</div>
+						)}
 					</div>
 					<div className="playlist__tracks">
 						<div className="mb-8 block w-72 mx-auto mr-0 filter">
