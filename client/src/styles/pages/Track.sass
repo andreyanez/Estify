@@ -2,7 +2,7 @@
     @apply flex items-center justify-between
 
 .track__details
-    @apply flex items-center gap-12
+    @apply flex items-start gap-12
     flex-basis: 48%
     h1
         @apply text-5xl mb-7
@@ -10,9 +10,12 @@
     h2
         @apply text-xl text-stone-300 mb-1 inline-block
         font-family: var(--Black)
-
+    audio
+        transform: scale(80%) translateX(-40px)
+    .main__button
+        @apply mt-4
 .track__img
-    max-width: 300px
+    min-width: 300px
 
 .track__album
     @apply text-neutral mb-6

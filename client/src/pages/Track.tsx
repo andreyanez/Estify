@@ -43,8 +43,13 @@ export const Track = () => {
 			</div>
 			<section className="track__info">
 				<div className="track__details">
-					<div className="track__img">
-						<img src={track.data.album.images[1].url} alt="" />
+					<div className="text-center">
+						<div className="track__img">
+							<img src={track.data.album.images[1].url} alt="" />
+						</div>
+						<a href={track.data.external_urls.spotify} target="_blank" className="main__button">
+							REPRODUCIR EN SPOTIFY
+						</a>
 					</div>
 					<div>
 						<h1>{track.data.name}</h1>
@@ -64,9 +69,10 @@ export const Track = () => {
 							{' · '}
 							<span>{track.data.album.release_date.substring(0, 4)}</span>
 						</div>
-						<a href={track.data.external_urls.spotify} target="_blank" className="main__button">
-							REPRODUCIR EN SPOTIFY
-						</a>
+						<div className="mb-6">
+							<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
+							<span className="text-sm text-center block pr-20">Preview</span>
+						</div>
 					</div>
 				</div>
 				<div className="track__features">
