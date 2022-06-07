@@ -11,6 +11,9 @@
         @apply text-xl text-stone-300 mb-1 inline-block
         font-family: var(--Black)
 
+.track__img
+    max-width: 300px
+
 .track__album
     @apply text-neutral mb-6
     font-family: var(--Bold)
@@ -33,3 +36,19 @@
         p
             @apply text-xs text-neutral
             font-family: var(--Book)
+
+.track__chart__data
+    @apply flex justify-between mt-32
+.track__chart
+    flex-basis: 40% 
+    h4
+        @apply text-center mb-8 text-neutral text-xl
+
+.track__paragraph
+    flex-basis: 47%
+    h5
+        @apply mb-8 text-xl text-neutral
+    ul
+        @apply space-y-4
+    span
+        @apply text-secondary inline-block mr-2

@@ -72,42 +72,11 @@ export const FeatureChart = ({ features }: { features: any }) => {
 							bottom: 0,
 						},
 					},
-					// title: {
-					//   display: true,
-					//   text: `Audio Features`,
-					//   fontSize: 18,
-					// //   fontFamily: `${fonts.primary}`,
-					//   fontColor: '#ffffff',
-					//   padding: 30,
-					// },
-					// legend: {
-					//   display: false,
-					// },
-					// scales: {
-					//   xAxes: [
-					//     {
-					//       gridLines: {
-					//         color: 'rgba(255, 255, 255, 0.3)',
-					//       },
-					//       ticks: {
-					//         // fontFamily: `${fonts.primary}`,
-					//         fontSize: 12,
-					//       },
-					//     },
-					//   ],
-					//   yAxes: [
-					//     {
-					//       gridLines: {
-					//         color: 'rgba(255, 255, 255, 0.3)',
-					//       },
-					//       ticks: {
-					//         beginAtZero: true,
-					//         // fontFamily: `${fonts.primary}`,
-					//         fontSize: 12,
-					//       },
-					//     },
-					//   ],
-					// },
+					plugins: {
+						legend: {
+							display: false,
+						},
+					},
 				},
 			});
 		};
