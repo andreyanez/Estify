@@ -95,7 +95,7 @@ export const Playlist = () => {
 
 	return (
 		<>
-			{playlist && (
+			{playlist ? (
 				<div className="playlist__container">
 					<div className="playlist__info">
 						<img src={playlist.images[0].url} alt={playlist.name} />
@@ -120,42 +120,48 @@ export const Playlist = () => {
 								))}
 							</select>
 						</div>
-						<ul className="track__list">
-							{sortedTracks?.map((track: any, index: number) => {
-								return (
-									<li className="track__list_item" key={index}>
-										<Link to={`/track/${track.id}`}>
-											<div className="flex gap-5">
-												<div className="track__list_item__img">
-													<img src={track.album.images[2].url} alt={track.name} />
-												</div>
-												<div>
-													<span className="track__title">{track.name}</span>
-													<div className="track__credits">
-														{track.artists.map((artist: any, index: number) => {
-															return (
-																<span key={artist.id}>
-																	{artist.name}
-																	{track.artists.length > 0 && index === track.artists.length - 1
-																		? ''
-																		: ','}
-																	&nbsp;
-																</span>
-															);
-														})}
-														{' ·  '}
-														<span>{track.album.name}</span>
+						{sortedTracks ? (
+							<ul className="track__list">
+								{sortedTracks.map((track: any, index: number) => {
+									return (
+										<li className="track__list_item" key={index}>
+											<Link to={`/track/${track.id}`}>
+												<div className="flex gap-5">
+													<div className="track__list_item__img">
+														<img src={track.album.images[2].url} alt={track.name} />
+													</div>
+													<div>
+														<span className="track__title">{track.name}</span>
+														<div className="track__credits">
+															{track.artists.map((artist: any, index: number) => {
+																return (
+																	<span key={artist.id}>
+																		{artist.name}
+																		{track.artists.length > 0 && index === track.artists.length - 1
+																			? ''
+																			: ','}
+																		&nbsp;
+																	</span>
+																);
+															})}
+															{' ·  '}
+															<span>{track.album.name}</span>
+														</div>
 													</div>
 												</div>
-											</div>
-											<span className="track__length">{formatDuration(track.duration_ms)}</span>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
+												<span className="track__length">{formatDuration(track.duration_ms)}</span>
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
+						) : (
+							<span className="mt-20 block">Loading...</span>
+						)}
 					</div>
 				</div>
+			) : (
+				<span className="mt-20 block">Loading...</span>
 			)}
 		</>
 	);

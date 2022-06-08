@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { formatDuration, parsePitchClass } from '../utils';
+import { FeatureChart } from '../components/FeatureChart';
 
 export const Track = () => {
 	const { id } = useParams();
@@ -103,6 +104,11 @@ export const Track = () => {
 							<p>Beats</p>
 						</li>
 					</ul>
+				</div>
+			</section>
+			<section className="track__chart mt-8">
+				<div className="max-w-2xl mx-auto">
+					<FeatureChart features={features.data} />
 				</div>
 			</section>
 		</article>
