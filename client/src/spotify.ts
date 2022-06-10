@@ -158,6 +158,13 @@ export const getArtist = (artistId: string): Promise<any> =>
 	axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
 
 /**
+ * Get a Playlist
+ * https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
+ */
+export const getPlaylist = (playlistId: string): Promise<any> =>
+	axios.get(`https://api.spotify.com/v1/playlists/${playlistId}`, { headers });
+
+/**
  * Get a Playlist's Tracks
  * https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
  */
