@@ -161,33 +161,8 @@ export const getArtist = (artistId: string): Promise<any> =>
  * Get a Playlist
  * https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlist/
  */
-export const getPlaylist = async (playlistId: string): Promise<any> => {
-	const playlist = await axios.get(`https://api.spotify.com/v1/playlists/${playlistId}`, {
-		headers,
-	});
-
-	const tracks = playlist.data.tracks.items;
-
-	const ids: string = getTrackIds(tracks);
-	const features = await axios.get(`https://api.spotify.com/v1/audio-features?ids=${ids}`, {
-		headers,
-	});
-	const featuresTofilter = features.data.audio_features;
-
-	const tracksWithAudioFeatures = tracks.map((item: any) => {
-		if (!item.track.audio_features) {
-			const featuresObj = featuresTofilter.find((feature: any) => {
-				return feature.id === item.track.id;
-			});
-			item.track['audio_features'] = featuresObj;
-		}
-		return item.track;
-	});
-
-	playlist.data.tracks.items = { ...playlist.data.tracks.items, tracksWithAudioFeatures };
-
-	return playlist;
-};
+export const getPlaylist = (playlistId: string): Promise<any> =>
+	axios.get(`https://api.spotify.com/v1/playlists/${playlistId}`, { headers });
 
 /**
  * Get a Playlist's Tracks
