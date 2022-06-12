@@ -15,45 +15,41 @@ export const Profile = () => {
 		return <span>Loading...</span>;
 	}
 
-	const profile = profileQuery.data.data;
-	const playlists = playlistsQuery.data.data;
-	const followedArtists = followingQuery.data?.data;
-
 	return (
 		<>
-			{profile && (
-				<>
-					<div className="profile__top">
-						<div className="profile__img">
-							{profile.images.length && profile.images[0].url && (
-								<img src={profile.images[0].url} alt="Avatar" />
-							)}
-						</div>
-						<h1>{profile.display_name}</h1>
-						<ul>
-							<li>
-								<strong>{profile.followers.total}</strong>
-								<p>Seguidor{profile.followers.total !== 1 ? 'es' : ''}</p>
-							</li>
-							<li>
-								<strong>{followedArtists.artists.items.length}</strong>
-								<p>Siguiendo</p>
-							</li>
-							<li>
-								{playlists ? <strong>{playlists.total}</strong> : <strong>0</strong>}
-								<p>Playlists</p>
-							</li>
-						</ul>
-						<button onClick={logout} type="button" className="main__button">
-							Cerrar Sesión
-						</button>
-					</div>
-					<section className="profile__bottom flex justify-between mb-20">
-						<ArtistList />
-						<TrackList />
-					</section>
-				</>
-			)}
+			<div className="profile__top">
+				<div className="profile__img">
+					{profileQuery.data.data.images.length && profileQuery.data.data.images[0].url && (
+						<img src={profileQuery.data.data.images[0].url} alt="Avatar" />
+					)}
+				</div>
+				<h1>{profileQuery.data.data.display_name}</h1>
+				<ul>
+					<li>
+						<strong>{profileQuery.data.data.followers.total}</strong>
+						<p>Seguidor{profileQuery.data.data.followers.total !== 1 ? 'es' : ''}</p>
+					</li>
+					<li>
+						<strong>{followingQuery.data.data.artists.items.length}</strong>
+						<p>Siguiendo</p>
+					</li>
+					<li>
+						{playlistsQuery.data.data ? (
+							<strong>{playlistsQuery.data.data.total}</strong>
+						) : (
+							<strong>0</strong>
+						)}
+						<p>Playlists</p>
+					</li>
+				</ul>
+				<button onClick={logout} type="button" className="main__button">
+					Cerrar Sesión
+				</button>
+			</div>
+			<section className="profile__bottom flex justify-between mb-20">
+				<ArtistList />
+				<TrackList />
+			</section>
 		</>
 	);
 };

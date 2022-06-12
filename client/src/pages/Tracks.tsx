@@ -15,7 +15,7 @@ export const Tracks = () => {
 		if (activeRange === 'short') return getTopTracksShort();
 	};
 
-	const { data: tracks, isLoading }: any = useQuery(['tracks', { activeRange }], fetchTracks);
+	const { data: tracks, isLoading } = useQuery(['tracks', { activeRange }], fetchTracks);
 
 	if (isLoading) {
 		return <span className="mt-20 block">Loading...</span>;

@@ -17,7 +17,7 @@ export const Artists = () => {
 	//react query fires function which return a api call
 	// i set the activeRange state as as key so the
 	// query updates when a setActveRange function fires
-	const { data: artists, isLoading }: any = useQuery(['artists', { activeRange }], fetchArtists);
+	const { data: artists, isLoading } = useQuery(['artists', { activeRange }], fetchArtists);
 
 	if (isLoading) {
 		return <span className="mt-60 block">Loading...</span>;

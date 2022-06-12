@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 export const Artist = () => {
 	const { id } = useParams();
 
-	const { data: artist, isLoading }: any | undefined = useQuery(['artist'], () => getArtist(id!), {
+	const { data: artist, isLoading } = useQuery(['artist'], () => getArtist(id!), {
 		cacheTime: 0,
 	});
 
