@@ -1,8 +1,9 @@
 import '../styles/pages/Track.sass';
-import { getTrack } from '../spotify';
+import { getTrack, getTrackAudioFeatures, getTrackAudioAnalysis } from '../spotify';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { formatDuration, parsePitchClass } from '../utils';
 
 export const Track = () => {
 	const { id } = useParams();
@@ -11,7 +12,23 @@ export const Track = () => {
 		cacheTime: 0,
 	});
 
-	if (isLoading) {
+	const { data: features, isLoading: featureLoading }: any = useQuery(
+		['features'],
+		() => getTrackAudioFeatures(id),
+		{
+			cacheTime: 0,
+		}
+	);
+
+	const { data: analysis, isLoading: analysisLoading }: any = useQuery(
+		['analysis'],
+		() => getTrackAudioAnalysis(id),
+		{
+			cacheTime: 0,
+		}
+	);
+
+	if (isLoading || featureLoading || analysisLoading) {
 		return <span className="mt-20 block">Loading...</span>;
 	}
 
@@ -54,44 +71,36 @@ export const Track = () => {
 				<div className="track__features">
 					<ul>
 						<li>
-							<h3>13.47</h3>
+							<h3>{formatDuration(features.data.duration_ms)}</h3>
 							<p>Duración</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{parsePitchClass(features.data.key)}</h3>
+							<p>Clave</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{features.data.mode === 1 ? 'Mayor' : 'Menor'}</h3>
+							<p>Modo</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{features.data.time_signature}</h3>
+							<p>Compás</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{Math.round(features.data.tempo)}</h3>
+							<p>Tempo (BPM)</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{track.data.popularity}%</h3>
+							<p>Popularidad</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{analysis.data.bars.length}</h3>
+							<p>Bars</p>
 						</li>
 						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
-						</li>
-						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
-						</li>
-						<li>
-							<h3>13.47</h3>
-							<p>Duración</p>
+							<h3>{analysis.data.beats.length}</h3>
+							<p>Beats</p>
 						</li>
 					</ul>
 				</div>
