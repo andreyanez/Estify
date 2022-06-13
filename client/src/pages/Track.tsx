@@ -1,13 +1,15 @@
+import '../styles/pages/Track.sass';
 import { getTrack } from '../spotify';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import '../styles/pages/Track.sass';
 
 export const Track = () => {
 	const { id } = useParams();
 
-	const { data: track, isLoading }: any = useQuery(['artist'], () => getTrack(id));
+	const { data: track, isLoading }: any = useQuery(['artist'], () => getTrack(id), {
+		cacheTime: 0,
+	});
 
 	if (isLoading) {
 		return <span className="mt-20 block">Loading...</span>;

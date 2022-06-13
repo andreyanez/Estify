@@ -7,7 +7,9 @@ import { Icon } from '@iconify/react';
 export const Artist = () => {
 	const { id } = useParams();
 
-	const { data: artist, isLoading }: any = useQuery(['artist'], () => getArtist(id));
+	const { data: artist, isLoading }: any = useQuery(['artist'], () => getArtist(id), {
+		cacheTime: 0,
+	});
 
 	if (isLoading) {
 		return <span className="mt-20 block">Loading...</span>;
