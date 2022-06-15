@@ -1,0 +1,15 @@
+.artist__card {
+	flex-basis: 66%;
+	h3 {
+		font-family: var(--Bold);
+	}
+}
+
+.artist__img {
+	// max-width: 290px;
+	flex-basis: 30%;
+	// @apply max-w-;
+	img {
+		@apply w-full h-full object-cover;
+	}
+}

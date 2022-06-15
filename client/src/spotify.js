@@ -174,3 +174,52 @@ export const getTopTracksMedium = () =>
 	});
 export const getTopTracksLong = () =>
 	axios.get('https://api.spotify.com/v1/me/top/tracks?limit=50&time_range=long_term', { headers });
+
+/**
+ * Get an Artist
+ * https://developer.spotify.com/documentation/web-api/reference/artists/get-artist/
+ */
+export const getArtist = artistId =>
+	axios.get(`https://api.spotify.com/v1/artists/${artistId}`, { headers });
+
+/**
+ * Get a Playlist's Tracks
+ * https://developer.spotify.com/documentation/web-api/reference/playlists/get-playlists-tracks/
+ */
+export const getPlaylistTracks = playlistId =>
+	axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, { headers });
+
+/**
+ * Return a comma separated string of track IDs from the given array of tracks
+ */
+const getTrackIds = tracks => tracks.map(({ track }) => track.id).join(',');
+
+/**
+ * Get Audio Features for Several Tracks
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+ */
+export const getAudioFeaturesForTracks = tracks => {
+	const ids = getTrackIds(tracks);
+	return axios.get(`https://api.spotify.com/v1/audio-features?ids=${ids}`, { headers });
+};
+
+/**
+ * Get a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-track/
+ */
+export const getTrack = trackId =>
+	axios.get(`https://api.spotify.com/v1/tracks/${trackId}`, { headers });
+
+/**
+ * Get Audio Analysis for a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/
+ */
+export const getTrackAudioAnalysis = trackId =>
+	axios.get(`https://api.spotify.com/v1/audio-analysis/${trackId}`, { headers });
+
+/**
+ * Get Audio Features for a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/
+ */
+export const getTrackAudioFeatures = trackId =>
+	axios.get(`https://api.spotify.com/v1/audio-features/${trackId}`, { headers });
