@@ -2,16 +2,24 @@ import '../styles/pages/Artists.scss';
 import { Link } from 'react-router-dom';
 import { formatDuration } from '../utils';
 import { useQuery } from '@tanstack/react-query';
-import { getTopTracksLong } from '../spotify';
+import { getTopTracksLong, getTopTracksMedium, getTopTracksShort } from '../spotify';
+import { useState } from 'react';
 
 export const Tracks = () => {
-	const tracksQuery: any = useQuery(['tracks'], getTopTracksLong);
+	const [activeRange, setActiveRange] = useState<string>('long');
 
-	if (tracksQuery.isLoading) {
+	// fetches data based on activeRange value
+	const fetchTracks = () => {
+		if (activeRange === 'long') return getTopTracksLong();
+		if (activeRange === 'medium') return getTopTracksMedium();
+		if (activeRange === 'short') return getTopTracksShort();
+	};
+
+	const { data: tracks, isLoading }: any = useQuery(['tracks', { activeRange }], fetchTracks);
+
+	if (isLoading) {
 		return <span className="mt-20 block">Loading...</span>;
 	}
-
-	const topTracks = tracksQuery.data.data;
 
 	return (
 		<div className="py-20">
@@ -19,18 +27,33 @@ export const Tracks = () => {
 				<h1 className="filter__title">Top Tracks</h1>
 				<ul className="filter__list">
 					<li>
-						<button>Todos los tiempos</button>
+						<button
+							className={activeRange === 'long' ? 'active' : ''}
+							onClick={() => setActiveRange('long')}
+						>
+							Todos los tiempos
+						</button>
 					</li>
 					<li>
-						<button>Últimos 6 meses</button>
+						<button
+							className={activeRange === 'medium' ? 'active' : ''}
+							onClick={() => setActiveRange('medium')}
+						>
+							Últimos 6 meses
+						</button>
 					</li>
 					<li>
-						<button>Últimas 4 semanas</button>
+						<button
+							className={activeRange === 'short' ? 'active' : ''}
+							onClick={() => setActiveRange('short')}
+						>
+							Últimas 4 semanas
+						</button>
 					</li>
 				</ul>
 			</div>
 			<ul className="track__list">
-				{topTracks.items.map((track: any, index: number) => {
+				{tracks.data.items.map((track: any, index: number) => {
 					return (
 						<li className="track__list_item" key={index}>
 							<Link to={`/track/${track.id}`}>
