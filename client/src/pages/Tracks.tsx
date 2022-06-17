@@ -15,7 +15,7 @@ export const Tracks = () => {
 
 	return (
 		<div className="py-20">
-			<div className="flex justify-between mb-16">
+			<div className="flex justify-between mb-16 items-center">
 				<h1 className="filter__title">Top Tracks</h1>
 				<ul className="filter__list">
 					<li>

@@ -21,8 +21,11 @@
 }
 
 .artist__item {
-	a {
+	> a {
 		@apply flex flex-col items-center gap-y-4 basis-52;
+	}
+	&.playlist__item {
+		@apply flex flex-col gap-y-2;
 	}
 }
 

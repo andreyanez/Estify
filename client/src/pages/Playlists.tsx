@@ -1,60 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getPlaylists } from '../spotify';
 
 export const Playlists = () => {
+	const playlistQuery: any = useQuery(['playlists'], getPlaylists);
+
+	if (playlistQuery.isLoading) {
+		return <span className="mt-20 block">Loading...</span>;
+	}
+
+	const playlists = playlistQuery.data.data;
+
 	return (
-		<div className="pt-20">
+		<div className="py-20">
 			<div className="flex justify-between mb-16">
 				<h1 className="filter__title">Tus Playlists</h1>
 			</div>
-			<ul className="artists__grid">
-				<li className="artist__item">
-					<Link to={'/playlists/:id'}>
-						<div className="artist_item__img">
-							<img
-								src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-								alt=""
-							/>
-						</div>
-					</Link>
-					<div className="flex flex-col items-center">
-						<Link to={'/playlists/:id'}>
-							<span className="hover:underline">Tycho</span>
-						</Link>
-						<span className="text-gray-500">14 Tracks</span>
-					</div>
-				</li>
-				<li className="artist__item">
-					<Link to={'/playlists/:id'}>
-						<div className="artist_item__img">
-							<img
-								src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-								alt=""
-							/>
-						</div>
-					</Link>
-					<div className="flex flex-col items-center">
-						<Link to={'/playlists/:id'}>
-							<span className="hover:underline">Tycho</span>
-						</Link>
-						<span className="text-gray-500">14 Tracks</span>
-					</div>
-				</li>
-				<li className="artist__item">
-					<Link to={'/playlists/:id'}>
-						<div className="artist_item__img">
-							<img
-								src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-								alt=""
-							/>
-						</div>
-					</Link>
-					<div className="flex flex-col items-center">
-						<Link to={'/playlists/:id'}>
-							<span className="hover:underline">Tycho</span>
-						</Link>
-						<span className="text-gray-500">14 Tracks</span>
-					</div>
-				</li>
+			<ul className="artists__grid playlists">
+				{playlists.items.map((playlist: any, index: number) => {
+					return (
+						<li className="artist__item playlist__item" key={index}>
+							<Link to={`/playlists/${playlist.id}`}>
+								<div className="artist_item__img">
+									<img src={playlist.images[0].url} alt={playlist.name} />
+								</div>
+							</Link>
+							<div className="flex flex-col items-center text-center gap-y-2">
+								<Link to={'/playlists/:id'} className="leading-5">
+									<span className="hover:underline">{playlist.name}</span>
+								</Link>
+								<span className="text-gray-500">{playlist.tracks.total} Tracks</span>
+							</div>
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);

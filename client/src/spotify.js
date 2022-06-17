@@ -145,8 +145,7 @@ export const getFollowing = () =>
  * https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-a-list-of-current-users-playlists
  * @returns {Promise}
  */
-export const getPlaylists = () =>
-	axios.get('https://api.spotify.com/v1/me/playlists?limit=10', { headers });
+export const getPlaylists = () => axios.get('https://api.spotify.com/v1/me/playlists', { headers });
 
 /**
  * Get a User's Top Artists
