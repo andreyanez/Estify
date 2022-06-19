@@ -5,7 +5,7 @@ import '../styles/components/TrackList.scss';
 import { formatDuration } from '../utils';
 
 export const TrackList = () => {
-	const tracksQuery: any = useQuery(['trackss'], getTopTracksLong);
+	const tracksQuery: any = useQuery(['tracks'], getTopTracksLong);
 
 	if (tracksQuery.isLoading) {
 		return <span>Loading...</span>;
