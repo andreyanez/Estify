@@ -1,5 +1,4 @@
 import { getCurrentUserProfile, logout, getPlaylists, getFollowing } from '../spotify';
-import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import '../styles/pages/Profile.scss';
 import { ArtistList } from '../components/ArtistList';
@@ -49,7 +48,7 @@ export const Profile = () => {
 							Cerrar Sesión
 						</button>
 					</div>
-					<section className="profile__bottom flex justify-between">
+					<section className="profile__bottom flex justify-between mb-20">
 						<ArtistList />
 						<TrackList />
 					</section>

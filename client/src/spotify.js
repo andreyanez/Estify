@@ -147,3 +147,18 @@ export const getFollowing = () =>
  */
 export const getPlaylists = () =>
 	axios.get('https://api.spotify.com/v1/me/playlists?limit=10', { headers });
+
+/**
+ * Get a User's Top Artists
+ * https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
+ */
+export const getTopArtistsShort = () =>
+	axios.get('https://api.spotify.com/v1/me/top/artists?limit=50&time_range=short_term', {
+		headers,
+	});
+export const getTopArtistsMedium = () =>
+	axios.get('https://api.spotify.com/v1/me/top/artists?limit=50&time_range=medium_term', {
+		headers,
+	});
+export const getTopArtistsLong = () =>
+	axios.get('https://api.spotify.com/v1/me/top/artists?limit=50&time_range=long_term', { headers });
