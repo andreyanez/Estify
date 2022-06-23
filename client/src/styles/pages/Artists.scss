@@ -21,7 +21,9 @@
 }
 
 .artist__item {
-	@apply flex flex-col items-center gap-y-4 basis-52;
+	a {
+		@apply flex flex-col items-center gap-y-4 basis-52;
+	}
 }
 
 .artist_item__img {

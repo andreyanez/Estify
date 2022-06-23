@@ -12,7 +12,6 @@ export const TrackList = () => {
 	}
 
 	const topTracks = tracksQuery.data.data;
-	console.log(topTracks);
 
 	return (
 		<div className="artist__container">
@@ -25,8 +24,8 @@ export const TrackList = () => {
 			<ul className="track__list">
 				{topTracks.items.slice(0, 10).map((track: any, index: number) => {
 					return (
-						<li className="track__list_item">
-							<Link to={'/track/:id'}>
+						<li className="track__list_item" key={index}>
+							<Link to={`/track/${track.id}`}>
 								<div className="flex gap-5">
 									<div className="track__list_item__img">
 										<img src={track.album.images[2].url} alt="" />

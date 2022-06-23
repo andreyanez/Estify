@@ -27,7 +27,7 @@ export const ArtistList = () => {
 						<li className="artist__list_item" key={index}>
 							<Link to={`/artist/${artist.id}`}>
 								<div className="artist__list_item__img">
-									<img src={artist.images[2].url} alt="" />
+									<img src={artist.images[2].url} alt={artist.name} />
 								</div>
 								<span>{artist.name}</span>
 							</Link>

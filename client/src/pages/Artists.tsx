@@ -1,9 +1,20 @@
 import '../styles/pages/Artists.scss';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getTopArtistsLong } from '../spotify';
 
 export const Artists = () => {
+	const artistQuery: any = useQuery(['artists'], getTopArtistsLong);
+
+	if (artistQuery.isLoading) {
+		return <span className="mt-60 block">Loading...</span>;
+	}
+
+	const topArtists = artistQuery.data.data;
+
 	return (
-		<div className="pt-20">
-			<div className="flex justify-between mb-16">
+		<div className="py-20">
+			<div className="flex justify-between mb-16 items-center">
 				<h1 className="filter__title">Top Artistas</h1>
 				<ul className="filter__list">
 					<li>
@@ -18,15 +29,18 @@ export const Artists = () => {
 				</ul>
 			</div>
 			<ul className="artists__grid">
-				<li className="artist__item">
-					<div className="artist_item__img">
-						<img
-							src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-							alt=""
-						/>
-					</div>
-					<span>Tycho</span>
-				</li>
+				{topArtists.items.map((artist: any, index: number) => {
+					return (
+						<li className="artist__item" key={index}>
+							<Link to={`/artist/${artist.id}`}>
+								<div className="artist_item__img">
+									<img src={artist.images[2].url} alt={artist.name} />
+								</div>
+								<span>{artist.name}</span>
+							</Link>
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);
