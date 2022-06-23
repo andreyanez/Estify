@@ -1,7 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { getTopTracksLong } from '../spotify';
 import '../styles/components/TrackList.scss';
+import { formatDuration } from '../utils';
 
 export const TrackList = () => {
+	const tracksQuery: any = useQuery(['trackss'], getTopTracksLong);
+
+	if (tracksQuery.isLoading) {
+		return <span>Loading...</span>;
+	}
+
+	const topTracks = tracksQuery.data.data;
+	console.log(topTracks);
+
 	return (
 		<div className="artist__container">
 			<div className="flex justify-between mb-12 items-center">
@@ -11,48 +23,38 @@ export const TrackList = () => {
 				</button>
 			</div>
 			<ul className="track__list">
-				<li className="track__list_item">
-					<Link to={'/track/:id'}>
-						<div className="flex gap-5">
-							<div className="track__list_item__img">
-								<img
-									src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-									alt=""
-								/>
-							</div>
-							<div>
-								<span className="track__title">Prayer for Rain</span>
-								<div className="track__credits">
-									<span>Bibio</span>
-									{' ·  '}
-									<span>Phantom Brickworks</span>
+				{topTracks.items.slice(0, 10).map((track: any, index: number) => {
+					return (
+						<li className="track__list_item">
+							<Link to={'/track/:id'}>
+								<div className="flex gap-5">
+									<div className="track__list_item__img">
+										<img src={track.album.images[2].url} alt="" />
+									</div>
+									<div>
+										<span className="track__title">{track.name}</span>
+										<div className="track__credits">
+											{track.artists.map((artist: any, index: number) => {
+												return (
+													<span key={index}>
+														{artist.name}
+														{track.artists.length > 0 && index === track.artists.length - 1
+															? ''
+															: ','}
+														&nbsp;
+													</span>
+												);
+											})}
+											{' ·  '}
+											<span>{track.album.name}</span>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<span className="track__length">13:47</span>
-					</Link>
-				</li>
-				<li className="track__list_item">
-					<Link to={'/track/:id'}>
-						<div className="flex gap-5">
-							<div className="track__list_item__img">
-								<img
-									src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-									alt=""
-								/>
-							</div>
-							<div>
-								<span className="track__title">Prayer for Rain</span>
-								<div className="track__credits">
-									<span>Bibio</span>
-									{' ·  '}
-									<span>Phantom Brickworks</span>
-								</div>
-							</div>
-						</div>
-						<span className="track__length">13:47</span>
-					</Link>
-				</li>
+								<span className="track__length">{formatDuration(track.duration_ms)}</span>
+							</Link>
+						</li>
+					);
+				})}
 			</ul>
 		</div>
 	);
