@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { accessToken } from './spotify.js';
 import { Router, Routes, Route, useLocation } from 'react-router-dom';
-import { Login, Profile, Artists, Tracks } from './pages';
+import { Login, Profile, Artists, Tracks, Playlists } from './pages';
 import { NavBar } from './components/navBar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -39,6 +39,7 @@ function App() {
 									<Route path="/" element={<Profile />} />
 									<Route path="/artists" element={<Artists />} />
 									<Route path="/tracks" element={<Tracks />} />
+									<Route path="/playlists" element={<Playlists />} />
 								</Routes>
 							</main>
 						</div>
