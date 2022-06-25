@@ -2,18 +2,31 @@
 	width: 46%;
 }
 
-.artist__list {
+.track__list {
 	@apply space-y-6;
 }
-.artist__list_item {
+
+.track__list_item {
 	a {
-		@apply flex items-center gap-5;
+		@apply flex justify-between;
 	}
 }
 
-.artist__list_item__img {
-	@apply w-12 h-12 rounded-full overflow-hidden;
+.track__list_item__img {
+	@apply w-12 h-12 overflow-hidden;
 	img {
 		@apply w-full h-full object-cover;
 	}
+}
+
+.track__title {
+	@apply text-base;
+}
+
+.track__credits {
+	@apply text-neutral text-sm;
+}
+
+.track__length {
+	@apply text-sm text-neutral;
 }

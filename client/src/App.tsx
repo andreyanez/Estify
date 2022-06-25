@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { accessToken } from './spotify.js';
 import { Router, Routes, Route, useLocation } from 'react-router-dom';
-import { Login, Profile } from './pages';
+import { Login, Profile, Artists } from './pages';
 import { NavBar } from './components/navBar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -33,10 +33,11 @@ function App() {
 					<>
 						<NavBar />
 						<div className="pl-28">
-							<main className="container mx-auto max-w-8xl px-20">
+							<main className="container mx-auto max-w-7xl px-20">
 								<ScrollToTop />
 								<Routes>
 									<Route path="/" element={<Profile />} />
+									<Route path="/artists" element={<Artists />} />
 								</Routes>
 							</main>
 						</div>

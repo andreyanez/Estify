@@ -4,7 +4,7 @@ import '../styles/components/ArtistList.scss';
 export const ArtistList = () => {
 	return (
 		<div className="artist__container">
-			<div className="flex justify-between mb-5 items-center">
+			<div className="flex justify-between mb-12 items-center">
 				<h2>Top Artists de todos los tiempos</h2>
 				<button type="button" className="main__button">
 					VER MÁS

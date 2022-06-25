@@ -1,0 +1,33 @@
+.filter__title {
+	@apply text-2xl;
+	font-family: var(--Black);
+}
+
+.filter__list {
+	@apply flex gap-2;
+	button {
+		@apply text-neutral p-3 inline-block leading-snug;
+		font-family: var(--Bold);
+		&:hover,
+		&:focus {
+			@apply text-white underline;
+		}
+	}
+}
+
+.artists__grid {
+	@apply grid gap-5 mt-12;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.artist__item {
+	@apply flex flex-col items-center gap-y-4 basis-52;
+}
+
+.artist_item__img {
+	width: 200px;
+	height: 200px;
+	img {
+		@apply w-full h-full object-cover;
+	}
+}
