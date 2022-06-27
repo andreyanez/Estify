@@ -21,7 +21,7 @@ function App() {
 	const [token, setToken] = useState('');
 
 	useEffect(() => {
-		setToken(accessToken);
+		setToken(accessToken!);
 	}, []);
 
 	return (
@@ -32,12 +32,14 @@ function App() {
 				<QueryClientProvider client={queryClient}>
 					<>
 						<NavBar />
-						<main className="container mx-auto max-w-7xl px-20">
-							<ScrollToTop />
-							<Routes>
-								<Route path="/" element={<Profile />} />
-							</Routes>
-						</main>
+						<div className="pl-28">
+							<main className="container mx-auto max-w-8xl px-20">
+								<ScrollToTop />
+								<Routes>
+									<Route path="/" element={<Profile />} />
+								</Routes>
+							</main>
+						</div>
 					</>
 				</QueryClientProvider>
 			)}

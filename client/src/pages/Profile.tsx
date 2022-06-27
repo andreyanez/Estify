@@ -2,6 +2,8 @@ import { getCurrentUserProfile, logout, getPlaylists, getFollowing } from '../sp
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import '../styles/pages/Profile.scss';
+import { ArtistList } from '../components/ArtistList';
+import { TrackList } from '../components/TrackList';
 
 export const Profile = () => {
 	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
@@ -47,6 +49,10 @@ export const Profile = () => {
 							Cerrar Sesión
 						</button>
 					</div>
+					<section className="profile__bottom flex justify-between">
+						<ArtistList />
+						<TrackList />
+					</section>
 				</>
 			)}
 		</>

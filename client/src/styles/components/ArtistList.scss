@@ -1,0 +1,19 @@
+.artist__container {
+	width: 46%;
+}
+
+.artist__list {
+	@apply space-y-6;
+}
+.artist__list_item {
+	a {
+		@apply flex items-center gap-5;
+	}
+}
+
+.artist__list_item__img {
+	@apply w-12 h-12 rounded-full overflow-hidden;
+	img {
+		@apply w-full h-full object-cover;
+	}
+}
