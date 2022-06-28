@@ -6,20 +6,6 @@ nav {
 	@apply w-full;
 }
 
-.nav__main {
-	li {
-		@apply m-0;
-	}
-	a {
-		@apply flex flex-col items-center justify-center text-xs text-neutral;
-		transition: var(--transition);
-		height: 70px;
-		&:hover {
-			@apply bg-secondary text-white;
-		}
-	}
-}
-
 .nav__bottom {
 	@apply p-4 text-xs text-center;
 	a {
@@ -28,5 +14,21 @@ nav {
 		&:hover {
 			@apply text-secondary;
 		}
+	}
+}
+
+.nav__item {
+	@apply m-0;
+
+	a {
+		@apply flex flex-col items-center gap-y-1 justify-center text-xs text-neutral;
+		transition: var(--transition);
+		height: 70px;
+		&:hover {
+			@apply bg-secondary text-white;
+		}
+	}
+	svg {
+		@apply text-xl;
 	}
 }

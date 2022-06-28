@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
+import { Icon } from '@iconify/react';
 
 const year: Date = new Date();
 
@@ -11,32 +12,28 @@ export const NavBar = () => {
 			</div>
 			<nav>
 				<ul className="nav__main">
-					<li>
+					<li className="nav__item">
 						<Link to="/">
-							<div className="nav__item">
-								<p>Profile</p>
-							</div>
+							<Icon icon="line-md:account" />
+							<p>Profile</p>
 						</Link>
 					</li>
-					<li>
+					<li className="nav__item">
 						<Link to="/">
-							<div className="nav__item">
-								<p>Top Artists</p>
-							</div>
+							<Icon icon="line-md:heart" />
+							<p>Top Artists</p>
 						</Link>
 					</li>
-					<li>
+					<li className="nav__item">
 						<Link to="/">
-							<div className="nav__item">
-								<p>Top Tracks</p>
-							</div>
+							<Icon icon="line-md:play" />
+							<p>Top Tracks</p>
 						</Link>
 					</li>
-					<li>
+					<li className="nav__item">
 						<Link to="/">
-							<div className="nav__item">
-								<p>Playlist</p>
-							</div>
+							<Icon icon="line-md:list" />
+							<p>Playlist</p>
 						</Link>
 					</li>
 				</ul>
