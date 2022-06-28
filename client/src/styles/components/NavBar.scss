@@ -27,6 +27,9 @@ nav {
 		&:hover {
 			@apply bg-secondary text-white;
 		}
+		&.active {
+			@apply bg-secondary text-white;
+		}
 	}
 	svg {
 		@apply text-xl;

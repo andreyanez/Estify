@@ -118,13 +118,31 @@ export const accessToken = getAccessToken();
  * Axios global request headers
  * https://github.com/axios/axios#global-axios-defaults
  */
-axios.defaults.baseURL = 'https://api.spotify.com/v1';
-axios.defaults.headers['Authorization'] = `Bearer ${accessToken}`;
-axios.defaults.headers['Content-Type'] = 'application/json';
+// axios.defaults.baseURL = 'https://api.spotify.com/v1';
+
+const headers = {
+	Authorization: `Bearer ${accessToken}`,
+	'Content-Type': 'application/json',
+};
 
 /**
  * Get Current User's Profile
  * https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-current-users-profile
  * @returns {Promise}
  */
-export const getCurrentUserProfile = () => axios.get('/me');
+export const getCurrentUserProfile = () => axios.get('https://api.spotify.com/v1/me', { headers });
+
+/**
+ * Get User's Followed Artists
+ * https://developer.spotify.com/documentation/web-api/reference/follow/get-followed/
+ */
+export const getFollowing = () =>
+	axios.get('https://api.spotify.com/v1/me/following?type=artist', { headers });
+
+/**
+ * Get a List of Current User's Playlists
+ * https://developer.spotify.com/documentation/web-api/reference/#endpoint-get-a-list-of-current-users-playlists
+ * @returns {Promise}
+ */
+export const getPlaylists = () =>
+	axios.get('https://api.spotify.com/v1/me/playlists?limit=10', { headers });

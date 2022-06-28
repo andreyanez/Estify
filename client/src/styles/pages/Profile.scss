@@ -1,0 +1,23 @@
+.profile__top {
+	@apply pt-24 mb-8;
+	h1 {
+		@apply text-5xl text-center;
+		font-family: var(--Bold);
+	}
+	ul {
+		@apply my-6 flex gap-4 justify-center;
+	}
+	li {
+		@apply text-center basis-24 block  text-neutral;
+		strong {
+			@apply text-secondary;
+		}
+	}
+	button {
+		@apply block mx-auto;
+	}
+}
+
+.profile__img {
+	@apply w-40 h-40 mb-8 rounded-full mx-auto shadow-lg overflow-hidden;
+}

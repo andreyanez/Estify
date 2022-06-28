@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
 import { Icon } from '@iconify/react';
+import { logout } from '../spotify';
 
 const year: Date = new Date();
 
@@ -9,32 +10,33 @@ export const NavBar = () => {
 		<header>
 			<div>
 				<p>Estify</p>
+				<button onClick={logout}>Cerrar Sesión</button>
 			</div>
 			<nav>
 				<ul className="nav__main">
 					<li className="nav__item">
-						<Link to="/">
+						<NavLink to="/">
 							<Icon icon="line-md:account" />
 							<p>Profile</p>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="nav__item">
-						<Link to="/">
+						<NavLink to="/artists">
 							<Icon icon="line-md:heart" />
 							<p>Top Artists</p>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="nav__item">
-						<Link to="/">
+						<NavLink to="/tracks">
 							<Icon icon="line-md:play" />
 							<p>Top Tracks</p>
-						</Link>
+						</NavLink>
 					</li>
 					<li className="nav__item">
-						<Link to="/">
+						<NavLink to="/playlists">
 							<Icon icon="line-md:list" />
 							<p>Playlist</p>
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			</nav>

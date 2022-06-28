@@ -2,11 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: 'CircularStd-Book';
+	src: url('/fonts/CircularStd-Book.woff2') format('woff2'),
+		url('/fonts/CircularStd-Book.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CircularStd-Bold';
+	src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
+		url('/fonts/CircularStd-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CircularStd-Black';
+	src: url('/fonts/CircularStd-Black.woff2') format('woff2'),
+		url('/fonts/CircularStd-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
 :root {
 	--transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 	--bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+	--Book: 'CircularStd-Book';
+	--Bold: 'CircularStd-Bold';
+	--Black: 'CircularStd-Black';
 }
 
 body {
 	@apply bg-primary text-white;
+	font-family: var(--Book);
+}
+
+.main__button {
+	@apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-secondary hover:bg-secondarytwo focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white;
 }
