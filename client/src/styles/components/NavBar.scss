@@ -1,0 +1,32 @@
+header {
+	@apply fixed left-0 top-0 w-28 bg-black h-screen flex flex-col justify-between items-center py-8;
+}
+
+nav {
+	@apply w-full;
+}
+
+.nav__main {
+	li {
+		@apply m-0;
+	}
+	a {
+		@apply flex flex-col items-center justify-center text-xs text-neutral;
+		transition: var(--transition);
+		height: 70px;
+		&:hover {
+			@apply bg-secondary text-white;
+		}
+	}
+}
+
+.nav__bottom {
+	@apply p-4 text-xs text-center;
+	a {
+		@apply block mb-2;
+		transition: var(--transition);
+		&:hover {
+			@apply text-secondary;
+		}
+	}
+}

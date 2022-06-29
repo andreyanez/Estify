@@ -3,7 +3,7 @@ const LOGIN_URI =
 		? 'http://localhost:8080/login'
 		: 'https://estify.vercel.com';
 
-const Login = () => {
+export const Login = () => {
 	return (
 		<div className="relative bg-white overflow-hidden min-h-screen flex items-center">
 			<div className="max-w-7xl h-full relative">
@@ -46,5 +46,3 @@ const Login = () => {
 		</div>
 	);
 };
-
-export default Login;

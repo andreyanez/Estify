@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { accessToken, logout } from './spotify.js';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Login from './pages/login.js';
+import { Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Login, Profile } from './pages';
+import { NavBar } from './components/navBar';
 
 function ScrollToTop() {
 	const { pathname } = useLocation();
@@ -22,16 +23,19 @@ function App() {
 
 	return (
 		<>
-			<main className="App">
-				{!token ? (
-					<Login />
-				) : (
-					<>
-						<h1 className="text-teal-400">Bienvenido</h1>
-						<button onClick={logout}>Cierra sesión</button>
-					</>
-				)}
-			</main>
+			{!token ? (
+				<Login />
+			) : (
+				<>
+					<NavBar />
+					<main className="container mx-auto max-w-7xl px-20">
+						<ScrollToTop />
+						<Routes>
+							<Route path="/" element={<Profile />} />
+						</Routes>
+					</main>
+				</>
+			)}
 		</>
 	);
 }
