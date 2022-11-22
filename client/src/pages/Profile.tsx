@@ -1,28 +1,22 @@
 import { getCurrentUserProfile, logout, getPlaylists, getFollowing } from '../spotify';
 import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import '../styles/pages/Profile.scss';
 
 export const Profile = () => {
-	const [profile, setProfile] = useState<any>(null);
-	const [playlists, setPlaylists] = useState<any>(null);
-	const [followedArtists, setFollowedArtists] = useState<any>(null);
+	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
+	const playlistsQuery = useQuery(['playlists'], getPlaylists);
+	const followingQuery = useQuery(['following'], getFollowing);
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const userFollowedArtists = await getFollowing();
-				setFollowedArtists(userFollowedArtists.data);
-				const userProfile = await getCurrentUserProfile();
-				setProfile(userProfile.data);
-				const userPlaylists = await getPlaylists();
-				setPlaylists(userPlaylists.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
+	const isLoading = profileQuery.isLoading || playlistsQuery.isLoading || followingQuery.isLoading;
 
-		fetchData();
-	}, []);
+	if (isLoading) {
+		return <span>Loading...</span>;
+	}
+
+	const profile = profileQuery.data.data;
+	const playlists = playlistsQuery.data.data;
+	const followedArtists = followingQuery.data?.data;
 
 	return (
 		<>

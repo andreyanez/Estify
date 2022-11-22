@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import { accessToken, logout } from './spotify.js';
+import { accessToken } from './spotify.js';
 import { Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Login, Profile } from './pages';
 import { NavBar } from './components/navBar';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function ScrollToTop() {
 	const { pathname } = useLocation();
@@ -26,15 +29,17 @@ function App() {
 			{!token ? (
 				<Login />
 			) : (
-				<>
-					<NavBar />
-					<main className="container mx-auto max-w-7xl px-20">
-						<ScrollToTop />
-						<Routes>
-							<Route path="/" element={<Profile />} />
-						</Routes>
-					</main>
-				</>
+				<QueryClientProvider client={queryClient}>
+					<>
+						<NavBar />
+						<main className="container mx-auto max-w-7xl px-20">
+							<ScrollToTop />
+							<Routes>
+								<Route path="/" element={<Profile />} />
+							</Routes>
+						</main>
+					</>
+				</QueryClientProvider>
 			)}
 		</>
 	);
