@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/components/ArtistList.scss';
+import '../styles/components/TrackList.scss';
 
 export const TrackList = () => {
 	return (
@@ -10,27 +10,47 @@ export const TrackList = () => {
 					VER MÁS
 				</button>
 			</div>
-			<ul className="artist__list">
-				<li className="artist__list_item">
+			<ul className="track_list">
+				<li className="track__list_item">
 					<Link to={'/artist/:id'}>
-						<div className="artist__list_item__img">
-							<img
-								src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-								alt=""
-							/>
+						<div>
+							<div className="track__list_item__img">
+								<img
+									src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+									alt=""
+								/>
+							</div>
+							<div>
+								<span className="track__title">Prayer for Rain</span>
+								<div className="track__credits">
+									<span>Bibio</span>
+									{' ·  '}
+									<span>Phantom Brickworks</span>
+								</div>
+							</div>
 						</div>
-						<span>Tycho</span>
+						<span className="track__length">13:47</span>
 					</Link>
 				</li>
-				<li className="artist__list_item">
+				<li className="track__list_item">
 					<Link to={'/artist/:id'}>
-						<div className="artist__list_item__img">
-							<img
-								src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-								alt=""
-							/>
+						<div>
+							<div className="track__list_item__img">
+								<img
+									src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+									alt=""
+								/>
+							</div>
+							<div>
+								<span className="track__title">Prayer for Rain</span>
+								<div className="track__credits">
+									<span>Bibio</span>
+									{'.'}
+									<span>Phantom Brickworks</span>
+								</div>
+							</div>
 						</div>
-						<span>Tycho</span>
+						<span className="track__length">13:47</span>
 					</Link>
 				</li>
 			</ul>
