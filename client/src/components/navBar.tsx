@@ -10,7 +10,6 @@ export const NavBar = () => {
 		<header>
 			<div>
 				<p>Estify</p>
-				<button onClick={logout}>Cerrar Sesión</button>
 			</div>
 			<nav>
 				<ul className="nav__main">

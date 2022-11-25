@@ -1,6 +1,8 @@
 .artist__card {
+	@apply overflow-hidden;
 	flex-basis: 66%;
 	h3 {
+		@apply font-medium text-white text-6xl mb-6;
 		font-family: var(--Bold);
 	}
 }

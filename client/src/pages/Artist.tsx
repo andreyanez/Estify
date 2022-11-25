@@ -14,7 +14,7 @@ export const Artist = () => {
 	}
 
 	return (
-		<article className="mt-40">
+		<article className="mt-20">
 			<div className="breadcrumb">
 				<Link to={'..'}>
 					<Icon icon="ri-arrow-drop-left-line" />
@@ -25,9 +25,9 @@ export const Artist = () => {
 				<div className="artist__img">
 					<img src={artist.data.images[1].url} alt={artist.data.name} />
 				</div>
-				<div className="overflow-hidden artist__card">
-					<div className=" py-5 ">
-						<h3 className="font-medium text-white text-6xl mb-6">{artist.data.name}</h3>
+				<div className="artist__card">
+					<div className="py-5 ">
+						<h3>{artist.data.name}</h3>
 						<ul className="max-w-2xl text-lg text-neutral space-x-2 mb-4">
 							{artist.data.genres.map((genre: any, index: number) => {
 								return (

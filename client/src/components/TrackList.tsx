@@ -17,9 +17,9 @@ export const TrackList = () => {
 		<div className="artist__container">
 			<div className="flex justify-between mb-12 items-center">
 				<h2>Top Tracks de todos los tiempos</h2>
-				<button type="button" className="main__button">
-					VER MÁS
-				</button>
+				<Link to={'/tracks'} className="main__button">
+					Ver más
+				</Link>
 			</div>
 			<ul className="track__list">
 				{topTracks.items.slice(0, 10).map((track: any, index: number) => {
