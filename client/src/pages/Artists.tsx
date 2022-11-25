@@ -15,22 +15,13 @@ export const Artists = () => {
 	};
 
 	//react query fires function which return a api call
-	const { data: artists, refetch, isLoading }: any = useQuery(['artists'], fetchArtists);
+	// i set the activeRange state as as key so the
+	// query updates when a setActveRange function fires
+	const { data: artists, isLoading }: any = useQuery(['artists', { activeRange }], fetchArtists);
 
 	if (isLoading) {
 		return <span className="mt-60 block">Loading...</span>;
 	}
-
-	// changes the range state and then refetches data
-	// i am using setTimeout because otherwise
-	// react-query doesnt read the new state before refetch
-	// reason? pending..
-	const setRangeData = (range: string) => {
-		setActiveRange(range);
-		setTimeout(async () => {
-			await refetch();
-		}, 100);
-	};
 
 	return (
 		<div className="py-20">
@@ -40,7 +31,7 @@ export const Artists = () => {
 					<li>
 						<button
 							className={activeRange === 'long' ? 'active' : ''}
-							onClick={() => setRangeData('long')}
+							onClick={() => setActiveRange('long')}
 						>
 							Todos los tiempos
 						</button>
@@ -48,7 +39,7 @@ export const Artists = () => {
 					<li>
 						<button
 							className={activeRange === 'medium' ? 'active' : ''}
-							onClick={() => setRangeData('medium')}
+							onClick={() => setActiveRange('medium')}
 						>
 							Últimos 6 meses
 						</button>
@@ -56,7 +47,7 @@ export const Artists = () => {
 					<li>
 						<button
 							className={activeRange === 'short' ? 'active' : ''}
-							onClick={() => setRangeData('short')}
+							onClick={() => setActiveRange('short')}
 						>
 							Últimas 4 semanas
 						</button>
