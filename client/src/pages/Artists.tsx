@@ -6,34 +6,31 @@ import { useState } from 'react';
 
 export const Artists = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
-	const artistQuery: any = useQuery(['artists'], getTopArtistsLong);
 
-	if (artistQuery.isLoading) {
+	// fetches data based on activeRange value
+	const fetchArtists = () => {
+		if (activeRange === 'long') return getTopArtistsLong();
+		if (activeRange === 'medium') return getTopArtistsMedium();
+		if (activeRange === 'short') return getTopArtistsShort();
+	};
+
+	//react query fires function which return a api call
+	const { data: artists, refetch, isLoading }: any = useQuery(['artists'], fetchArtists);
+
+	if (isLoading) {
 		return <span className="mt-60 block">Loading...</span>;
 	}
 
-	const topArtists = artistQuery.data.data;
-
-	const apiCalls = {
-		long: getTopArtistsLong(),
-		medium: getTopArtistsMedium(),
-		short: getTopArtistsShort(),
-	};
-
-	//   useEffect(() => {
-	// 	const fetchData = async () => {
-	// 	  const { data } = await getTopArtistsLong();
-	// 	  setTopArtists(data);
-	// 	};
-	// 	catchErrors(fetchData());
-	//   }, []);
-
-	const changeRange = async (range: string) => {
-		// const { data } = await apiCalls[range];
-		// setTopTracks(data);
+	// changes the range state and then refetches data
+	// i am using setTimeout because otherwise
+	// react-query doesnt read the new state before refetch
+	// reason? pending..
+	const setRangeData = (range: string) => {
 		setActiveRange(range);
+		setTimeout(async () => {
+			await refetch();
+		}, 100);
 	};
-	const setRangeData = (range: string) => changeRange(range);
 
 	return (
 		<div className="py-20">
@@ -41,19 +38,33 @@ export const Artists = () => {
 				<h1 className="filter__title">Top Artistas</h1>
 				<ul className="filter__list">
 					<li>
-						<button onClick={() => setRangeData('long')}>Todos los tiempos</button>
-						{/* <RangeButton activeRange={activeRange} setActiveRange={setActiveRange} /> */}
-					</li>
-					{/* <li>
-						<button isActive={activeRange === 'long'}>Últimos 6 meses</button>
+						<button
+							className={activeRange === 'long' ? 'active' : ''}
+							onClick={() => setRangeData('long')}
+						>
+							Todos los tiempos
+						</button>
 					</li>
 					<li>
-						<button isActive={activeRange === 'long'}>Últimas 4 semanas</button>
-					</li> */}
+						<button
+							className={activeRange === 'medium' ? 'active' : ''}
+							onClick={() => setRangeData('medium')}
+						>
+							Últimos 6 meses
+						</button>
+					</li>
+					<li>
+						<button
+							className={activeRange === 'short' ? 'active' : ''}
+							onClick={() => setRangeData('short')}
+						>
+							Últimas 4 semanas
+						</button>
+					</li>
 				</ul>
 			</div>
 			<ul className="artists__grid">
-				{topArtists.items.map((artist: any, index: number) => {
+				{artists.data.items.map((artist: any, index: number) => {
 					return (
 						<li className="artist__item" key={index}>
 							<Link to={`/artist/${artist.id}`}>
@@ -69,14 +80,3 @@ export const Artists = () => {
 		</div>
 	);
 };
-
-// const RangeButton = ({ activeRange:string, setActiveRange }) => {
-// 	return (
-// 		<button
-// 			className={activeRange === 'short' ? 'active' : ''}
-// 			onClick={() => setActiveRange('short')}
-// 		>
-// 			This Month
-// 		</button>
-// 	);
-// };

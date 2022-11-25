@@ -9,7 +9,8 @@
 		@apply text-neutral p-3 inline-block leading-snug;
 		font-family: var(--Bold);
 		&:hover,
-		&:focus {
+		&:focus,
+		&.active {
 			@apply text-white underline;
 		}
 	}
