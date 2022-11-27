@@ -20,7 +20,7 @@ export const Playlists = () => {
 				{playlists.items.map((playlist: any, index: number) => {
 					return (
 						<li className="artist__item playlist__item" key={index}>
-							<Link to={`/playlists/${playlist.id}`}>
+							<Link to={`/playlist/${playlist.id}`}>
 								<div className="artist_item__img">
 									<img src={playlist.images[0].url} alt={playlist.name} />
 								</div>

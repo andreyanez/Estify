@@ -118,8 +118,6 @@ app.get('/refresh_token', async (req, res) => {
 			method: 'post',
 			url: 'https://accounts.spotify.com/api/token',
 			headers: {
-				Accept: 'application/json',
-				'Accept-Encoding': 'identity',
 				'Content-Type': 'application/x-www-form-urlencoded',
 				Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
 					'base64'
