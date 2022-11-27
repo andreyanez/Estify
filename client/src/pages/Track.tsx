@@ -8,13 +8,13 @@ import { formatDuration, parsePitchClass } from '../utils';
 export const Track = () => {
 	const { id } = useParams();
 
-	const { data: track, isLoading }: any = useQuery(['artist'], () => getTrack(id), {
+	const { data: track, isLoading }: any = useQuery(['artist'], () => getTrack(id!), {
 		cacheTime: 0,
 	});
 
 	const { data: features, isLoading: featureLoading }: any = useQuery(
 		['features'],
-		() => getTrackAudioFeatures(id),
+		() => getTrackAudioFeatures(id!),
 		{
 			cacheTime: 0,
 		}
@@ -22,7 +22,7 @@ export const Track = () => {
 
 	const { data: analysis, isLoading: analysisLoading }: any = useQuery(
 		['analysis'],
-		() => getTrackAudioAnalysis(id),
+		() => getTrackAudioAnalysis(id!),
 		{
 			cacheTime: 0,
 		}
