@@ -39,8 +39,8 @@ export const FeatureChart = ({ features }: { features: any }) => {
 			const dataset: any = {};
 			properties.forEach(prop => {
 				dataset[prop] = features.length
-					? avg(features.map((feat: any) => feat[prop]))
-					: features[prop as keyof AudioFeatures];
+					? avg(features.map((feat: any) => feat && feat[prop]))
+					: features[prop];
 			});
 			return dataset;
 		};

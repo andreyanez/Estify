@@ -5,6 +5,7 @@ import { getPlaylist, getAudioFeaturesForTracks } from '../spotify';
 import '../styles/pages/Playlist.sass';
 import { useMemo, useState, useEffect } from 'react';
 import axios from 'axios';
+import { FeatureChart } from '../components/FeatureChart';
 
 export const Playlist = () => {
 	const { id } = useParams();
@@ -98,12 +99,15 @@ export const Playlist = () => {
 			{playlist ? (
 				<div className="playlist__container">
 					<div className="playlist__info">
-						<img src={playlist.images[0].url} alt={playlist.name} />
-						<h1>{playlist.name}</h1>
-						<div className="flex items-center justify-evenly text-center">
-							<h2>Creada por {playlist.owner.display_name}</h2>
-							<p>{playlist.tracks.total} tracks</p>
+						<div>
+							<img src={playlist.images[0].url} alt={playlist.name} />
+							<h1>{playlist.name}</h1>
+							<div className="flex items-center justify-evenly text-center">
+								<h2>Creada por {playlist.owner.display_name}</h2>
+								<p>{playlist.tracks.total} tracks</p>
+							</div>
 						</div>
+						{audioFeatures && <FeatureChart features={audioFeatures} />}
 					</div>
 					<div className="playlist__tracks">
 						<div className="mb-8 block w-72 mx-auto mr-0 filter">
