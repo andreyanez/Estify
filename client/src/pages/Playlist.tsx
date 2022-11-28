@@ -105,17 +105,14 @@ export const Playlist = () => {
 							<p>{playlist.tracks.total} tracks</p>
 						</div>
 					</div>
-					<div>
-						<div>
-							<label className="sr-only" htmlFor="order-select">
-								Ordena tracks
-							</label>
+					<div className="playlist__tracks">
+						<div className="mb-8 block w-72 mx-auto mr-0 filter">
+							<label htmlFor="order-select">Ordena tus tracks por:</label>
 							<select
-								name="track-order"
 								id="order-select"
+								name="track-order"
 								onChange={e => setSortValue(e.target.value)}
 							>
-								<option value="">Sort tracks</option>
 								{sortOptions.map((option, i) => (
 									<option value={option} key={i}>
 										{`${option.charAt(0).toUpperCase()}${option.slice(1)}`}

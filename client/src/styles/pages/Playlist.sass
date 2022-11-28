@@ -3,7 +3,7 @@
     .track__list
         flex-grow: 1
 .playlist__info
-    flex-basis: 39%
+    flex-basis: 34%
     img
         @apply max-w-xs mx-auto mb-8
     h1
@@ -11,3 +11,13 @@
         font-family: var(--Bold)
     h2
         @apply text-neutral
+
+.playlist__tracks
+    flex-basis: 80%
+
+.filter
+    label
+        @apply block text-right text-base text-neutral mb-2
+    select
+        background-color: #3c3a44
+        @apply w-full pl-3 pr-10 py-2  text-white border-none  rounded-md focus:outline-none sm:text-sm
