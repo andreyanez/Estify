@@ -71,7 +71,9 @@ export const Track = () => {
 						</div>
 						{track.data.preview_url && (
 							<div className="mb-6">
-								<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
+								<div className=" player__container">
+									<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
+								</div>
 								<span className="text-sm text-center block pr-20">Preview</span>
 							</div>
 						)}
