@@ -69,10 +69,12 @@ export const Track = () => {
 							{' · '}
 							<span>{track.data.album.release_date.substring(0, 4)}</span>
 						</div>
-						<div className="mb-6">
-							<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
-							<span className="text-sm text-center block pr-20">Preview</span>
-						</div>
+						{track.data.preview_url && (
+							<div className="mb-6">
+								<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
+								<span className="text-sm text-center block pr-20">Preview</span>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className="track__features">
