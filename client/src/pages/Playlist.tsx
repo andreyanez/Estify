@@ -104,7 +104,7 @@ export const Playlist = () => {
 						<div>
 							<img src={playlist.images[0].url} alt={playlist.name} />
 							<h1>{playlist.name}</h1>
-							{playlist.description && <p>{playlist.description}</p>}
+							{/* {playlist.description && <div>{playlist.description}</div>} */}
 							<div className="flex items-center justify-evenly text-center">
 								<h2>Creada por {playlist.owner.display_name}</h2>
 								<span>{playlist.tracks.total} tracks</span>
@@ -117,7 +117,6 @@ export const Playlist = () => {
 								<Link to={'/features'} className="text-neutral mt-4 block underline">
 									¿Que es esto?
 								</Link>
-								{/* <Link></Link> */}
 							</div>
 						)}
 					</div>
