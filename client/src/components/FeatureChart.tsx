@@ -22,6 +22,16 @@ interface AudioFeatures {
 	valence: number;
 }
 
+interface dataset {
+	acousticness?: number;
+	danceability?: number;
+	energy?: number;
+	instrumentalness?: number;
+	liveness?: number;
+	speechiness?: number;
+	valence?: number;
+}
+
 const properties = [
 	'acousticness',
 	'danceability',
@@ -32,21 +42,31 @@ const properties = [
 	'valence',
 ];
 
-export const FeatureChart = ({ features, type }: { features: any; type?: string }) => {
-	const avg = (arr: []) => arr.reduce((a, b) => a + b, 0) / arr.length;
+export const FeatureChart = ({
+	features,
+	type,
+}: {
+	features: AudioFeatures[] | AudioFeatures;
+	type?: string;
+}) => {
+	const avg = (arr: number[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
 	useEffect(() => {
-		const createDataset = (features: any) => {
-			const dataset: any = {};
-			properties.forEach(prop => {
-				dataset[prop] = features.length
-					? avg(features.map((feat: any) => feat && feat[prop]))
-					: features[prop];
+		const createDataset = (features: AudioFeatures[] | AudioFeatures) => {
+			let dataset: dataset = {};
+			properties.forEach((property: string) => {
+				dataset[property as keyof dataset] = Array.isArray(features)
+					? avg(
+							features.map(
+								(feat: AudioFeatures) => feat[property as keyof AudioFeatures]
+							) as number[]
+					  )
+					: (features[property as keyof AudioFeatures] as number);
 			});
+
 			return dataset;
 		};
 
-		const createChart = (dataset: {}) => {
-			// const ctx: any = document.getElementById('chart');
+		const createChart = (dataset: dataset) => {
 			const labels = Object.keys(dataset);
 			const data = Object.values(dataset);
 

@@ -31,11 +31,7 @@ export const Track = () => {
 	);
 
 	if (isLoading || featureLoading || analysisLoading) {
-		return (
-			<div className="">
-				<Loader />
-			</div>
-		);
+		return <Loader />;
 	}
 
 	return (
