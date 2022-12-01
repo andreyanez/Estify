@@ -1,5 +1,5 @@
 import Chart from 'chart.js/auto';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AudioFeatures {
 	acousticness: number;
@@ -50,6 +50,10 @@ export const FeatureChart = ({
 	type?: string;
 }) => {
 	const avg = (arr: number[]) => arr.reduce((a, b) => a + b, 0) / arr.length;
+
+	const chartRef = useRef<HTMLCanvasElement>(null);
+	const [myChart, setMyChart] = useState<any>(null);
+
 	useEffect(() => {
 		const createDataset = (features: AudioFeatures[] | AudioFeatures) => {
 			let dataset: dataset = {};
@@ -66,11 +70,11 @@ export const FeatureChart = ({
 			return dataset;
 		};
 
-		const createChart = (dataset: dataset) => {
+		const createChart = (dataset: dataset, ctx: any) => {
 			const labels = Object.keys(dataset);
 			const data = Object.values(dataset);
 
-			new Chart(document.getElementById('chart') as HTMLCanvasElement, {
+			new Chart(ctx, {
 				type: 'bar',
 				data: {
 					labels,
@@ -103,12 +107,20 @@ export const FeatureChart = ({
 		};
 
 		const parseData = () => {
+			if (!chartRef) return;
+			const ctx = chartRef?.current?.getContext('2d');
 			const dataset = createDataset(features);
-			createChart(dataset);
+			createChart(dataset, ctx);
+			setMyChart(myChart);
 		};
 
 		parseData();
-	}, [features]);
+	}, [chartRef]);
 
-	return <canvas id="chart" height="200" />;
+	useEffect(() => {
+		if (!myChart) return;
+		myChart.update();
+	}, [features, myChart]);
+
+	return <canvas id="chart" height="200" ref={chartRef} />;
 };

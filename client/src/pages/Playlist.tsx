@@ -1,7 +1,7 @@
 // import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { formatDuration } from '../utils';
-import { getPlaylist, getAudioFeaturesForTracks } from '../spotify';
+import { getPlaylist, getAudioFeaturesForTracks, getNextTracks } from '../spotify';
 import '../styles/pages/Playlist.sass';
 import { useMemo, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -36,9 +36,9 @@ export const Playlist = () => {
 
 		// When tracksData updates, check if there are more tracks to fetch
 		// then update the state variable
-		const fetchMoreData = async () => {
+		const fetchMoreData = async (): Promise<void> => {
 			if (tracksData.next) {
-				const { data } = await axios.get(tracksData.next);
+				const { data } = await getNextTracks(tracksData.next);
 				setTracksData(data);
 			}
 		};
@@ -49,6 +49,7 @@ export const Playlist = () => {
 
 		// Also update the audioFeatures state variable using the track IDs
 		const fetchAudioFeatures = async () => {
+			// const ids = tracksData.items.map(({ track }: { track: any }) => track.id).join(',');
 			const { data } = await getAudioFeaturesForTracks(tracksData.items);
 			setAudioFeatures((audioFeatures: any) => [
 				...(audioFeatures ? audioFeatures : []),
@@ -87,10 +88,13 @@ export const Playlist = () => {
 		if (!tracksWithAudioFeatures) {
 			return null;
 		}
-
-		return [...tracksWithAudioFeatures].sort((a, b) => {
+		return [...tracksWithAudioFeatures].sort((a, b): any => {
 			const aFeatures = a['audio_features'];
 			const bFeatures = b['audio_features'];
+
+			if (!aFeatures || !bFeatures) {
+				return;
+			}
 
 			return bFeatures[sortValue] - aFeatures[sortValue];
 		});
@@ -104,7 +108,6 @@ export const Playlist = () => {
 						<div>
 							<img src={playlist.images[0].url} alt={playlist.name} />
 							<h1>{playlist.name}</h1>
-							{/* {playlist.description && <div>{playlist.description}</div>} */}
 							<div className="flex items-center justify-evenly text-center">
 								<h2>Creada por {playlist.owner.display_name}</h2>
 								<span>{playlist.tracks.total} tracks</span>
