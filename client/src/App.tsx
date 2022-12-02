@@ -43,7 +43,7 @@ function App() {
 					<>
 						<NavBar />
 						<div className="pl-28">
-							<main className="container min-h-screen mx-auto px-20 py-24">
+							<main className="main__container min-h-screen mx-auto px-20 py-24">
 								<ScrollToTop />
 								<Routes>
 									<Route path="/" element={<Profile />} />

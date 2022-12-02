@@ -79,6 +79,12 @@ const getAccessToken = (): string | null => {
 export const accessToken = getAccessToken();
 
 export const logout = (): void => {
+	//Cleaning the parameters in the url
+	//so when the page reloads and cant find the url params
+	//it will show the login page
+	let url = document.location.href;
+	window.history.pushState({}, '', url.split('?')[0]);
+
 	// Clear all localStorage items
 	window.localStorage.removeItem('spotify_token_timestamp');
 	window.localStorage.removeItem('spotify_access_token');
