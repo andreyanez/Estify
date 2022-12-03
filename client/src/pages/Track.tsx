@@ -114,11 +114,11 @@ export const Track = () => {
 			</section>
 			<section className="track__chart__data">
 				<div className="track__chart">
-					<h4>Características auditivas de {track.data.name}</h4>
+					<h4>Propiedades auditivas de {track.data.name}</h4>
 					<FeatureChart features={features.data} />
 				</div>
 				<div className="track__paragraph">
-					<h5>Descripción de las características auditivas</h5>
+					<h5>Descripción de las propiedades auditivas</h5>
 					<ul>
 						<li>
 							<p>

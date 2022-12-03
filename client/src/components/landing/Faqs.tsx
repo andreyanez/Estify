@@ -8,8 +8,8 @@ const faqs = [
 				'Estify usa la API de Spotify para leer y visualizar tus artistas y tracks favoritos.',
 		},
 		{
-			question: 'Es necesario tener una cuenta premium de Spotify?',
-			answer: 'P.',
+			question: 'Es necesario tener una cuenta premium de Spotify para usar Estify?',
+			answer: 'Para nada. El app funcionará tengas una cuenta free o premium.',
 		},
 		{
 			question: 'Puedo escuchar música en el app?',
@@ -27,6 +27,12 @@ const faqs = [
 			question: 'Que tipo de información le estoy dando acceso a la app?',
 			answer:
 				'Para más información en como Estify maneja tu data, puedes darle un vistazo a nuestra',
+			link: 'Política de Privacidad.',
+		},
+		{
+			question: 'Quiero revocar los permisos que otorge a Estify, que debo hacer?',
+			answer:
+				'Si en cualquier momento deseas revocar permisos a Estify para usar tu data, puedes hacerlo siguiendo los pasos de nuestra',
 			link: 'Política de Privacidad.',
 		},
 	],
@@ -58,16 +64,18 @@ export function Faqs() {
 								{column.map((faq, faqIndex) => (
 									<li key={faqIndex}>
 										<h3 className="font-display text-lg leading-7 text-white">{faq.question}</h3>
-										<p className="mt-4 text-sm text-neutral">{faq.answer}</p>
-										{faq.link && (
-											<a
-												href="http://localhost:5173/politica"
-												className="text-sm text-secondary underline inline-block"
-												target="_blank"
-											>
-												{faq.link}
-											</a>
-										)}
+										<p className="mt-4 text-sm text-neutral">
+											{faq.answer}{' '}
+											{faq.link && (
+												<a
+													href="http://localhost:5173/politica"
+													className="text-sm text-secondary underline inline-block"
+													target="_blank"
+												>
+													{faq.link}
+												</a>
+											)}
+										</p>
 									</li>
 								))}
 							</ul>

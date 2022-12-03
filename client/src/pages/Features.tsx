@@ -4,7 +4,7 @@ export const Features = () => {
 			<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
 				<div className="lg:grid lg:grid-cols-3 lg:gap-8">
 					<div>
-						<h2 className="text-3xl font-extrabold ">¿Que son las características auditivas?</h2>
+						<h2 className="text-3xl font-extrabold ">¿Que son las propiedades auditivas?</h2>
 						<p className="mt-4 text-lg ">
 							Son parametros con los que Spotify analiza cada track, son empleados para establecer
 							playlist automatizadas o basadas en un mood específico, etc.

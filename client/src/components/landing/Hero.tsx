@@ -86,9 +86,9 @@ export const Hero = () => {
 							Tu experiencia Spotify, a detalle.
 						</h1>
 						<p className="mt-6 text-lg text-neutral">
-							Estify te da un recuento en tiempo real de tu data en Spotify. Visualiza
-							carácteristicas auditivas de tus playlists, artistas y tracks favoritos, así como tus
-							tendencias musicales.
+							Estify te da un recuento en tiempo real de tu data en Spotify. Visualiza las propiedas
+							auditivas de tus playlists, artistas y tracks favoritos, así como tus tendencias
+							musicales.
 						</p>
 						<div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
 							<a

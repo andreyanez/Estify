@@ -10,7 +10,8 @@ import { TracKItem } from '../components/TrackItem';
 export const Playlist = () => {
 	const { id } = useParams();
 	const [sortValue, setSortValue] = useState('');
-	const sortOptions = ['danceability', 'tempo', 'energy'];
+	const sortOptions = ['danceability', 'tempo', 'energy', 'valence', 'duration_ms'];
+	const displayOptions = ['Más bailables', 'Tempo', 'Energía', 'Valencia', 'Duración'];
 
 	const { playlist, audioFeatures, tracksWithAudioFeatures } = usePlaylist(id!);
 
@@ -31,6 +32,12 @@ export const Playlist = () => {
 		});
 	}, [sortValue, tracksWithAudioFeatures]);
 
+	const setSort = (value: string) => {
+		let sortIndex = displayOptions.indexOf(value);
+		let newsort = sortOptions[sortIndex];
+		setSortValue(newsort);
+	};
+
 	return (
 		<>
 			{playlist ? (
@@ -46,10 +53,10 @@ export const Playlist = () => {
 						</div>
 						{audioFeatures && (
 							<div className="mt-12 text-center">
-								<h4 className="text-base">Características auditivas de la playlist</h4>
+								<h4 className="text-base">Propiedades auditivas de la playlist</h4>
 								<FeatureChart features={audioFeatures} type="horizontal" />
 								<Link to={'/features'} className="text-neutral mt-4 block underline">
-									¿Que es esto?
+									¿Que son propiedades auditivas?
 								</Link>
 							</div>
 						)}
@@ -57,12 +64,8 @@ export const Playlist = () => {
 					<div className="playlist__tracks">
 						<div className="mb-8 block w-72 mx-auto mr-0 filter">
 							<label htmlFor="order-select">Ordena tus tracks por:</label>
-							<select
-								id="order-select"
-								name="track-order"
-								onChange={e => setSortValue(e.target.value)}
-							>
-								{sortOptions.map((option, i) => (
+							<select id="order-select" name="track-order" onChange={e => setSort(e.target.value)}>
+								{displayOptions.map((option, i) => (
 									<option value={option} key={i}>
 										{`${option.charAt(0).toUpperCase()}${option.slice(1)}`}
 									</option>
