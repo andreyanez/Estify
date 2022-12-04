@@ -46,8 +46,8 @@ function App() {
 				<QueryClientProvider client={queryClient}>
 					<>
 						<NavBar />
-						<div className="pl-28">
-							<main className="main__container min-h-screen mx-auto px-20 py-24">
+						<div className="main__wrapper">
+							<main className="main__container">
 								<ScrollToTop />
 								<Routes>
 									<Route path="/" element={<Profile />} />

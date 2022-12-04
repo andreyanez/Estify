@@ -35,21 +35,26 @@
 }
 
 body {
-	@apply bg-primary text-white min-h-screen;
+	@apply min-h-screen bg-primary text-white;
 	font-family: var(--Book);
 }
 
+.main__wrapper {
+	@apply overflow-hidden pl-0 lg:pl-28;
+}
+
 .main__container {
+	@apply mx-auto min-h-screen py-12 px-6 pb-24 md:px-12 md:py-24 lg:px-12 xl:px-20;
 	max-width: 87.5rem;
 }
 
 .main__button {
-	@apply tracking-widest inline-flex items-center px-4 py-2 border border-transparent text-sm rounded-md text-white bg-secondary hover:bg-secondarytwo focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white;
+	@apply inline-flex items-center rounded-md border border-transparent bg-secondary px-4 py-2 text-sm tracking-widest text-white hover:bg-secondarytwo focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1;
 	font-family: var(--Bold);
 }
 
 .fill__button {
-	@apply inline-flex items-center px-1 py-1 border border-white text-xs rounded-md text-white hover:bg-secondarytwo hover:border-secondary focus:outline-none;
+	@apply inline-flex items-center rounded-md border border-white px-1 py-1 text-xs text-white hover:border-secondary hover:bg-secondarytwo focus:outline-none;
 	font-family: var(--Bold);
 	transition: var(--transition);
 }
@@ -57,7 +62,7 @@ body {
 .breadcrumb {
 	@apply mb-8;
 	button {
-		@apply flex gap-2 items-center;
+		@apply flex items-center gap-2;
 		font-family: var(--Black);
 		transition: var(--transition);
 		&:hover {
@@ -70,7 +75,7 @@ body {
 }
 
 .hover_cover {
-	@apply absolute top-0 left-0 w-full h-full flex items-center justify-center z-10 pointer-events-none opacity-0;
+	@apply pointer-events-none absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center opacity-0;
 	background-color: #00000079;
 	transition: var(--transition);
 }

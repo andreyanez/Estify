@@ -10,15 +10,15 @@ export const TrackList = () => {
 
 	if (tracksQuery.isLoading) {
 		return (
-			<div className="artist__container">
+			<div className="profile__container">
 				<Loader />
 			</div>
 		);
 	}
 
 	return (
-		<div className="artist__container">
-			<div className="flex justify-between mb-12 items-center">
+		<div className="profile__container">
+			<div className="profile__container__top">
 				<h2>Tus tracks top de todos los tiempos</h2>
 				<Link to={'/tracks'} className="fill__button">
 					Ver más

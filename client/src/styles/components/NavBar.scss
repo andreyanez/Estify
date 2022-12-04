@@ -1,7 +1,10 @@
 header {
-	@apply fixed left-0 top-0 w-28 bg-black h-screen flex flex-col justify-between items-center py-8;
+	@apply fixed left-0 bottom-0 z-10 flex w-full items-center justify-between bg-black lg:top-0  lg:h-screen lg:w-28 lg:flex-col lg:py-8;
 	span {
 		font-family: var(--Black);
+	}
+	> a {
+		@apply hidden text-center lg:block;
 	}
 }
 
@@ -10,9 +13,9 @@ nav {
 }
 
 .nav__bottom {
-	@apply p-4 text-xs text-center relative;
+	@apply relative hidden p-4 text-center text-xs lg:block;
 	a {
-		@apply block mb-2;
+		@apply mb-2 block;
 		transition: var(--transition);
 		&:hover {
 			@apply text-secondary;
@@ -20,11 +23,15 @@ nav {
 	}
 }
 
+.nav__main {
+	@apply flex justify-evenly lg:block;
+}
+
 .nav__item {
-	@apply m-0;
+	@apply m-0 basis-1/4 md:grow md:basis-full lg:grow-0;
 
 	a {
-		@apply flex flex-col items-center gap-y-1 justify-center text-xs text-neutral;
+		@apply flex flex-col items-center justify-center gap-y-1 text-xs text-neutral;
 		transition: var(--transition);
 		height: 70px;
 		&:hover {

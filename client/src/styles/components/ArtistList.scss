@@ -1,15 +1,8 @@
-.artist__container {
-	width: 46%;
-	@apply relative;
-	.fill__button {
-		@apply text-sm px-4 py-2;
-	}
-}
-
 .artist__list {
-	@apply space-y-6;
+	@apply flex flex-wrap gap-y-8  lg:block lg:space-y-6;
 }
 .artist__list_item {
+	@apply basis-full md:basis-1/2 lg:basis-full;
 	a {
 		@apply flex items-center gap-5;
 	}
@@ -21,8 +14,8 @@
 }
 
 .artist__list_item__img {
-	@apply w-12 h-12 rounded-full overflow-hidden relative;
+	@apply relative h-12 w-12 overflow-hidden rounded-full;
 	img {
-		@apply w-full h-full object-cover;
+		@apply h-full w-full object-cover;
 	}
 }

@@ -1,23 +1,51 @@
 .profile__top {
-	@apply mb-24;
+	@apply mb-9 md:mb-24;
 	h1 {
-		@apply text-5xl text-center;
+		@apply text-center text-4xl md:text-5xl;
 		font-family: var(--Bold);
 	}
 	ul {
-		@apply my-6 flex gap-4 justify-center;
+		@apply my-6 flex justify-center gap-4;
 	}
 	li {
-		@apply text-center basis-24 block  text-neutral;
+		@apply block basis-24 text-center  text-neutral;
 		strong {
 			@apply text-secondary;
 		}
 	}
 	button {
-		@apply block mx-auto;
+		@apply mx-auto block;
 	}
 }
 
 .profile__img {
-	@apply w-40 h-40 mb-8 rounded-full mx-auto shadow-lg overflow-hidden;
+	@apply mx-auto mb-8 h-40 w-40 overflow-hidden rounded-full shadow-lg;
+}
+
+.profile__bottom {
+	@apply mb-0 justify-between space-y-12 lg:mb-20 lg:flex lg:space-y-0;
+	.fill__button {
+		@apply mx-auto block p-4 text-sm lg:hidden;
+	}
+}
+
+.profile__container {
+	width: 100%;
+	@apply relative overflow-hidden;
+	.fill__button {
+		@apply mt-8 block w-fit p-2 px-4 md:hidden;
+	}
+}
+
+.profile__container__top {
+	@apply mb-8 flex items-center justify-center md:mb-12 md:justify-between;
+	.fill__button {
+		@apply m-0 hidden px-4 py-2 text-sm md:block;
+	}
+}
+
+@media (min-width: 1024px) {
+	.profile__container {
+		width: 46%;
+	}
 }

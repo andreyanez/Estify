@@ -18,20 +18,45 @@
 }
 
 .track__list_item__img {
-	@apply w-12 h-12 overflow-hidden relative;
+	@apply relative h-12 w-12 overflow-hidden;
 	img {
-		@apply w-full h-full object-cover;
+		@apply h-full w-full object-cover;
 	}
 }
 
 .track__title {
 	@apply text-base;
+	// text-overflow: unset !important;
 }
 
 .track__credits {
-	@apply text-neutral text-sm;
+	@apply text-sm text-neutral;
+}
+
+.track__title,
+.track__credits {
+	@apply overflow-hidden text-ellipsis whitespace-nowrap;
+}
+
+.track__data {
+	@apply overflow-hidden text-ellipsis;
+	width: 10rem;
 }
 
 .track__length {
 	@apply text-sm text-neutral;
+}
+
+.track__list_item__container {
+	@apply flex gap-5;
+	width: inherit;
+}
+
+@media (min-width: 768px) {
+	.track__data {
+		width: inherit;
+	}
+	.track__list_item__container {
+		width: 80%;
+	}
 }

@@ -10,15 +10,15 @@ export const ArtistList = () => {
 
 	if (isLoading) {
 		return (
-			<div className="artist__container">
+			<div className="profile__container">
 				<Loader />
 			</div>
 		);
 	}
 
 	return (
-		<div className="artist__container">
-			<div className="flex justify-between mb-12 items-center">
+		<div className="profile__container">
+			<div className="profile__container__top">
 				<h2>Tus artistas top de todos los tiempos</h2>
 				<Link to={'/artists'} className="fill__button">
 					Ver más
@@ -30,6 +30,7 @@ export const ArtistList = () => {
 					return (
 						<li className="artist__list_item" key={index}>
 							<Link to={`/artist/${artist.id}`}>
+								<small>{index + 1}.</small>
 								<div className="artist__list_item__img">
 									<img src={artist.images[2].url} alt={artist.name} />
 									<HoverCover />
@@ -40,6 +41,9 @@ export const ArtistList = () => {
 					);
 				})}
 			</ul>
+			<Link to={'/artists'} className="fill__button">
+				Ver más
+			</Link>
 		</div>
 	);
 };

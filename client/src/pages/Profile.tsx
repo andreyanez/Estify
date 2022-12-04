@@ -44,9 +44,12 @@ export const Profile = () => {
 					</li>
 				</ul>
 			</div>
-			<section className="profile__bottom flex justify-between mb-20">
+			<section className="profile__bottom">
 				<ArtistList />
 				<TrackList />
+				<button onClick={logout} type="button" className="fill__button">
+					Cerrar Sesión
+				</button>
 			</section>
 		</>
 	);

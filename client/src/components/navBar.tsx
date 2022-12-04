@@ -16,7 +16,7 @@ export const NavBar = () => {
 
 	return (
 		<header>
-			<Link to={'/'} className="text-center">
+			<Link to={'/'}>
 				<img src="/estify.png" className="mx-auto h-12 w-auto" alt="estify" />
 				<span className="text-xs">Estify</span>
 			</Link>
