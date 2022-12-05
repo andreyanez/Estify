@@ -1,15 +1,20 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
 import { Icon } from '@iconify/react';
 import { logout } from '../spotify';
 
 export const NavBar = () => {
-	// const profileQuery = useQuery(['profile'], getCurrentUserProfile);
+	const navigate = useNavigate();
 
+	// const profileQuery = useQuery(['profile'], getCurrentUserProfile);
 	// if (profileQuery.isLoading) {
 	// 	return <Loader />;
 	// }
 
+	const logoutFunc = () => {
+		navigate('/');
+		logout();
+	};
 	return (
 		<header>
 			<Link to={'/'}>
@@ -45,7 +50,7 @@ export const NavBar = () => {
 				</ul>
 			</nav>
 			<div className="nav__bottom">
-				<button onClick={logout} type="button" className="fill__button">
+				<button onClick={logoutFunc} type="button" className="fill__button">
 					Cerrar Sesión
 				</button>
 			</div>
