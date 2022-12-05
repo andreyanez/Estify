@@ -1,25 +1,38 @@
 .playlist__container
-    @apply flex justify-between gap-20
+    @apply lg:flex justify-between gap-5 xl:gap-20
     .track__list
-        flex-grow: 1
+        @apply xl:grow
 .playlist__info
     flex-basis: 34%
-    @apply sticky top-12 h-fit
+    @apply lg:sticky mb-16 lg:mb-0 lg:top-12 lg:h-fit
     img
-        @apply max-w-xs mx-auto mb-8
+        @apply md:max-w-xs mx-auto mb-8
     h1
-        @apply text-center text-2xl mb-3
+        @apply text-center text-lg md:text-2xl mb-3
         font-family: var(--Bold)
     h2
         @apply text-neutral
     p
         @apply text-neutral text-center text-sm mb-8
 .playlist__tracks
-    flex-basis: 80%
-
+    @apply grow
+    .track__data
+        width: 10rem
 .filter
     label
-        @apply block text-right text-base text-neutral mb-2
+        @apply block text-center lg:text-right text-base text-neutral mb-2
     select
         background-color: #3c3a44
         @apply w-full pl-3 pr-10 py-2  text-white border-none  rounded-md focus:outline-none sm:text-sm
+
+@media (min-width: 1280px)
+    .playlist__tracks
+        flex-basis: 80%
+        .track__data
+            width: inherit
+
+@media (min-width: 768px)
+    .playlist__tracks
+        flex-basis: 34%
+        .track__data
+            width: 18rem

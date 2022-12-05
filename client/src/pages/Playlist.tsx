@@ -46,7 +46,7 @@ export const Playlist = () => {
 						<div>
 							{playlist.images[0] && <img src={playlist.images[0].url} alt={playlist.name} />}
 							<h1>{playlist.name}</h1>
-							<div className="flex items-center justify-evenly text-center">
+							<div className="items-center justify-evenly text-center md:flex">
 								<h2>Creada por {playlist.owner.display_name}</h2>
 								<span>{playlist.tracks.total} tracks</span>
 							</div>
@@ -55,14 +55,17 @@ export const Playlist = () => {
 							<div className="mt-12 text-center">
 								<h4 className="text-base">Propiedades auditivas de la playlist</h4>
 								<FeatureChart features={audioFeatures} type="horizontal" />
-								<Link to={'/features'} className="mt-4 block text-neutral underline">
+								<Link
+									to={'/features'}
+									className="mt-4 block text-sm text-neutral underline md:text-base"
+								>
 									¿Que son propiedades auditivas?
 								</Link>
 							</div>
 						)}
 					</div>
 					<div className="playlist__tracks">
-						<div className="mx-auto mb-8 mr-0 block w-72 filter">
+						<div className="mx-auto mb-8 block filter md:w-72 lg:mr-0">
 							<label htmlFor="order-select">Ordena tus tracks por:</label>
 							<select id="order-select" name="track-order" onChange={e => setSort(e.target.value)}>
 								<option>Elige entre:</option>
