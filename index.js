@@ -54,60 +54,48 @@ app.get('/login', (req, res) => {
 		state: state,
 		scope: scope,
 	});
-	// console.log(queryParams);
 	res.redirect(`https://accounts.spotify.com/authorize?${queryParams}`);
 });
 
-app.get('/callback', (req, res) => {
+app.get('/callback', async (req, res) => {
 	const code = req.query.code || null;
+
 	const queryParams = queryString.stringify({
 		grant_type: 'authorization_code',
 		code: code,
 		redirect_uri: REDIRECT_URI,
 	});
 
-	const options = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-			Authorization:
-				'Basic MzM2YTU1ZjE5YjVjNDE4YWE3ZjE3MDU5YjgxNDU1ODI6ZGVmYjBiYmNjZjk5NDdlM2EzMTIzMzA5Mzk2M2I3N2Q=',
-		},
-		body: new URLSearchParams({
-			code: code,
-			redirect_uri: 'http://localhost:8080/callback',
-			grant_type: 'authorization_code',
-		}),
-	};
-
-	fetch('https://accounts.spotify.com/api/token', options)
-		.then(response => response.json())
-		.then(response => {
-			const { access_token, refresh_token, expires_in } = response;
+	try {
+		const response = await axios({
+			method: 'post',
+			url: 'https://accounts.spotify.com/api/token',
+			data: queryParams,
+			headers: {
+				'content-type': 'application/x-www-form-urlencoded',
+				Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
+					'base64'
+				)}`,
+			},
+		});
+		if (response.status === 200) {
+			const { access_token, refresh_token, expires_in } = response.data;
 			const queryParams = queryString.stringify({
 				access_token,
 				refresh_token,
 				expires_in,
 			});
 			res.redirect(`${FRONTEND_URI}/?${queryParams}`);
-		})
-		.catch(err => res.send(error));
-
-	// if (response.status === 200) {
-	// 	// const { access_token, refresh_token, expires_in } = response.data;
-	// 	// const queryParams = queryString.stringify({
-	// 	// 	access_token,
-	// 	// 	refresh_token,
-	// 	// 	expires_in,
-	// 	// });
-	// 	// res.redirect(`${FRONTEND_URI}/?${queryParams}`);
-	// } else {
-	// 	res.send(
-	// 		`/?${queryString.stringify({
-	// 			error: 'invalid_token',
-	// 		})}`
-	// 	);
-	// }
+		} else {
+			res.send(
+				`/?${queryString.stringify({
+					error: 'invalid_token',
+				})}`
+			);
+		}
+	} catch (error) {
+		res.send(error);
+	}
 });
 
 app.get('/api/refresh_token', async (req, res) => {
