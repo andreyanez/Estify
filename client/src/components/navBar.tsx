@@ -1,11 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import '../styles/components/NavBar.scss';
 import { Icon } from '@iconify/react';
-import { getCurrentUserProfile, logout } from '../spotify';
-import { useQuery } from '@tanstack/react-query';
-import { Loader } from './Loader';
-
-const year: Date = new Date();
+import { logout } from '../spotify';
 
 export const NavBar = () => {
 	// const profileQuery = useQuery(['profile'], getCurrentUserProfile);

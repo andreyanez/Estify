@@ -110,7 +110,7 @@ app.get('/callback', (req, res) => {
 	// }
 });
 
-app.get('/refresh_token', async (req, res) => {
+app.get('/api/refresh_token', async (req, res) => {
 	const { refresh_token } = req.query;
 
 	try {
