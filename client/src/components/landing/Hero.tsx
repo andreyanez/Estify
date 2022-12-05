@@ -2,6 +2,9 @@ import { Container } from './Container';
 import { useId } from 'react';
 import { PhoneFrame } from './PhoneFrame';
 
+import homescreen from '../../assets/homescreen.png';
+import homescreenWebp from '../../assets/homescreen.webp';
+
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:8080/login'
@@ -78,7 +81,7 @@ function BackgroundIllustration(props: any) {
 
 export const Hero = () => {
 	return (
-		<div className="overflow-hidden py-20 sm:py-32 lg:pb-32 xl:pb-36 bg-primary">
+		<div className="overflow-hidden bg-primary py-20 sm:py-32 lg:pb-32 xl:pb-36">
 			<Container>
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
 					<div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
@@ -93,7 +96,7 @@ export const Hero = () => {
 						<div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
 							<a
 								href={LOGIN_URI}
-								className="w-fit flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10"
+								className="flex w-fit items-center justify-center rounded-md border border-transparent bg-secondary px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-primary md:py-4 md:px-10 md:text-lg"
 							>
 								Entra con Spotify
 							</a>
@@ -103,7 +106,10 @@ export const Hero = () => {
 						<BackgroundIllustration className="absolute left-1/2 top-4 h-[1026px] w-[1026px] -translate-x-1/3 stroke-gray-300/70 [mask-image:linear-gradient(to_bottom,white_20%,transparent_75%)] sm:top-16 sm:-translate-x-1/2 lg:-top-16 lg:ml-12 xl:-top-14 xl:ml-0" />
 						<div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
 							<PhoneFrame>
-								<h1>hi</h1>
+								<picture>
+									<source type="image/webp" srcSet={homescreenWebp} />
+									<img src={homescreen} alt="estify" className="homescreen" />
+								</picture>
 							</PhoneFrame>
 						</div>
 					</div>
