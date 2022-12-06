@@ -77,7 +77,7 @@ export function Info() {
 											className={clsx(
 												'group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6',
 												{
-													'bg-primary lg:bg-primary/10 lg:ring-1 lg:ring-inset lg:ring-primary/10':
+													'lg:ring-seconbg-secondary bg-secondary lg:bg-secondary lg:ring-1 lg:ring-inset':
 														selectedIndex === featureIndex,
 													'hover:bg-primary/10 lg:hover:bg-primary/5':
 														selectedIndex !== featureIndex,
