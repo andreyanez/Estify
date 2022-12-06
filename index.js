@@ -14,17 +14,13 @@ const FRONTEND_URI = process.env.FRONTEND_URI;
 const PORT = process.env.PORT | 8080;
 
 app
-	// .use(express.static(path.resolve(__dirname, './client/dist')))
+	.use(express.static(path.resolve(__dirname, './client/dist')))
 	.use(cors())
-	.use(cookieParser());
-// .use(express.static(path.resolve(__dirname, './client/dist')));
-
-// app.get('/', function (req, res) {
-// 	res.render(path.resolve(__dirname, './client/dist/index.html'));
-// });
+	.use(cookieParser())
+	.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.get('/', function (req, res) {
-	res.status(200).send('hello');
+	res.render(path.resolve(__dirname, './client/dist/index.html'));
 });
 
 app.listen(PORT, () => {
@@ -43,9 +39,9 @@ const generateRandomString = length => {
 
 const stateKey = 'spotify_auth_state';
 
-// app.get('*', (req, res) => {
-// 	res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
-// });
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
+});
 
 app.get('/login', (req, res) => {
 	const state = generateRandomString(16);

@@ -7,7 +7,7 @@ import { PhoneFrame } from './PhoneFrame';
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:8080/login'
-		: 'https://estify.vercel.com';
+		: 'https://estify.up.railway.app/login';
 
 function BackgroundIllustration(props: any) {
 	let id = useId();
