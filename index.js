@@ -11,7 +11,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 const FRONTEND_URI = process.env.FRONTEND_URI;
-const PORT = 8080;
+const PORT = process.env.PORT | 8080;
 
 app
 	// .use(express.static(path.resolve(__dirname, './client/dist')))
@@ -22,6 +22,10 @@ app
 // app.get('/', function (req, res) {
 // 	res.render(path.resolve(__dirname, './client/dist/index.html'));
 // });
+
+app.get('/', function (req, res) {
+	res.status(200).send('hello');
+});
 
 app.listen(PORT, () => {
 	console.log(`listening on http://localhost:${PORT}`);
