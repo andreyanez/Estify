@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { PhoneFrame } from './PhoneFrame';
 
-// import homescreen from '../../assets/homescreen.png';
+import homescreen from '../../assets/homescreen.png';
 import homescreenWebp from '../../assets/homescreen.webp';
 
 const LOGIN_URI =
@@ -107,7 +107,7 @@ export const Hero = () => {
 							<PhoneFrame>
 								<picture>
 									<source type="image/webp" srcSet={homescreenWebp} />
-									{/* <img src={homescreen} alt="estify" className="homescreen" /> */}
+									<img src={homescreen} alt="estify" className="homescreen" />
 								</picture>
 							</PhoneFrame>
 						</div>
