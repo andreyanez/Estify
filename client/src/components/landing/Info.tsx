@@ -3,9 +3,9 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
-import track from '../../assets/track.png';
-import artist from '../../assets/artistas.png';
-import playlist from '../../assets/playlist.png';
+import track from './track.png';
+import artist from './artistas.png';
+import playlist from './playlist.png';
 
 const features = [
 	{

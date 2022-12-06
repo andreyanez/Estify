@@ -1,8 +1,8 @@
 import { useId } from 'react';
 import { PhoneFrame } from './PhoneFrame';
 
-import homescreen from '../../assets/homescreen.png';
-import homescreenWebp from '../../assets/homescreen.webp';
+import homescreen from './homescreen.png';
+import homescreenWebp from './homescreen.webp';
 
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
