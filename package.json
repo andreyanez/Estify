@@ -10,7 +10,6 @@
 		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
 		"server": "nodemon index.js",
 		"client": "cd client && npm run dev",
-		"build": "cd client/ && npm install --production && npm run build",
 		"start": "node index.js"
 	},
 	"keywords": [
