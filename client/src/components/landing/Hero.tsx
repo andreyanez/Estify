@@ -1,4 +1,3 @@
-import { Container } from './Container';
 import { useId } from 'react';
 import { PhoneFrame } from './PhoneFrame';
 
@@ -81,8 +80,8 @@ function BackgroundIllustration(props: any) {
 
 export const Hero = () => {
 	return (
-		<div className="overflow-hidden bg-primary py-20 sm:py-32 lg:pb-32 xl:pb-36">
-			<Container>
+		<div className="flex  min-h-screen overflow-hidden bg-primary py-20 sm:py-32 lg:pb-32 xl:pb-36">
+			<div className="mx-auto flex max-w-7xl items-center px-4 sm:px-6 lg:px-8">
 				<div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
 					<div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
 						<h1 className="text-4xl font-medium tracking-tight text-white">
@@ -114,7 +113,7 @@ export const Hero = () => {
 						</div>
 					</div>
 				</div>
-			</Container>
+			</div>
 		</div>
 	);
 };

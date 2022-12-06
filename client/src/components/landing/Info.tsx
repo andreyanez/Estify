@@ -9,22 +9,22 @@ import playlist from '../../assets/playlist.png';
 
 const features = [
 	{
-		title: 'Tu música, a gran detalle',
+		title: 'Organiza tus playlists',
 		description:
-			"Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-		image: track,
+			'¿Cuál es la canción con más energía en tu playlist? ¿O la más baliable? Estify te permite ordenar tus playlists basándose en parámetros como Tempo, energía o duración.',
+		image: playlist,
 	},
 	{
 		title: 'Visualiza tus tendencias',
 		description:
-			"All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+			'Dale un vistazo a como va evolucionando tu historia con Spotify. Visualiza tus artistas y tracks en tendencia.',
 		image: artist,
 	},
 	{
-		title: 'Organiza tus playlists',
+		title: 'Tu música, a gran detalle',
 		description:
-			"We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-		image: playlist,
+			'Estify le pone una lupa a tu música y artistas favoritos, analizando sus propiedades auditivas.',
+		image: track,
 	},
 ];
 
@@ -58,9 +58,9 @@ export function Info() {
 						id="features-title"
 						className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl"
 					>
-						The app that lets you understand your Spotify data.
+						Una nueva perspectiva de tus tendencias musicales.
 					</h2>
-					{/* <p className="mt-6 text-lg tracking-tight text-neutral"></p> */}
+					<p className="mt-6 text-lg tracking-tight text-neutral"></p>
 				</div>
 				<Tab.Group
 					as="div"
@@ -77,9 +77,10 @@ export function Info() {
 											className={clsx(
 												'group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6',
 												{
-													'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10':
+													'bg-primary lg:bg-primary/10 lg:ring-1 lg:ring-inset lg:ring-primary/10':
 														selectedIndex === featureIndex,
-													'hover:bg-white/10 lg:hover:bg-white/5': selectedIndex !== featureIndex,
+													'hover:bg-primary/10 lg:hover:bg-primary/5':
+														selectedIndex !== featureIndex,
 												}
 											)}
 										>
@@ -119,11 +120,11 @@ export function Info() {
 												{feature.description}
 											</p>
 										</div>
-										<div className="relative mt-10 aspect-[1085/730]  md:w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+										<div className="relative mt-10 aspect-[1085/730]  overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto md:w-[45rem] lg:mt-0 lg:w-[67.8125rem]">
 											<img
 												src={feature.image}
 												alt={feature.title}
-												className="object-cover w-full h-full"
+												className="h-full w-full object-cover"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
 											/>
 										</div>
