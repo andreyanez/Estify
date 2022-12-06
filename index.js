@@ -6,7 +6,6 @@ const axios = require('axios');
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const fetch = require('node-fetch');
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -14,17 +13,15 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 const FRONTEND_URI = process.env.FRONTEND_URI;
 const PORT = 8080;
 
-app.use(express.static(path.resolve(__dirname, './client/dist')));
-
 app
-	.use(express.static(path.resolve(__dirname, '../client/dist')))
+	.use(express.static(path.resolve(__dirname, './client/dist')))
 	.use(cors())
 	.use(cookieParser())
-	.use(express.static(path.resolve(__dirname, '../client/dist')));
+	.use(express.static(path.resolve(__dirname, './client/dist')));
 
-app.get('/', function (req, res) {
-	res.render(path.resolve(__dirname, '../client/dist/index.html'));
-});
+// app.get('/', function (req, res) {
+// 	res.render(path.resolve(__dirname, './client/dist/index.html'));
+// });
 
 app.listen(PORT, () => {
 	console.log(`listening on http://localhost:${PORT}`);
@@ -41,6 +38,10 @@ const generateRandomString = length => {
 };
 
 const stateKey = 'spotify_auth_state';
+
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
+});
 
 app.get('/login', (req, res) => {
 	const state = generateRandomString(16);
@@ -121,8 +122,4 @@ app.get('/api/refresh_token', async (req, res) => {
 	} catch (error) {
 		res.send(error);
 	}
-});
-
-app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
 });
