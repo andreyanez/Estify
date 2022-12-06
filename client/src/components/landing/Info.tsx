@@ -3,28 +3,28 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
-import track from './track.png';
-import artist from './artistas.png';
-import playlist from './playlist.png';
+// import track from './track.png';
+// import artist from './artistas.png';
+// import playlist from './playlist.png';
 
 const features = [
 	{
 		title: 'Organiza tus playlists',
 		description:
 			'¿Cuál es la canción con más energía en tu playlist? ¿O la más baliable? Estify te permite ordenar tus playlists basándose en parámetros como Tempo, energía o duración.',
-		image: playlist,
+		// image: playlist,
 	},
 	{
 		title: 'Visualiza tus tendencias',
 		description:
 			'Dale un vistazo a como va evolucionando tu historia con Spotify. Visualiza tus artistas y tracks en tendencia.',
-		image: artist,
+		// image: artist,
 	},
 	{
 		title: 'Tu música, a gran detalle',
 		description:
 			'Estify le pone una lupa a tu música y artistas favoritos, analizando sus propiedades auditivas.',
-		image: track,
+		// image: track,
 	},
 ];
 
@@ -121,12 +121,12 @@ export function Info() {
 											</p>
 										</div>
 										<div className="relative mt-10 aspect-[1085/730]  overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto md:w-[45rem] lg:mt-0 lg:w-[67.8125rem]">
-											<img
+											{/* <img
 												src={feature.image}
 												alt={feature.title}
 												className="h-full w-full object-cover"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-											/>
+											/> */}
 										</div>
 									</Tab.Panel>
 								))}
