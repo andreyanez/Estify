@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Container } from './Container';
 
 import trackImage from '../../assets/trackimage.png';
-import artistas from '../../assets/artistas.png';
+// import artistas from '../../assets/artistas.png';
 // import playlist from '../../assets/playlist.png';
 
 const features = [
@@ -122,7 +122,7 @@ export function Info() {
 										</div>
 										<div className="relative mt-10 aspect-[1085/730]  overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto md:w-[45rem] lg:mt-0 lg:w-[67.8125rem]">
 											<img
-												src={artistas}
+												src={trackImage}
 												alt={feature.title}
 												className="h-full w-full object-cover"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
