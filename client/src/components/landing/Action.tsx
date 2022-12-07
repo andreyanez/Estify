@@ -3,7 +3,7 @@ import { Container } from './Container';
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:8080/login'
-		: 'https://estify.vercel.com/login';
+		: 'https://estify.up.railway.app/login';
 
 export const Action = () => {
 	return (
@@ -16,7 +16,7 @@ export const Action = () => {
 					<div className="mt-8">
 						<a
 							href={LOGIN_URI}
-							className="w-fit mx-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-white hover:text-primary md:py-4 md:text-lg md:px-10"
+							className="mx-auto flex w-fit items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-primary md:py-4 md:px-10 md:text-lg"
 						>
 							Entra con Spotify
 						</a>

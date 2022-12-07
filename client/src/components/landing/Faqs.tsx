@@ -1,5 +1,10 @@
 import { Container } from './Container';
 
+const FAQ_URI =
+	process.env.NODE_ENV !== 'production'
+		? 'http://localhost:5173/politica'
+		: 'https://estify.up.railway.app/politica';
+
 const faqs = [
 	[
 		{
@@ -68,8 +73,8 @@ export function Faqs() {
 											{faq.answer}{' '}
 											{faq.link && (
 												<a
-													href="http://localhost:5173/politica"
-													className="text-sm text-secondary underline inline-block"
+													href={FAQ_URI}
+													className="inline-block text-sm text-secondary underline"
 													target="_blank"
 												>
 													{faq.link}
