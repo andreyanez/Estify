@@ -1,8 +1,6 @@
 import { useId } from 'react';
 import { PhoneFrame } from './PhoneFrame';
 
-import homescreen from '../../assets/homescreen.png';
-import homescreenWebp from '../../assets/homescreen.webp';
 import trackImage from '../../assets/track.png';
 
 const LOGIN_URI =
@@ -107,7 +105,7 @@ export const Hero = () => {
 						<div className="-mx-4 h-[448px] px-9 [mask-image:linear-gradient(to_bottom,white_60%,transparent)] sm:mx-0 lg:absolute lg:-inset-x-10 lg:-top-10 lg:-bottom-20 lg:h-auto lg:px-0 lg:pt-10 xl:-bottom-32">
 							<PhoneFrame>
 								<picture>
-									<source type="image/webp" srcSet={homescreenWebp} />
+									{/* <source type="image/webp" srcSet={homescreenWebp} /> */}
 									<img src={trackImage} alt="estify" className="homescreen" />
 								</picture>
 							</PhoneFrame>
