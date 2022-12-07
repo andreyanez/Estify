@@ -3,9 +3,9 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
-// import trackImage from '../../assets/track.png';
-import artist from '../../assets/artistas.png';
-import playlist from '../../assets/playlist.png';
+import trackImage from '../../assets/trackimage.png';
+// import artist from '../../assets/artistas.png';
+// import playlist from '../../assets/playlist.png';
 
 const features = [
 	{
@@ -121,12 +121,12 @@ export function Info() {
 											</p>
 										</div>
 										<div className="relative mt-10 aspect-[1085/730]  overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto md:w-[45rem] lg:mt-0 lg:w-[67.8125rem]">
-											{/* <img
+											<img
 												src={trackImage}
 												alt={feature.title}
 												className="h-full w-full object-cover"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-											/> */}
+											/>
 										</div>
 									</Tab.Panel>
 								))}
