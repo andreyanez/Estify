@@ -3,6 +3,7 @@ import { PhoneFrame } from './PhoneFrame';
 
 import homescreen from '../../assets/homescreen.png';
 import homescreenWebp from '../../assets/homescreen.webp';
+import trackImage from '../../assets/track.png';
 
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
@@ -107,7 +108,7 @@ export const Hero = () => {
 							<PhoneFrame>
 								<picture>
 									<source type="image/webp" srcSet={homescreenWebp} />
-									<img src={homescreen} alt="estify" className="homescreen" />
+									<img src={trackImage} alt="estify" className="homescreen" />
 								</picture>
 							</PhoneFrame>
 						</div>
