@@ -47,8 +47,9 @@ export const Artist = () => {
 							<p className="text-xl font-medium text-neutral">Seguidores</p>
 						</div>
 					</div>
-					<a href={artist.data.external_urls.spotify} target="_blank" className="text-secondary">
-						Ver más en Spotify
+
+					<a href={artist.data.external_urls.spotify} target="_blank" className="main__button">
+						ABRIR EN SPOTIFY
 					</a>
 				</div>
 			</div>

@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 let REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:8080/callback';
-let FRONTEND_URI = 'http://localhost:5173';
+let FRONTEND_URI = process.env.FRONTEND_URI || 'http://localhost:5173';
 const PORT = process.env.PORT | 8080;
 
 app
