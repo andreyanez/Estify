@@ -3,11 +3,7 @@ import { PhoneFrame } from './PhoneFrame';
 
 import homescreen from '../../assets/homescreen.png';
 import homescreenWebp from '../../assets/homescreen.webp';
-
-const LOGIN_URI =
-	process.env.NODE_ENV !== 'production'
-		? 'http://localhost:8080/login'
-		: 'https://estify.up.railway.app/login';
+import { SpotifyButton } from '../SpotifyButton';
 
 function BackgroundIllustration(props: any) {
 	let id = useId();
@@ -93,12 +89,7 @@ export const Hero = () => {
 							musicales.
 						</p>
 						<div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
-							<a
-								href={LOGIN_URI}
-								className="flex w-fit items-center justify-center rounded-md border border-transparent bg-secondary px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-primary md:py-4 md:px-10 md:text-lg"
-							>
-								Entra con Spotify
-							</a>
+							<SpotifyButton />
 						</div>
 					</div>
 					<div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
