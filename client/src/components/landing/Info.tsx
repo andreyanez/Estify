@@ -3,7 +3,7 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import { Container } from './Container';
 
-import trackImage from '../../assets/trackimage.png';
+import trackImage from '../../assets/trackimage.jpg';
 import artists from '../../assets/artists.jpg';
 import playlist from '../../assets/playlist.jpg';
 
