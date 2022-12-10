@@ -11,18 +11,18 @@
 	@apply overflow-hidden;
 	flex-basis: 66%;
 	h3 {
-		@apply font-medium text-white text-6xl mb-6;
+		@apply mb-6 text-6xl font-medium text-white;
 		font-family: var(--Bold);
 	}
 }
 
 .artist__img {
 	// max-width: 290px;
-
+	@apply flex flex-col-reverse gap-y-4 md:block;
 	flex-basis: 30%;
 	// @apply max-w-;
-	img {
-		@apply w-full h-full object-cover;
+	> img {
+		@apply h-full w-full object-cover;
 	}
 }
 

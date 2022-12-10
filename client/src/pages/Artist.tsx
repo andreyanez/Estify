@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Loader } from '../components/Loader';
+import { SpotifyLogo } from '../components/SpotifyLogo';
 
 export const Artist = () => {
 	const { id } = useParams();
@@ -26,6 +27,10 @@ export const Artist = () => {
 			<div className="block items-center justify-between gap-4 lg:flex">
 				<div className="artist__img">
 					<img src={artist.data.images[1].url} alt={artist.data.name} />
+					<div className="flex flex-col items-center gap-y-2 md:mt-8">
+						<p className="text-sm">Contenido previsto por</p>
+						<SpotifyLogo theme="green" />
+					</div>
 				</div>
 				<div className="artist__card">
 					<div className="py-5 ">
@@ -49,7 +54,7 @@ export const Artist = () => {
 					</div>
 
 					<a href={artist.data.external_urls.spotify} target="_blank" className="main__button">
-						ABRIR EN SPOTIFY
+						VER ARTISTA EN SPOTIFY
 					</a>
 				</div>
 			</div>
