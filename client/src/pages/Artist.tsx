@@ -54,7 +54,7 @@ export const Artist = () => {
 					</div>
 
 					<a href={artist.data.external_urls.spotify} target="_blank" className="main__button">
-						VER ARTISTA EN SPOTIFY
+						LISTEN ON SPOTIFY
 					</a>
 				</div>
 			</div>

@@ -6,6 +6,7 @@ import { formatDuration, parsePitchClass } from '../utils';
 import { FeatureChart } from '../components/FeatureChart';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Loader } from '../components/Loader';
+import { SpotifyLogo } from '../components/SpotifyLogo';
 
 export const Track = () => {
 	const { id } = useParams();
@@ -37,6 +38,9 @@ export const Track = () => {
 	return (
 		<article>
 			<Breadcrumb />
+			<div className="mb-8 flex justify-center md:block">
+				<SpotifyLogo theme="white" />
+			</div>
 			<section className="track__info">
 				<div className="track__details">
 					<div className="text-center">
@@ -44,7 +48,7 @@ export const Track = () => {
 							<img src={track.data.album.images[1].url} alt="" />
 						</div>
 						<a href={track.data.external_urls.spotify} target="_blank" className="main__button">
-							REPRODUCIR EN SPOTIFY
+							PLAY ON SPOTIFY
 						</a>
 					</div>
 					<div>
@@ -120,6 +124,10 @@ export const Track = () => {
 				<div className="track__chart">
 					<h4>Propiedades auditivas de {track.data.name}</h4>
 					<FeatureChart features={features.data} />
+					<div className="flex flex-col items-center gap-y-2 md:mt-8">
+						<p className="text-sm">Información prevista por</p>
+						<SpotifyLogo theme="white" />
+					</div>
 				</div>
 				<div className="track__paragraph">
 					<h5>Descripción de las propiedades auditivas</h5>

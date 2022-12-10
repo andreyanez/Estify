@@ -2,17 +2,17 @@
     @apply lg:flex justify-between gap-5 xl:gap-20
     .track__list
         @apply xl:grow
+.playlist__img
+        @apply md:max-w-xs mx-auto mb-8
 .playlist__info
     flex-basis: 34%
     @apply lg:sticky mb-16 lg:mb-0 lg:top-12 lg:h-fit
-    img
-        @apply md:max-w-xs mx-auto mb-8
     h1
         @apply text-center text-lg md:text-2xl mb-3
         font-family: var(--Bold)
     h2
         @apply text-neutral
-    p
+    >p
         @apply text-neutral text-center text-sm mb-8
 .playlist__tracks
     @apply grow
