@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Loader } from '../components/Loader';
 import { TracKItem } from '../components/TrackItem';
 import { ListFilter } from '../components/ListFilter';
+import { SpotifyLogo } from '../components/SpotifyLogo';
 
 export const Tracks = () => {
 	const [activeRange, setActiveRange] = useState<string>('long');
@@ -24,6 +25,9 @@ export const Tracks = () => {
 
 	return (
 		<div className="xl:py-20">
+			<div className="mb-8 flex justify-center md:block">
+				<SpotifyLogo theme="white" size="large" />
+			</div>
 			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Top Tracks</h1>
 				<ListFilter setActiveRange={setActiveRange} activeRange={activeRange} />

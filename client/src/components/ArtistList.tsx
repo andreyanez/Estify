@@ -4,6 +4,7 @@ import { getTopArtistsLong } from '../spotify';
 import '../styles/components/ArtistList.scss';
 import { Loader } from './Loader';
 import { HoverCover } from './HoverCover';
+import { SpotifyLogo } from './SpotifyLogo';
 
 export const ArtistList = () => {
 	const { data: artist, isLoading } = useQuery(['artists'], getTopArtistsLong);
@@ -24,7 +25,9 @@ export const ArtistList = () => {
 					Ver más
 				</Link>
 			</div>
-
+			<div className="mb-8 flex justify-center md:block">
+				<SpotifyLogo theme="white" />
+			</div>
 			<ul className="artist__list">
 				{artist.data.items.slice(0, 10).map((artist: any, index: number) => {
 					return (

@@ -4,6 +4,7 @@ import { getTopTracksLong } from '../spotify';
 import '../styles/components/TrackList.scss';
 import { Loader } from './Loader';
 import { TracKItem } from './TrackItem';
+import { SpotifyLogo } from './SpotifyLogo';
 
 export const TrackList = () => {
 	const tracksQuery = useQuery(['tracks'], getTopTracksLong);
@@ -23,6 +24,9 @@ export const TrackList = () => {
 				<Link to={'/tracks'} className="fill__button">
 					Ver más
 				</Link>
+			</div>
+			<div className="mb-8 flex justify-center md:block">
+				<SpotifyLogo theme="white" />
 			</div>
 			<ul className="track__list">
 				{tracksQuery.data.data.items.slice(0, 10).map((track: any, index: number) => {

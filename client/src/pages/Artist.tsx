@@ -29,7 +29,7 @@ export const Artist = () => {
 					<img src={artist.data.images[1].url} alt={artist.data.name} />
 					<div className="flex flex-col items-center gap-y-2 md:mt-8">
 						<p className="text-sm">Contenido previsto por</p>
-						<SpotifyLogo theme="green" />
+						<SpotifyLogo theme="white" />
 					</div>
 				</div>
 				<div className="artist__card">

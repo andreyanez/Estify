@@ -4,6 +4,7 @@ import { getPlaylists } from '../spotify';
 import { Loader } from '../components/Loader';
 import { HoverCover } from '../components/HoverCover';
 import { useGetPlaylist } from '../hooks/useGetPlaylists';
+import { SpotifyLogo } from '../components/SpotifyLogo';
 
 export const Playlists = () => {
 	const { playlistsInfo } = useGetPlaylist();
@@ -15,6 +16,9 @@ export const Playlists = () => {
 
 	return playlistsInfo ? (
 		<div className="xl:py-20">
+			<div className="mb-8 flex justify-center md:block">
+				<SpotifyLogo theme="white" />
+			</div>
 			<div className="mb-8 flex flex-col items-center justify-between gap-y-8 md:mb-16 xl:flex-row">
 				<h1 className="filter__title">Tus Playlists</h1>
 			</div>
