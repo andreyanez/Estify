@@ -170,7 +170,7 @@ export const Track = () => {
 								</span>
 								Predice si un track no contiene letra. Sonidos como "Ooh" y "Aah" son considerados
 								instrumentos en este contexto. Rap y voces son considerados "letra". Mientras más
-								cercano el valor llegue a 1.0, mayor probabildiad de que el track sea enteramente
+								cercano el valor llegue a 1.0, mayor probabilidad de que el track sea enteramente
 								instrumental.
 							</p>
 						</li>
