@@ -4,7 +4,7 @@ A Spotify connected full-stack app that lets you visualize your listening trends
 
 Una aplicación full-stack conectada a Spotify que te permite visualizar tus tendencias de escucha y propiedades auditivas de tus tracks y playlists favoritos.
 
-**Link to project/Link del proyecto:** estify.app
+**Link to project/Link del proyecto:** https://estify.app
 
 |                                                      Project                                                      |                                                    Screenshots                                                    |
 | :---------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
