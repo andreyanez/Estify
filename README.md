@@ -4,17 +4,16 @@ A Spotify connected full-stack app that lets you visualize your listening trends
 
 Una aplicación full-stack conectada a Spotify que te permite visualizar tus tendencias de escucha y propiedades auditivas de tus tracks y playlists favoritos.
 
-**Link to project/Link del proyecto:** https://estify.up.railway.app/
+**Link to project/Link del proyecto:** estify.app
 
-
- Project                        | Screenshots 
-:-------------------------:|:-------------------------:
-![estify](https://user-images.githubusercontent.com/39743205/207184028-e688c93a-5ee9-44ab-b536-ab302900ac29.PNG)  |  ![track](https://user-images.githubusercontent.com/39743205/207184543-3850f89c-7d18-48f2-be22-c369ac3cde0d.PNG)
-![artists](https://user-images.githubusercontent.com/39743205/207185074-17a2e217-8ef8-4d31-9fee-6447746e97a3.PNG)  |  ![Profile](https://user-images.githubusercontent.com/39743205/207185096-1d601df9-f731-457c-8720-0ca62ef6bb17.PNG)
+|                                                      Project                                                      |                                                    Screenshots                                                    |
+| :---------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
+| ![estify](https://user-images.githubusercontent.com/39743205/207184028-e688c93a-5ee9-44ab-b536-ab302900ac29.PNG)  |  ![track](https://user-images.githubusercontent.com/39743205/207184543-3850f89c-7d18-48f2-be22-c369ac3cde0d.PNG)  |
+| ![artists](https://user-images.githubusercontent.com/39743205/207185074-17a2e217-8ef8-4d31-9fee-6447746e97a3.PNG) | ![Profile](https://user-images.githubusercontent.com/39743205/207185096-1d601df9-f731-457c-8720-0ca62ef6bb17.PNG) |
 
 ## Description/Descripción:
 
-**Tech used:** 
+**Tech used:**
 Backend: Node.js, Express, Axios, Spotify OAuth
 Frontend: Vite, Typescript, React, react-router, react-query, TailwindCSS, Sass, Axios, Chart.js.
 

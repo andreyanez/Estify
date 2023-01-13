@@ -3,7 +3,7 @@ import { Container } from './Container';
 const FAQ_URI =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:5173/politica'
-		: 'https://estify.up.railway.app/politica';
+		: 'https://estify.app/politica';
 
 const faqs = [
 	[

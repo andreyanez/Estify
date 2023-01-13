@@ -4,7 +4,7 @@ import blackLogo from '../assets/Spotify_Icon_RGB_Black.png';
 const LOGIN_URI =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:8080/login'
-		: 'https://estify.up.railway.app/login';
+		: 'https://estify.app/login';
 
 type ButtonProps = {
 	isDark?: boolean;
