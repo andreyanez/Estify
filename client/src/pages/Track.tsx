@@ -72,7 +72,7 @@ export const Track = () => {
 								<span>{track.data.album.release_date.substring(0, 4)}</span>
 							</div>
 						</div>
-						{/* {track.data.preview_url && (
+						{track.data.preview_url && (
 							<div className="mb-6 hidden md:block">
 								<div className=" player__container">
 									<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
@@ -81,7 +81,7 @@ export const Track = () => {
 									Preview
 								</span>
 							</div>
-						)} */}
+						)}
 					</div>
 				</div>
 				<div className="track__features">
