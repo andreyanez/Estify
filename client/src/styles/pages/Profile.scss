@@ -1,11 +1,11 @@
 .profile__top {
-	@apply mb-9 md:mb-24;
+	@apply fixed top-24 right-0 z-10 flex items-center gap-4 rounded-full rounded-r-none bg-neutraltwo p-3 px-9 shadow-2xl;
 	h1 {
-		@apply text-center text-4xl md:text-5xl;
+		@apply text-2xl md:text-lg;
 		font-family: var(--Bold);
 	}
 	ul {
-		@apply my-6 flex justify-center gap-4;
+		@apply my-2 flex justify-center gap-4;
 	}
 	li {
 		@apply block basis-24 text-center  text-neutral;
@@ -19,7 +19,7 @@
 }
 
 .profile__img {
-	@apply mx-auto mb-8 h-40 w-40 overflow-hidden rounded-full shadow-lg;
+	@apply mx-auto h-10 w-10 overflow-hidden rounded-full shadow-lg;
 }
 
 .profile__bottom {

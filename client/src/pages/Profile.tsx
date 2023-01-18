@@ -6,11 +6,7 @@ import { TrackList } from '../components/TrackList';
 import { Loader } from '../components/Loader';
 
 export const Profile = () => {
-	const profileQuery = useQuery(['profile'], getCurrentUserProfile);
-	const playlistsQuery = useQuery(['playlists'], getPlaylists);
-	const followingQuery = useQuery(['following'], getFollowing);
-
-	const isLoading = profileQuery.isLoading || playlistsQuery.isLoading || followingQuery.isLoading;
+	const { data, isLoading } = useQuery(['profile'], getCurrentUserProfile);
 
 	if (isLoading) {
 		return <Loader />;
@@ -20,29 +16,13 @@ export const Profile = () => {
 		<>
 			<div className="profile__top">
 				<div className="profile__img">
-					{profileQuery.data.data.images.length && profileQuery.data.data.images[0].url && (
-						<img src={profileQuery.data.data.images[0].url} alt="Avatar" />
+					{data.data.images.length && data.data.images[0].url && (
+						<img src={data.data.images[0].url} alt="Avatar" />
 					)}
 				</div>
-				<h1>{profileQuery.data.data.display_name}</h1>
-				<ul>
-					<li>
-						<strong>{profileQuery.data.data.followers.total}</strong>
-						<p>Seguidor{profileQuery.data.data.followers.total !== 1 ? 'es' : ''}</p>
-					</li>
-					<li>
-						<strong>{followingQuery.data.data.artists.items.length}</strong>
-						<p>Siguiendo</p>
-					</li>
-					<li>
-						{playlistsQuery.data.data ? (
-							<strong>{playlistsQuery.data.data.total}</strong>
-						) : (
-							<strong>0</strong>
-						)}
-						<p>Playlists</p>
-					</li>
-				</ul>
+				<div>
+					<h1>{data.data.display_name}</h1>
+				</div>
 			</div>
 			<section className="profile__bottom">
 				<ArtistList />
