@@ -1,6 +1,6 @@
 .profile__top {
 	@apply fixed top-24 right-0 z-10 flex items-center gap-4 rounded-full rounded-r-none bg-neutraltwo p-3 px-9 shadow-2xl;
-	h1 {
+	h2 {
 		@apply text-2xl md:text-lg;
 		font-family: var(--Bold);
 	}
