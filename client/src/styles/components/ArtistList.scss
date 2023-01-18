@@ -1,10 +1,10 @@
 .artist__list {
-	@apply flex flex-wrap gap-y-8  lg:block lg:space-y-6;
+	@apply flex flex-wrap;
 }
 .artist__list_item {
-	@apply basis-full md:basis-1/2 lg:basis-full;
+	@apply basis-1/5;
 	a {
-		@apply flex items-center gap-5;
+		@apply flex flex-col items-center gap-5;
 	}
 	&:hover {
 		.hover_cover {
@@ -14,7 +14,7 @@
 }
 
 .artist__list_item__img {
-	@apply relative h-12 w-12 overflow-hidden rounded-full;
+	@apply relative h-40 w-40 overflow-hidden rounded-full;
 	img {
 		@apply h-full w-full object-cover;
 	}

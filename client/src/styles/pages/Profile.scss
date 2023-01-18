@@ -1,6 +1,6 @@
 .profile__top {
 	@apply fixed top-24 right-0 z-10 flex items-center gap-4 rounded-full rounded-r-none bg-neutraltwo p-3 px-9 shadow-2xl;
-	h2 {
+	h3 {
 		@apply text-2xl md:text-lg;
 		font-family: var(--Bold);
 	}
@@ -23,7 +23,7 @@
 }
 
 .profile__bottom {
-	@apply mb-0 justify-between space-y-12 lg:mb-20 lg:flex lg:space-y-0;
+	@apply mb-0 justify-between space-y-9 lg:mb-20;
 	.fill__button {
 		@apply mx-auto block p-4 text-sm lg:hidden;
 	}
@@ -38,14 +38,19 @@
 }
 
 .profile__container__top {
-	@apply mb-8 flex items-center justify-center md:mb-12 md:justify-between;
+	@apply mb-8 flex items-center justify-center md:mb-6 md:justify-between;
 	.fill__button {
 		@apply m-0 hidden px-4 py-2 text-sm md:block;
 	}
 }
 
-@media (min-width: 1024px) {
-	.profile__container {
-		width: 46%;
+.profile__title {
+	@apply mb-12;
+	h1 {
+		@apply mb-2 md:text-2xl;
+	}
+	h2 {
+		@apply md:text-6xl;
+		font-family: var(--Bold);
 	}
 }

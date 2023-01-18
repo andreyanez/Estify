@@ -29,11 +29,10 @@ export const ArtistList = () => {
 				<SpotifyLogo theme="white" />
 			</div>
 			<ul className="artist__list">
-				{artist.data.items.slice(0, 10).map((artist: any, index: number) => {
+				{artist.data.items.slice(0, 5).map((artist: any, index: number) => {
 					return (
 						<li className="artist__list_item" key={index}>
 							<Link to={`/artist/${artist.id}`}>
-								<small>{index + 1}.</small>
 								<div className="artist__list_item__img">
 									<img src={artist.images[2].url} alt={artist.name} />
 									<HoverCover />

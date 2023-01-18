@@ -8,7 +8,7 @@ export function ProfileStrip({}) {
 	if (isLoading) {
 		return (
 			<div className="profile__top">
-				<h2>Loading...</h2>
+				<h3>Loading...</h3>
 			</div>
 		);
 	}
@@ -21,7 +21,7 @@ export function ProfileStrip({}) {
 				)}
 			</div>
 			<div>
-				<h2>{data.data.display_name}</h2>
+				<h3>{data.data.display_name}</h3>
 			</div>
 		</div>
 	);
