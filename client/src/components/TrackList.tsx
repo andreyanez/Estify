@@ -33,6 +33,9 @@ export const TrackList = () => {
 					return <TracKItem track={track} key={index} />;
 				})}
 			</ul>
+			<Link to={'/artists'} className="fill__button">
+				Ver más
+			</Link>
 		</div>
 	);
 };

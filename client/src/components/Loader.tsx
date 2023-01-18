@@ -5,7 +5,5 @@ export const Loader = () => (
 		<div className="dot"></div>
 		<div className="dot"></div>
 		<div className="dot"></div>
-		<div className="dot"></div>
-		<div className="dot"></div>
 	</div>
 );

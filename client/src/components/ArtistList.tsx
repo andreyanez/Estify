@@ -37,7 +37,9 @@ export const ArtistList = () => {
 									<img src={artist.images[2].url} alt={artist.name} />
 									<HoverCover />
 								</div>
-								<span>{artist.name}</span>
+								<span>
+									{index + 1}. {artist.name}
+								</span>
 							</Link>
 						</li>
 					);

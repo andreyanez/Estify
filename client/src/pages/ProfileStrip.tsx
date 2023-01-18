@@ -8,7 +8,7 @@ export function ProfileStrip({}) {
 	if (isLoading) {
 		return (
 			<div className="profile__top">
-				<h3>Loading...</h3>
+				<h3>Cargando...</h3>
 			</div>
 		);
 	}

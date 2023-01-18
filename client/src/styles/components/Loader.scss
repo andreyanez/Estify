@@ -2,10 +2,12 @@
 	$colors: #fff, #1eb954, #fff, #1eb954, #fff;
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	min-height: 70vh;
 	.dot {
 		position: relative;
-		width: 2em;
-		height: 2em;
+		width: 1.5em;
+		height: 1.5em;
 		margin: 0.8em;
 		border-radius: 50%;
 

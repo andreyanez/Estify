@@ -15,7 +15,7 @@ export const Profile = () => {
 			<section className="profile__bottom">
 				<TrackList />
 				<ArtistList />
-				<button onClick={logout} type="button" className="fill__button">
+				<button onClick={logout} type="button">
 					Cerrar Sesión
 				</button>
 			</section>

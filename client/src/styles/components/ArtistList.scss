@@ -1,8 +1,8 @@
 .artist__list {
-	@apply flex flex-wrap;
+	@apply flex flex-wrap gap-y-4 xl:gap-y-0;
 }
 .artist__list_item {
-	@apply basis-1/5;
+	@apply basis-full md:basis-1/5;
 	a {
 		@apply flex flex-col items-center gap-5;
 	}
@@ -14,7 +14,8 @@
 }
 
 .artist__list_item__img {
-	@apply relative h-40 w-40 overflow-hidden rounded-full;
+	@apply relative overflow-hidden rounded-full xl:h-auto xl:w-auto;
+	max-width: 75%;
 	img {
 		@apply h-full w-full object-cover;
 	}
