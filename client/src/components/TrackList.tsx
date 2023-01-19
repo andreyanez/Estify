@@ -5,14 +5,23 @@ import '../styles/components/TrackList.scss';
 import { Loader } from './Loader';
 import { TracKItem } from './TrackItem';
 import { SpotifyLogo } from './SpotifyLogo';
+import { FetchError } from './fetchError';
 
 export const TrackList = () => {
-	const tracksQuery = useQuery(['tracks'], getTopTracksLong);
+	const { isLoading, data: trackdata, isError } = useQuery(['tracks'], getTopTracksLong);
 
-	if (tracksQuery.isLoading) {
+	if (isLoading) {
 		return (
 			<div className="profile__container">
 				<Loader />
+			</div>
+		);
+	}
+
+	if (isError) {
+		return (
+			<div className="profile__container">
+				<FetchError />
 			</div>
 		);
 	}
@@ -29,7 +38,7 @@ export const TrackList = () => {
 				<SpotifyLogo theme="white" />
 			</div>
 			<ul className="track__list">
-				{tracksQuery.data.data.items.slice(0, 10).map((track: any, index: number) => {
+				{trackdata.data.items.slice(0, 10).map((track: any, index: number) => {
 					return <TracKItem track={track} key={index} />;
 				})}
 			</ul>

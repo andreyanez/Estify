@@ -5,14 +5,23 @@ import '../styles/components/ArtistList.scss';
 import { Loader } from './Loader';
 import { HoverCover } from './HoverCover';
 import { SpotifyLogo } from './SpotifyLogo';
+import { FetchError } from './fetchError';
 
 export const ArtistList = () => {
-	const { data: artist, isLoading } = useQuery(['artists'], getTopArtistsLong);
+	const { data: artist, isLoading, isError } = useQuery(['artists'], getTopArtistsLong);
 
 	if (isLoading) {
 		return (
 			<div className="profile__container">
 				<Loader />
+			</div>
+		);
+	}
+
+	if (isError) {
+		return (
+			<div className="profile__container">
+				<FetchError />
 			</div>
 		);
 	}
