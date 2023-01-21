@@ -8,17 +8,11 @@ export const TrackList = () => {
 		<div className="profile__container">
 			<div className="profile__container__top">
 				<h2>Tus tracks top de todos los tiempos</h2>
-				<Link to={'/tracks'} className="fill__button">
-					Ver más
-				</Link>
 			</div>
 			<div className="mb-8 flex justify-center md:block">
 				<SpotifyLogo theme="white" />
 			</div>
-			<TrackGrid max={10} type="vertical" />
-			<Link to={'/artists'} className="fill__button">
-				Ver más
-			</Link>
+			<TrackGrid max={9} type="vertical" seeMore={true} />
 		</div>
 	);
 };

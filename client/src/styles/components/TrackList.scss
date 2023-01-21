@@ -7,7 +7,7 @@
 	&.vertical {
 		@apply flex flex-wrap gap-y-10 space-y-0;
 		.track__list_item {
-			@apply w-1/5;
+			@apply md:w-1/5;
 			a {
 				@apply block;
 			}
@@ -40,10 +40,21 @@
 			@apply opacity-100;
 		}
 	}
+	&.seeMore {
+		.track__list_item__img {
+			@apply bg-neutraltwo;
+		}
+		&:hover {
+			.track__list_item__img {
+				@apply bg-secondary;
+			}
+		}
+	}
 }
 
 .track__list_item__img {
-	@apply relative h-12 w-12 overflow-hidden;
+	transition: var(--transition);
+	@apply relative flex h-12 w-12 items-center justify-center overflow-hidden text-3xl;
 	img {
 		@apply h-full w-full object-cover;
 	}
