@@ -4,7 +4,7 @@ import { HoverCover } from './HoverCover';
 
 export const TracKItem = ({ track }: { track: any }) => {
 	return (
-		<li className="track__list_item">
+		<li className={`track__list_item`}>
 			<Link to={`/track/${track.id}`} className={track.album.images[0] ? '' : 'isLocal'}>
 				<div className="track__list_item__container">
 					<div className="track__list_item__img">

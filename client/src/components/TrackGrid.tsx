@@ -8,9 +8,11 @@ import { FetchError } from './fetchError';
 export const TrackGrid = ({
 	activeRange = 'long',
 	max,
+	type = 'horizontal',
 }: {
 	activeRange?: string;
 	max?: number;
+	type?: 'horizontal' | 'vertical';
 }) => {
 	const fetchTracks = () => {
 		if (activeRange === 'long') return getTopTracksLong();
@@ -37,7 +39,7 @@ export const TrackGrid = ({
 	}
 
 	return (
-		<ul className="track__list">
+		<ul className={`track__list ${type == 'vertical' && 'vertical'}`}>
 			{tracks.data.items.slice(0, max).map((track: any, index: number) => {
 				return <TracKItem track={track} key={index} />;
 			})}

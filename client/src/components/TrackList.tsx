@@ -15,7 +15,7 @@ export const TrackList = () => {
 			<div className="mb-8 flex justify-center md:block">
 				<SpotifyLogo theme="white" />
 			</div>
-			<TrackGrid max={10} />
+			<TrackGrid max={10} type="vertical" />
 			<Link to={'/artists'} className="fill__button">
 				Ver más
 			</Link>

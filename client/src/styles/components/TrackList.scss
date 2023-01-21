@@ -4,6 +4,28 @@
 
 .track__list {
 	@apply space-y-6;
+	&.vertical {
+		@apply flex flex-wrap gap-y-10 space-y-0;
+		.track__list_item {
+			@apply w-1/5;
+			a {
+				@apply block;
+			}
+		}
+		.track__list_item__container {
+			@apply w-full flex-col items-center text-center;
+		}
+		.track__list_item__img {
+			@apply h-20 w-20;
+		}
+		.track__title {
+			@apply text-sm;
+		}
+		.track__length,
+		.track__credits {
+			display: none;
+		}
+	}
 }
 
 .track__list_item {
