@@ -44,7 +44,7 @@ export const ArtistGrid = ({ activeRange }: { activeRange: string }) => {
 			{artists.data.items.map((artist: any, index: number) => {
 				return (
 					<li className="artist__item" key={index}>
-						<Link to={`/artist/${artist.id}`}>
+						<Link to={`/app/artist/${artist.id}`}>
 							<div className="artist_item__img">
 								<img src={artist.images[2].url} alt={artist.name} />
 								<HoverCover />

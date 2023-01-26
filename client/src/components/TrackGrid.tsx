@@ -51,7 +51,7 @@ export const TrackGrid = ({
 				})}
 				{seeMore && (
 					<li className={`track__list_item seeMore`}>
-						<Link to={'/tracks'}>
+						<Link to={'/app/tracks'}>
 							<div className="track__list_item__container">
 								<div className="track__list_item__img">+</div>
 								<div className="track__data">

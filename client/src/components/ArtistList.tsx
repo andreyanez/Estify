@@ -30,7 +30,7 @@ export const ArtistList = () => {
 		<div className="profile__container">
 			<div className="profile__container__top">
 				<h2>Tus artistas top de todos los tiempos</h2>
-				<Link to={'/artists'} className="fill__button">
+				<Link to={'/app/artists'} className="fill__button">
 					Ver más
 				</Link>
 			</div>
@@ -41,7 +41,7 @@ export const ArtistList = () => {
 				{artist.data.items.slice(0, 5).map((artist: any, index: number) => {
 					return (
 						<li className="artist__list_item" key={index}>
-							<Link to={`/artist/${artist.id}`}>
+							<Link to={`/app/artist/${artist.id}`}>
 								<div className="artist__list_item__img">
 									<img src={artist.images[2].url} alt={artist.name} />
 									<HoverCover />
@@ -54,7 +54,7 @@ export const ArtistList = () => {
 					);
 				})}
 			</ul>
-			<Link to={'/artists'} className="fill__button">
+			<Link to={'/app/artists'} className="fill__button">
 				Ver más
 			</Link>
 		</div>

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { accessToken } from './spotify.js';
-import { Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Router, Routes, Route } from 'react-router-dom';
 import {
 	Login,
 	Profile,
@@ -11,59 +9,32 @@ import {
 	Playlists,
 	Playlist,
 	Features,
+	Layout,
+	Policy,
 } from './pages';
-import { NavBar } from './components/navBar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Policy } from './pages/landing/Policy.js';
 
 const queryClient = new QueryClient();
 
-function ScrollToTop() {
-	const { pathname } = useLocation();
-
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [pathname]);
-
-	return null;
-}
-
 function App() {
-	const [token, setToken] = useState('');
-
-	useEffect(() => {
-		setToken(accessToken!);
-	}, []);
-
 	return (
 		<>
-			{!token ? (
+			<QueryClientProvider client={queryClient}>
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/politica" element={<Policy />} />
+					<Route path="/app" element={<Layout />}>
+						<Route index element={<Profile />} />
+						<Route path="artists" element={<Artists />} />
+						<Route path="artist/:id" element={<Artist />} />
+						<Route path="tracks" element={<Tracks />} />
+						<Route path="track/:id" element={<Track />} />
+						<Route path="playlists" element={<Playlists />} />
+						<Route path="playlist/:id" element={<Playlist />} />
+						<Route path="features" element={<Features />} />
+					</Route>
 				</Routes>
-			) : (
-				<QueryClientProvider client={queryClient}>
-					<>
-						<NavBar />
-						<div className="main__wrapper">
-							<main className="main__container">
-								<ScrollToTop />
-								<Routes>
-									<Route path="/" element={<Profile />} />
-									<Route path="/artists" element={<Artists />} />
-									<Route path="/artist/:id" element={<Artist />} />
-									<Route path="/tracks" element={<Tracks />} />
-									<Route path="/track/:id" element={<Track />} />
-									<Route path="/playlists" element={<Playlists />} />
-									<Route path="/playlist/:id" element={<Playlist />} />
-									<Route path="/features" element={<Features />} />
-								</Routes>
-							</main>
-						</div>
-					</>
-				</QueryClientProvider>
-			)}
+			</QueryClientProvider>
 		</>
 	);
 }

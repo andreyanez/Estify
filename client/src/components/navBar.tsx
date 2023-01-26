@@ -17,32 +17,32 @@ export const NavBar = () => {
 	};
 	return (
 		<header>
-			<Link to={'/'}>
+			<Link to={'/app'}>
 				<img src="/estify.png" className="mx-auto h-12 w-auto" alt="estify" />
 				<span className="text-xs">Estify</span>
 			</Link>
 			<nav>
 				<ul className="nav__main">
 					<li className="nav__item">
-						<NavLink to="/">
+						<NavLink to="/app">
 							<Icon icon="line-md:account" />
 							<p>Perfil</p>
 						</NavLink>
 					</li>
 					<li className="nav__item">
-						<NavLink to="/artists">
+						<NavLink to="/app/artists">
 							<Icon icon="line-md:heart" />
 							<p>Top Artistas</p>
 						</NavLink>
 					</li>
 					<li className="nav__item">
-						<NavLink to="/tracks">
+						<NavLink to="/app/tracks">
 							<Icon icon="line-md:play" />
 							<p>Top Tracks</p>
 						</NavLink>
 					</li>
 					<li className="nav__item">
-						<NavLink to="/playlists">
+						<NavLink to="/app/playlists">
 							<Icon icon="line-md:list" />
 							<p>Playlists</p>
 						</NavLink>

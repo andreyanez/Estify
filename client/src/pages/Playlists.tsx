@@ -26,7 +26,7 @@ export const Playlists = () => {
 				{playlistsInfo.map((playlist: any, index: number) => {
 					return (
 						<li className="artist__item playlist__item" key={index}>
-							<Link to={`/playlist/${playlist.id}`}>
+							<Link to={`/app/playlist/${playlist.id}`}>
 								<div className="artist_item__img">
 									{playlist.images[0] ? (
 										<>
@@ -39,7 +39,7 @@ export const Playlists = () => {
 								</div>
 							</Link>
 							<div className="flex flex-col items-center gap-y-2 text-center">
-								<Link to={`/playlist/${playlist.id}`} className="leading-5">
+								<Link to={`/app/playlist/${playlist.id}`} className="leading-5">
 									<span className="hover:underline">{playlist.name}</span>
 								</Link>
 								<span className="text-gray-500">{playlist.tracks.total} Tracks</span>

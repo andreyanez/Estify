@@ -1,4 +1,5 @@
 export { Profile } from './Profile';
+export { Policy } from './landing/Policy';
 export { Playlists } from './Playlists';
 export { Playlist } from './Playlist';
 export { Login } from './login';
@@ -7,3 +8,4 @@ export { Artist } from './Artist';
 export { Track } from './Track';
 export { Tracks } from './Tracks';
 export { Features } from './Features';
+export { Layout } from './Layout';
