@@ -68,7 +68,7 @@ export const Playlist = () => {
 									<h4 className="text-base">Propiedades auditivas de la playlist</h4>
 									<FeatureChart features={audioFeatures} type="horizontal" />
 									<Link
-										to={'/features'}
+										to={'/app/features'}
 										className="mt-4 block text-sm text-neutral underline md:text-base"
 									>
 										¿Que son propiedades auditivas?

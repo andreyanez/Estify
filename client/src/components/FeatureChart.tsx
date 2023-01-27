@@ -102,6 +102,17 @@ export const FeatureChart = ({
 			if (!chartRef) return;
 			const ctx = chartRef?.current?.getContext('2d');
 			const dataset = createDataset(features);
+
+			// Changing the feature language
+			Object.assign(dataset, { Bailabilidad: dataset.danceability })['danceability'];
+			delete dataset['danceability'];
+			Object.assign(dataset, { Energía: dataset.energy })['energy'];
+			delete dataset['energy'];
+			Object.assign(dataset, { Instrumentalidad: dataset.instrumentalness })['instrumentalness'];
+			delete dataset['instrumentalness'];
+			Object.assign(dataset, { Valencia: dataset.valence })['valence'];
+			delete dataset['valence'];
+
 			createChart(dataset, ctx);
 			setMyChart(myChart);
 		};
