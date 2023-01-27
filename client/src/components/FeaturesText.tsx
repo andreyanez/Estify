@@ -4,15 +4,7 @@ export const FeaturesText = () => {
 			<li>
 				<p>
 					<span>
-						<i>Acousticness</i> (Nivel de presencia acústica):
-					</span>
-					Spotify mide de 0.0 a 1.0 que tantos elementos acústicos estan presentes en el track.
-				</p>
-			</li>
-			<li>
-				<p>
-					<span>
-						<i>Danceability</i> (Bailabilidad(?)):
+						<i>Danceability</i> (Bailabilidad):
 					</span>
 					Describe que tan apropiada es el track para bailar, este cálculo esta basado en una
 					combinación de elementos musicales incluyendo tempo, estabilidad de ritmo, fuerza en el
@@ -41,27 +33,7 @@ export const FeaturesText = () => {
 					el valor llegue a 1.0, mayor probabilidad de que el track sea enteramente instrumental.
 				</p>
 			</li>
-			<li>
-				<p>
-					<span>
-						<i>Liveness</i> (Probabilidad de ser un <i>live</i>):
-					</span>
-					Detecta la presencia de una audiencia en el track. Un valor alto de <i>liveness</i>{' '}
-					representa una probabilidad alta de que el track fue grabado en vivo.
-				</p>
-			</li>
-			<li>
-				<p>
-					<span>
-						<i>Speechiness</i> (Probabilidad de "voz hablada"):
-					</span>
-					En cualquier track, se puede encontrar dos tipos de voces; La voz cantada es aquella que
-					busca ser musical, siguiendo una escala o melodía y esta presente en la mayoría de la
-					música. La voz hablada, sin embargo, es aquella que no cuenta con estos elementos, y esta
-					presente en tracks como <i>talk shows</i>, audiolibros, o poesía. Mientras más cercano el
-					valor llegue a 1.0, mayor probabilidad de que el track este compuesto de voz hablada.
-				</p>
-			</li>
+
 			<li>
 				<p>
 					<span>

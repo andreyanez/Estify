@@ -99,24 +99,8 @@ export const Track = () => {
 							<p>Modo</p>
 						</li>
 						<li>
-							<h3>{features.data.time_signature}</h3>
-							<p>Compás</p>
-						</li>
-						<li>
 							<h3>{Math.round(features.data.tempo)}</h3>
 							<p>Tempo (BPM)</p>
-						</li>
-						<li>
-							<h3>{track.data.popularity}%</h3>
-							<p>Popularidad</p>
-						</li>
-						<li>
-							<h3>{analysis.data.bars.length}</h3>
-							<p>Bars</p>
-						</li>
-						<li>
-							<h3>{analysis.data.beats.length}</h3>
-							<p>Beats</p>
 						</li>
 					</ul>
 				</div>

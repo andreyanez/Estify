@@ -32,15 +32,7 @@ interface dataset {
 	valence?: number;
 }
 
-const properties = [
-	'acousticness',
-	'danceability',
-	'energy',
-	'instrumentalness',
-	'liveness',
-	'speechiness',
-	'valence',
-];
+const properties = ['danceability', 'energy', 'instrumentalness', 'valence'];
 
 export const FeatureChart = ({
 	features,
