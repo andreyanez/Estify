@@ -71,4 +71,3 @@ User-agent: yoozBot
 User-agent: YoudaoBot
 Disallow:
 User-agent: *
-Disallow: /
