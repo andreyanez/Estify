@@ -5,7 +5,7 @@
 .track__list {
 	@apply space-y-6;
 	&.vertical {
-		@apply flex flex-wrap gap-y-10 space-y-0;
+		@apply flex flex-wrap justify-evenly gap-y-10 space-y-0 md:justify-start;
 		.track__list_item {
 			@apply md:w-1/5;
 			a {

@@ -6,11 +6,6 @@ import { logout } from '../spotify';
 export const NavBar = () => {
 	const navigate = useNavigate();
 
-	// const profileQuery = useQuery(['profile'], getCurrentUserProfile);
-	// if (profileQuery.isLoading) {
-	// 	return <Loader />;
-	// }
-
 	const logoutFunc = () => {
 		navigate('/');
 		logout();

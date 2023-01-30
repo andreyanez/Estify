@@ -13,12 +13,13 @@ import {
 	Policy,
 } from './pages';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { TokenProvider } from './hooks/useToken';
 
 const queryClient = new QueryClient();
 
 function App() {
 	return (
-		<>
+		<TokenProvider>
 			<QueryClientProvider client={queryClient}>
 				<Routes>
 					<Route path="/" element={<Login />} />
@@ -35,7 +36,7 @@ function App() {
 					</Route>
 				</Routes>
 			</QueryClientProvider>
-		</>
+		</TokenProvider>
 	);
 }
 
