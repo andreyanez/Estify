@@ -13,7 +13,10 @@ export const NavBar = () => {
 	return (
 		<header>
 			<Link to={'/app'}>
-				<img src="/estify.png" className="mx-auto h-12 w-auto" alt="estify" />
+				<picture>
+					<source srcSet="/estify.webp" type="image/webp" />
+					<img src="/estify.png" className="mx-auto h-12 w-auto" alt="estify" />
+				</picture>
 				<span className="text-xs">Estify</span>
 			</Link>
 			<nav>
