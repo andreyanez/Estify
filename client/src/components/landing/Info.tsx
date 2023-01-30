@@ -6,9 +6,9 @@ import { Container } from './Container';
 import trackImage from '../../assets/trackimage.png';
 import artists from '../../assets/artists.png';
 import playlist from '../../assets/playlist.png';
-import trackImageWebp from '../../assets/trackimage.png';
-import artistsWebp from '../../assets/artists.png';
-import playlistWebp from '../../assets/playlist.png';
+import trackImageWebp from '../../assets/trackimage.webp';
+import artistsWebp from '../../assets/artists.webp';
+import playlistWebp from '../../assets/playlist.webp';
 
 const features = [
 	{
