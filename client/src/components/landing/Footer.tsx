@@ -5,8 +5,11 @@ export function Footer() {
 		<footer>
 			<Container>
 				<div className="py-16">
-					<div className="footer__logo max-w-lg mx-auto text-center">
-						<img src="/estify.png" className="mx-auto h-24 w-auto" alt="estify" />
+					<div className="footer__logo mx-auto max-w-lg text-center">
+						<picture>
+							<source srcSet="/estify.webp" type="image/webp" />
+							<img src="/estify.png" className="mx-auto h-24 w-auto" alt="estify" />
+						</picture>
 						<span>Estify</span>
 					</div>
 					<nav className="mt-10 text-sm" aria-label="quick links">
@@ -22,7 +25,7 @@ export function Footer() {
 						</ul>
 					</nav>
 				</div>
-				<div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between text-sm">
+				<div className="flex flex-col items-center border-t border-slate-400/10 py-10 text-sm sm:flex-row-reverse sm:justify-between">
 					<div className="flex space-x-6">
 						<a
 							className="group flex items-center gap-4"

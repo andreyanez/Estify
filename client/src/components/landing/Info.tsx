@@ -6,25 +6,31 @@ import { Container } from './Container';
 import trackImage from '../../assets/trackimage.png';
 import artists from '../../assets/artists.png';
 import playlist from '../../assets/playlist.png';
+import trackImageWebp from '../../assets/trackimage.png';
+import artistsWebp from '../../assets/artists.png';
+import playlistWebp from '../../assets/playlist.png';
 
 const features = [
 	{
 		title: 'Organiza tus playlists',
 		description:
 			'¿Cuál es la canción con más energía en tu playlist? ¿O la más baliable? Estify te permite ordenar tus playlists basándose en parámetros como Tempo, energía o duración.',
-		image: playlist,
+		png: playlist,
+		webp: playlistWebp,
 	},
 	{
 		title: 'Visualiza tus tendencias',
 		description:
 			'Dale un vistazo a como va evolucionando tu historia con Spotify. Visualiza tus artistas y tracks en tendencia.',
-		image: artists,
+		png: artists,
+		webp: artistsWebp,
 	},
 	{
 		title: 'Tu música, a gran detalle',
 		description:
 			'Estify le pone una lupa a tu música y artistas favoritos, analizando sus propiedades auditivas.',
-		image: trackImage,
+		png: trackImage,
+		webp: trackImageWebp,
 	},
 ];
 
@@ -121,12 +127,15 @@ export function Info() {
 											</p>
 										</div>
 										<div className="relative mt-10 aspect-[1085/730]  overflow-hidden rounded-xl bg-slate-50 shadow-md shadow-secondary sm:w-auto md:w-[45rem] lg:mt-0 lg:w-[67.8125rem]">
-											<img
-												src={feature.image}
-												alt={feature.title}
-												className="h-full w-full object-cover"
-												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-											/>
+											<picture>
+												<source srcSet={feature.webp} type="image/webp" />
+												<img
+													src={feature.png}
+													alt={feature.title}
+													className="h-full w-full object-cover"
+													sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+												/>
+											</picture>
 										</div>
 									</Tab.Panel>
 								))}
