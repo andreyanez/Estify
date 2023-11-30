@@ -77,9 +77,6 @@ export const Track = () => {
 								<div className=" player__container">
 									<audio src={track.data.preview_url} controls controlsList="nodownload"></audio>
 								</div>
-								<span className="mt-4 block text-center text-sm md:mt-0 md:pr-56 xl:pr-20">
-									Preview
-								</span>
 							</div>
 						)}
 					</div>
